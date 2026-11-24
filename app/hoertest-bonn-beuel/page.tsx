@@ -83,7 +83,7 @@ export default function HoertestBonnBeuelPage() {
           { label: 'Rückruf wünschen', href: '/kontakt?anliegen=Rückrufwunsch' },
         ]}
         image={{
-          src: '/images/real/hoertest-audiometer.png',
+          src: '/images/real/hoertest-audiometer.webp',
           alt: 'Audiologin führt bei Westphal Hörgeräte in Bonn-Beuel einen Hörtest durch',
         }}
       />

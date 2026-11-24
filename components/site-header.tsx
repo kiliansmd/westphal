@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { Menu, X, Phone, CalendarCheck, ChevronDown } from 'lucide-react'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Logo } from '@/components/logo'
@@ -109,50 +108,17 @@ function NavDropdown({
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
-  const pathname = usePathname()
-  const isHome = pathname === '/'
-
-  // On the home page the hero is orange at the very top, so the header matches
-  // it (orange background, white logo/links) and then transitions to the calm
-  // light theme after a small scroll – in sync with the hero (48px threshold).
-  const [atTop, setAtTop] = useState(true)
-  useEffect(() => {
-    const onScroll = () => setAtTop(window.scrollY < 48)
-    onScroll()
-    window.addEventListener('scroll', onScroll, { passive: true })
-    return () => window.removeEventListener('scroll', onScroll)
-  }, [])
-
-  // Opening the mobile menu forces the solid light header for readability.
-  const orangeTop = isHome && atTop && !open
 
   return (
     <header
-      className={cn(
-        'sticky top-0 z-50 transition-colors duration-500',
-        orangeTop
-          ? 'border-b border-transparent bg-brand-deep'
-          : 'border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80',
-      )}
+      className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85"
     >
       <div className="mx-auto flex h-24 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Logo
-          className={cn(
-            'transition-[filter] duration-500',
-            orangeTop && '[filter:brightness(0)_invert(1)]',
-          )}
-        />
+        <Logo />
 
         {/* Desktop navigation */}
         <nav
-          className={cn(
-            'hidden items-center gap-1 transition-colors duration-500 xl:flex',
-            // Only recolour the top-level links and dropdown triggers (direct
-            // children). The open dropdown panel keeps its dark popover text so
-            // its menu items never become white-on-white.
-            orangeTop &&
-              '[&>a]:text-white [&>a:hover]:bg-white/15 [&>div>button]:text-white [&>div>button:hover]:bg-white/15 [&>div>button>svg]:text-white',
-          )}
+          className="hidden items-center gap-1 xl:flex"
           aria-label="Hauptnavigation"
         >
           {navigation.map((entry) =>
@@ -178,23 +144,14 @@ export function SiteHeader() {
         <div className="hidden items-center gap-4 xl:flex">
           <a
             href={company.phoneHref}
-            className={cn(
-              'flex items-center gap-2 rounded-lg py-0.5 text-lg font-semibold whitespace-nowrap transition-colors',
-              orangeTop
-                ? 'text-white hover:text-white/80 [&_svg]:text-white'
-                : 'text-foreground hover:text-primary [&_svg]:text-primary',
-            )}
+            className="flex items-center gap-2 rounded-lg py-0.5 text-lg font-semibold whitespace-nowrap text-foreground transition-colors hover:text-primary [&_svg]:text-primary"
           >
             <Phone className="size-5 shrink-0" aria-hidden="true" />
             {company.phone}
           </a>
           <Link
             href="/kontakt"
-            className={cn(
-              buttonVariants({ size: 'lg' }),
-              'transition-colors',
-              orangeTop && 'bg-white text-[#8f5407] hover:bg-white/90',
-            )}
+            className={buttonVariants({ size: 'lg' })}
           >
             <CalendarCheck aria-hidden="true" />
             Termin vereinbaren
@@ -208,9 +165,7 @@ export function SiteHeader() {
             aria-label="Anrufen"
             className={cn(
               buttonVariants({ variant: 'outline', size: 'icon-lg' }),
-              'size-12 transition-colors',
-              orangeTop &&
-                'border-white/70 bg-transparent text-white hover:bg-white/15 hover:text-white',
+              'size-12',
             )}
           >
             <Phone className="size-6" aria-hidden="true" />
@@ -218,11 +173,7 @@ export function SiteHeader() {
           <Button
             variant="outline"
             size="icon-lg"
-            className={cn(
-              'size-12 transition-colors',
-              orangeTop &&
-                'border-white/70 bg-transparent text-white hover:bg-white/15 hover:text-white',
-            )}
+            className="size-12"
             aria-expanded={open}
             aria-controls="mobile-menu"
             aria-label={open ? 'Menü schließen' : 'Menü öffnen'}

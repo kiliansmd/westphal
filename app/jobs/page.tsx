@@ -49,7 +49,7 @@ export default function JobsPage() {
           { label: 'Rückruf wünschen', href: '/kontakt?anliegen=Rückrufwunsch' },
         ]}
         image={{
-          src: '/images/subpage-jobs.png',
+          src: '/images/subpage-jobs.webp',
           alt: 'Kolleginnen und Kollegen arbeiten im Team von Westphal Hörgeräte in Bonn-Beuel zusammen',
         }}
       />

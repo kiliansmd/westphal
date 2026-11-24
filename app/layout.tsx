@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Source_Sans_3, Bricolage_Grotesque } from 'next/font/google'
+import { Source_Sans_3, Newsreader } from 'next/font/google'
 import { company } from '@/lib/site-data'
 import { AccessibilityMenu } from '@/components/accessibility-menu'
 import { LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/seo/json-ld'
@@ -14,13 +14,14 @@ const sourceSans = Source_Sans_3({
   weight: ['400', '500', '600', '700'],
 })
 
-// Contemporary display grotesque for headings — confident and characterful
-// with subtly humanist curves that harmonise with the warm gold brand.
-const headingFont = Bricolage_Grotesque({
+// Warm editorial serif for headings — gives the site the calm, crafted voice
+// of an owner-run Meisterbetrieb instead of a generic startup grotesque.
+const headingFont = Newsreader({
   subsets: ['latin'],
   variable: '--font-heading',
   display: 'swap',
-  weight: ['500', '600', '700'],
+  weight: ['400', '500', '600'],
+  style: ['normal', 'italic'],
 })
 
 export const metadata: Metadata = {

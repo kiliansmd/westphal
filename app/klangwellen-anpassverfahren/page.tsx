@@ -109,7 +109,7 @@ export default function KlangwellenAnpassverfahrenPage() {
           { label: 'Rückruf wünschen', href: '/kontakt?anliegen=Rückrufwunsch' },
         ]}
         image={{
-          src: '/images/real/beratung-anpassung.png',
+          src: '/images/real/beratung-anpassung.webp',
           alt: 'Hörakustikerin bespricht mit einem Kundenpaar am Beratungstisch die passende Hörgeräte-Auswahl bei Westphal Hörgeräte in Bonn-Beuel',
         }}
       />

@@ -75,7 +75,7 @@ export default function ServiceReparaturPage() {
           { label: 'Rückruf wünschen', href: '/kontakt?anliegen=Rückrufwunsch' },
         ]}
         image={{
-          src: '/images/subpage-service.png',
+          src: '/images/subpage-service.webp',
           alt: 'Fachgerechte Reinigung und Wartung eines Hörgeräts bei Westphal Hörgeräte in Bonn-Beuel',
         }}
       />

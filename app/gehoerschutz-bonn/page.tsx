@@ -189,7 +189,7 @@ export default function GehoerschutzBonnPage() {
           { label: 'Rückruf wünschen', href: '/kontakt?anliegen=Rückrufwunsch' },
         ]}
         image={{
-          src: '/images/subpage-gehoerschutz.png',
+          src: '/images/subpage-gehoerschutz.webp',
           alt: 'Maßgefertigter individueller Gehörschutz bei Westphal Hörgeräte in Bonn-Beuel',
         }}
       />

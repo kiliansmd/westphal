@@ -148,7 +148,7 @@ export default function PreiseKrankenkassePage() {
         text="Als langjähriger Hörakustiker in Beuel berate ich Sie transparent: Kostenübernahme, Zuschuss bei Verlust, Anspruch auf neue Hörgeräte und die Abrechnung Ihrer Versorgung."
         trustLine="Faire, nachvollziehbare Preise – ohne Verkaufsdruck."
         image={{
-          src: '/images/subpage-preise.png',
+          src: '/images/subpage-preise.webp',
           alt: 'Beraterin erklärt einem Kunden bei Westphal Hörgeräte in Bonn-Beuel transparent die Kosten',
         }}
       />

@@ -49,7 +49,7 @@ export default function HoertrainingBonnPage() {
           { label: 'Mini-Hörübung starten', href: '#uebung' },
         ]}
         image={{
-          src: '/images/real/hoersituation-tablet.png',
+          src: '/images/real/hoersituation-tablet.webp',
           alt: 'Hörakustiker zeigt einer Kundin am Tablet verschiedene Hörsituationen bei Westphal Hörgeräte in Bonn-Beuel',
         }}
       />

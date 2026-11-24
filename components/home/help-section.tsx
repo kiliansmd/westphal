@@ -4,63 +4,57 @@ import { helpCards, helpSecondaryLinks } from '@/lib/site-data'
 
 export function HelpSection() {
   return (
-    <section id="hilfe" className="scroll-mt-28 bg-background py-16 sm:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+    <section id="hilfe" className="scroll-mt-28 border-y border-border bg-secondary py-20 sm:py-28">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div>
+          <h2 className="text-balance font-serif text-4xl font-medium leading-[1.1] text-foreground sm:text-5xl">
             Wobei können wir Ihnen helfen?
           </h2>
-          <p className="mt-4 text-pretty text-xl leading-relaxed text-muted-foreground">
-            Wählen Sie einfach Ihr Anliegen aus.
+          <p className="mt-5 max-w-sm text-pretty text-lg leading-relaxed text-muted-foreground">
+            Wählen Sie Ihr Anliegen – oder rufen Sie einfach an, wenn Sie
+            unsicher sind.
+          </p>
+          <p className="mt-8 text-base text-muted-foreground">
+            Außerdem:{' '}
+            {helpSecondaryLinks.map((link, i) => (
+              <span key={link.href}>
+                {i > 0 && ', '}
+                <Link
+                  href={link.href}
+                  className="font-semibold text-foreground underline decoration-brand decoration-2 underline-offset-4 hover:decoration-foreground"
+                >
+                  {link.label}
+                </Link>
+              </span>
+            ))}
           </p>
         </div>
 
-        <div className="mt-12 grid gap-6 sm:grid-cols-2">
-          {helpCards.map((card) => {
-            const Icon = card.icon
-            return (
+        <ul className="border-t border-foreground/15">
+          {helpCards.map((card) => (
+            <li key={card.title} className="border-b border-foreground/15">
               <Link
-                key={card.title}
                 href={card.href}
-                className="group flex items-start gap-5 rounded-2xl border border-border bg-card p-7 shadow-sm transition-all hover:border-primary hover:shadow-md"
+                className="group flex items-center gap-6 py-7 transition-colors sm:py-8"
               >
-                <span className="flex size-14 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
-                  <Icon className="size-7" aria-hidden="true" />
-                </span>
                 <div className="flex-1">
-                  <h3 className="text-xl font-semibold leading-snug text-card-foreground">
+                  <h3 className="font-serif text-2xl font-medium leading-snug text-foreground sm:text-[1.75rem]">
                     {card.title}
                   </h3>
                   <p className="mt-2 text-lg leading-relaxed text-muted-foreground">
                     {card.text}
                   </p>
-                  <span className="mt-4 inline-flex items-center gap-2 text-lg font-semibold text-primary">
-                    {card.cta}
-                    <ArrowRight
-                      className="size-5 transition-transform group-hover:translate-x-1"
-                      aria-hidden="true"
-                    />
-                  </span>
                 </div>
+                <span
+                  className="flex size-12 shrink-0 items-center justify-center rounded-full border border-foreground/20 text-foreground transition-colors group-hover:border-brand group-hover:bg-brand"
+                  aria-hidden="true"
+                >
+                  <ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" />
+                </span>
               </Link>
-            )
-          })}
-        </div>
-
-        <p className="mt-8 text-center text-lg text-muted-foreground">
-          Auch interessant:{' '}
-          {helpSecondaryLinks.map((link, i) => (
-            <span key={link.href}>
-              {i > 0 && <span aria-hidden="true"> · </span>}
-              <Link
-                href={link.href}
-                className="font-semibold text-primary underline underline-offset-4 hover:no-underline"
-              >
-                {link.label}
-              </Link>
-            </span>
+            </li>
           ))}
-        </p>
+        </ul>
       </div>
     </section>
   )

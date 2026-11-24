@@ -110,7 +110,7 @@ export default function WarumWestphalPage() {
         text="Bei uns beraten Sie feste Ansprechpartner, die sich Zeit nehmen und Ihnen ehrlich sagen, was zu Ihnen passt. Gutes Hören braucht vor allem Vertrauen – und das entsteht persönlich."
         trustLine="Inhabergeführt in Bonn-Beuel."
         image={{
-          src: '/images/real/inhaber-team.png',
+          src: '/images/real/inhaber-team.webp',
           alt: 'Die Inhaber von Westphal Hörgeräte im persönlichen Gespräch bei einer Tasse Kaffee im Fachgeschäft in Bonn-Beuel',
         }}
       />

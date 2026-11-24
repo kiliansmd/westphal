@@ -140,7 +140,7 @@ export default function TinnitusberatungBonnPage() {
           { label: 'Rückruf wünschen', href: '/kontakt?anliegen=Rückrufwunsch' },
         ]}
         image={{
-          src: '/images/subpage-tinnitus.png',
+          src: '/images/subpage-tinnitus.webp',
           alt: 'Einfühlsame Tinnitusberatung bei Westphal Hörgeräte in Bonn-Beuel',
         }}
       />

@@ -73,7 +73,7 @@ export default function HoergeraeteTestenPage() {
           { label: 'Rückruf wünschen', href: '/kontakt?anliegen=Rückrufwunsch' },
         ]}
         image={{
-          src: '/images/real/beratung-familie.png',
+          src: '/images/real/beratung-familie.webp',
           alt: 'Hörakustikerin zeigt einer Kundin und ihrer Angehörigen am Tablet verschiedene Hörgeräte bei Westphal Hörgeräte in Bonn-Beuel',
         }}
       />

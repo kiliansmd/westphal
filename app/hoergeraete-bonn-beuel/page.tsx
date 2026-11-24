@@ -187,7 +187,7 @@ export default function HoergeraeteBonnBeuelPage() {
         text="Unser Hörgeräte-Ratgeber gibt Ihnen einen Überblick über Hörgeräte-Typen, Zubehör, Hörhilfen und die Funktionen, die Ihnen ein besseres Sprachverstehen ermöglichen."
         trustLine="Herstellerunabhängige Beratung – ohne Verkaufsdruck."
         image={{
-          src: '/images/real/hoergeraet-produkt.png',
+          src: '/images/real/hoergeraet-produkt.webp',
           alt: 'Modernes Hinter-dem-Ohr-Hörgerät mit Ladeetui auf einem Tisch bei Westphal Hörgeräte in Bonn-Beuel',
         }}
       />

@@ -241,12 +241,12 @@
     font-weight: 600;
   }
 
-  /* Headings use the sans heading face with slightly tighter tracking for a
-     confident, contemporary feel. */
+  /* Headings use the serif heading face; a touch of negative tracking keeps
+     large sizes compact without feeling squeezed. */
   h1,
-  h2,
-  h3 {
-    letter-spacing: -0.015em;
+  h2 {
+    letter-spacing: -0.01em;
+    font-optical-sizing: auto;
   }
 
   /* Clearly visible keyboard focus for every interactive element,
