@@ -1,0 +1,203 @@
+import type { Metadata } from 'next'
+import { Info, Check } from 'lucide-react'
+import { PageShell } from '@/components/page/page-shell'
+import { PageHero } from '@/components/page/page-hero'
+import { SEOContentBlock } from '@/components/page/seo-content-block'
+import { ServiceCards } from '@/components/page/service-cards'
+import { FAQAccordion } from '@/components/page/faq-accordion'
+import { CTASection } from '@/components/page/cta-section'
+import { TrustBar } from '@/components/page/trust-bar'
+import { RelatedLinks } from '@/components/page/related-links'
+import { HoertrainingDemo } from '@/components/modules/hoertraining-demo'
+import { BreadcrumbJsonLd, FaqJsonLd } from '@/components/seo/json-ld'
+import {
+  hoertrainingWhenCards,
+  hoertrainingProcess,
+  hoertrainingIndependencePoints,
+  hoertrainingFaqs,
+  hoertrainingRelated,
+} from '@/lib/site-data'
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/hoertraining-bonn' },
+  title: 'Hörtraining in Bonn-Beuel | Mini-Hörübung erleben',
+  description:
+    'Erleben Sie mit einer interaktiven Mini-Hörübung, warum Verstehen im Zusammenspiel aus Ohr, Hörgerät und Gehirn entsteht. Westphal Hörgeräte berät unabhängig zum Hörtraining in Bonn-Beuel.',
+}
+
+export default function HoertrainingBonnPage() {
+  return (
+    <PageShell>
+      <BreadcrumbJsonLd
+        items={[
+          { name: 'Home', path: '/' },
+          { name: 'Hörtraining', path: '/hoertraining-bonn' },
+        ]}
+      />
+      <FaqJsonLd items={hoertrainingFaqs} />
+
+      <PageHero
+        eyebrow="Neu · Hörtraining Bonn"
+        headline="Hörtraining in Bonn-Beuel"
+        text="Wenn Hören anstrengend wird, liegt es nicht immer nur am Ohr. Auch das Gehirn muss Sprache, Geräusche und neue Höreindrücke wieder sicher einordnen. Wir beraten unabhängig, ob Hörtraining für Ihre Situation sinnvoll ist."
+        trustLine="Unabhängige Beratung · Einfache Orientierung · Ergänzend zur Hörgeräteanpassung"
+        ctas={[
+          {
+            label: 'Hörtraining-Beratung anfragen',
+            href: '/kontakt?anliegen=Hörtraining',
+          },
+          { label: 'Mini-Hörübung starten', href: '#uebung' },
+        ]}
+        image={{
+          src: '/images/real/hoersituation-tablet.png',
+          alt: 'Hörakustiker zeigt einer Kundin am Tablet verschiedene Hörsituationen bei Westphal Hörgeräte in Bonn-Beuel',
+        }}
+      />
+
+      <TrustBar />
+
+      <SEOContentBlock
+        eyebrow="Warum Hörtraining"
+        heading="Hören muss manchmal wieder gelernt werden"
+        paragraphs={[
+          'Wer über längere Zeit schlechter hört, nimmt bestimmte Klänge, Sprachanteile und Geräusche nur noch eingeschränkt wahr. Das Gehirn verarbeitet diese Eindrücke mit der Zeit weniger aktiv. Wird später ein Hörgerät angepasst, kommen plötzlich wieder viele neue Signale an. Das kann ungewohnt, laut oder anstrengend wirken.',
+          'Hörtraining kann helfen, diese Höreindrücke bewusster wahrzunehmen, Sprache besser aus Hintergrundgeräuschen herauszufiltern und sich schrittweise an das neue Hören zu gewöhnen.',
+        ]}
+      >
+        <div className="flex items-start gap-4 rounded-2xl border-l-4 border-primary bg-card p-6 shadow-sm sm:p-8">
+          <Info className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden="true" />
+          <p className="text-base leading-relaxed text-muted-foreground">
+            Hörtraining ersetzt keinen Hörtest und keine medizinische Abklärung.
+            Es kann aber eine sinnvolle Ergänzung sein, wenn Sprache trotz
+            Hörgerät schwer verständlich bleibt oder neue Höreindrücke
+            anstrengend wirken.
+          </p>
+        </div>
+      </SEOContentBlock>
+
+      {/* Interaktive Mini-Hörübung */}
+      <section id="uebung" className="scroll-mt-24 bg-secondary py-14 sm:py-16">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+            Interaktiv erleben
+          </p>
+          <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            Hörverstehen erleben – in 60 bis 90 Sekunden
+          </h2>
+          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+            Diese kleine Demo zeigt, warum Sprache im Störgeräusch schwieriger
+            wird und warum gezieltes Training hilfreich sein kann. Keine
+            Diagnose, keine Speicherung – nur eine ruhige Orientierung.
+          </p>
+
+          <div className="mt-8">
+            <HoertrainingDemo />
+          </div>
+        </div>
+      </section>
+
+      <SEOContentBlock
+        eyebrow="Einordnung"
+        heading="Was die Übung zeigt"
+        paragraphs={[
+          'Viele Menschen bemerken ihren Hörverlust nicht zuerst in ruhiger Umgebung, sondern in anspruchsvollen Alltagssituationen: Gespräche in Gruppen, Hintergrundgeräusche, Telefonate, Fernsehen oder ähnliche Wörter. Genau dort muss das Gehirn Sprache erkennen, filtern und einordnen.',
+          'Hörtraining setzt an dieser Hörverarbeitung an. Es kann die Eingewöhnung in Hörgeräte unterstützen und helfen, bewusster mit neuen Höreindrücken umzugehen.',
+        ]}
+      />
+
+      <SEOContentBlock
+        eyebrow="Für wen"
+        heading="Wann kann Hörtraining helfen?"
+        muted
+      >
+        <ServiceCards cards={hoertrainingWhenCards} columns={3} />
+      </SEOContentBlock>
+
+      {/* Unabhängige Beratung */}
+      <section className="bg-background py-14 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+                Unabhängig
+              </p>
+              <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+                Wir beraten unabhängig zu Hörtraining
+              </h2>
+              <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+                Es gibt unterschiedliche Formen von Hörtraining: klassische
+                Übungen, digitale Trainings, App-basierte Programme, begleitete
+                Konzepte oder individuelle Ansätze im Rahmen der
+                Hörgeräteanpassung. Nicht jedes Angebot passt zu jeder Person.
+              </p>
+              <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+                Entscheidend ist nicht ein bestimmtes Programm, sondern Ihre
+                Hörsituation: Wie lange bestehen die Schwierigkeiten? Tragen Sie
+                bereits Hörgeräte? Sind die Geräte gut eingestellt? Gibt es
+                Tinnitus? In welchen Situationen fällt Verstehen besonders
+                schwer?
+              </p>
+            </div>
+
+            <ul className="grid content-start gap-3 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+              {hoertrainingIndependencePoints.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <span
+                    className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-accent text-primary"
+                    aria-hidden="true"
+                  >
+                    <Check className="size-4" />
+                  </span>
+                  <span className="text-base leading-relaxed text-foreground">
+                    {point}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* Ablauf der Beratung */}
+      <section className="bg-secondary py-14 sm:py-16">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+            Ablauf
+          </p>
+          <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            So beraten wir Sie zum Hörtraining
+          </h2>
+
+          <ol className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {hoertrainingProcess.map((item, index) => (
+              <li
+                key={item.title}
+                className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm"
+              >
+                <span className="flex size-10 items-center justify-center rounded-full bg-primary text-lg font-semibold text-primary-foreground">
+                  {index + 1}
+                </span>
+                <h3 className="mt-4 text-lg font-semibold leading-snug text-card-foreground">
+                  {item.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                  {item.text}
+                </p>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <FAQAccordion items={hoertrainingFaqs} />
+
+      <CTASection
+        heading="Möchten Sie wissen, ob Hörtraining für Sie sinnvoll ist?"
+        text="Wir beraten Sie unabhängig, ruhig und verständlich. Gemeinsam prüfen wir, ob Hörtraining, eine Nachjustierung, ein Hörtest oder eine neue Hörgeräteanpassung der passende nächste Schritt ist."
+        primaryLabel="Hörtraining-Beratung anfragen"
+      />
+
+      <RelatedLinks links={hoertrainingRelated} />
+    </PageShell>
+  )
+}

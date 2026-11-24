@@ -1,0 +1,292 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  /* Headings are now fully sans-serif. The `font-serif` utility (used across
+     the site for headings) intentionally maps to the heading sans so the
+     switch stays in one place. */
+  --font-serif: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  /* Bright brand amber — reserved for primary CTAs / high-emphasis fills. */
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  /* Deep sibling of the brand amber — used for full-bleed warm bands (hero,
+     header-at-top) where white text needs sufficient contrast. */
+  --color-brand-deep: var(--brand-deep);
+  --color-brand-foreground: var(--brand-foreground);
+  /* Warm neutral surfaces from the brand palette. */
+  --color-sand: var(--sand);
+  --color-surface: var(--surface);
+  --color-grey: var(--grey);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --color-foreground: var(--foreground);
+  --color-background: var(--background);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  color-scheme: light;
+
+  /* Conservative, high-end system: cool neutral surfaces + a deep slate ink
+     as the working "primary" (text, icons, links, indicators, dark bands),
+     with the gold brand colour reserved strictly for primary CTAs.
+     No warm/brown accents anywhere. */
+
+  --background: #faf8f4; /* warm paper off-white */
+  --foreground: #201d17; /* warm near-black */
+  --card: #ffffff;
+  --card-foreground: #201d17;
+  --popover: #ffffff;
+  --popover-foreground: #201d17;
+
+  /* Warm charcoal ink — the conservative accent for text, icons, links, focus
+     rings and dark section bands. Very high contrast on white, fully AA/AAA
+     for older readers, and reads as a refined warm near-black that sits in the
+     same temperature family as the gold brand (no cool/warm clash). */
+  --primary: oklch(0.31 0.014 70);
+  --primary-foreground: #ffffff;
+
+  /* Gold brand colour (#F7A712) — used on primary CTAs and high-emphasis
+     fills, paired with warm dark text (contrast >= 8:1). Brand-strong is the
+     hover/emphasis tone; brand-deep is the full-bleed band tone for white
+     text (hero / header-at-top). */
+  --brand: #f7a712;
+  --brand-strong: #e0940a;
+  --brand-deep: #bd730a;
+  --brand-foreground: #201d17;
+
+  /* Warm-neutral section surfaces used site-wide. */
+  --secondary: #f1ede4;
+  --secondary-foreground: #201d17;
+  /* Warm sand surfaces — used for gentle orientation blocks (e.g. the
+     Preise page factor/hint cards). Kept subtle so they read as calm, not
+     branded, and stay AA with the warm foreground. */
+  --sand: #f6efe1;
+  --surface: #efe6d4;
+  --grey: #918b7e;
+
+  /* Subtle warm surface + accessible warm-grey muted text (>= 5.5:1 on white). */
+  --muted: #f3efe8;
+  --muted-foreground: #6b6559;
+
+  /* Warm cream tint for chips, hovers and highlights. */
+  --accent: oklch(0.95 0.02 80);
+  --accent-foreground: oklch(0.31 0.014 70);
+
+  --destructive: oklch(0.55 0.19 27);
+  --border: #e7e1d6;
+  --input: #e7e1d6;
+  --ring: oklch(0.48 0.09 70);
+
+  --chart-1: oklch(0.55 0.14 70);
+  --chart-2: oklch(0.68 0.12 55);
+  --chart-3: oklch(0.75 0.13 85);
+  --chart-4: oklch(0.5 0.05 70);
+  --chart-5: oklch(0.8 0.03 75);
+  --radius: 0.75rem;
+
+  --sidebar: #faf8f4;
+  --sidebar-foreground: #201d17;
+  --sidebar-primary: oklch(0.31 0.014 70);
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: oklch(0.95 0.02 80);
+  --sidebar-accent-foreground: oklch(0.31 0.014 70);
+  --sidebar-border: #e7e1d6;
+  --sidebar-ring: oklch(0.48 0.09 70);
+}
+
+.dark {
+  color-scheme: dark;
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --sand: oklch(0.235 0.008 70);
+  --surface: oklch(0.275 0.01 70);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --chart-1: oklch(0.87 0 0);
+  --chart-2: oklch(0.556 0 0);
+  --chart-3: oklch(0.439 0 0);
+  --chart-4: oklch(0.371 0 0);
+  --chart-5: oklch(0.269 0 0);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.556 0 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    color-scheme: dark;
+    --background: oklch(0.145 0 0);
+    --foreground: oklch(0.985 0 0);
+    --card: oklch(0.205 0 0);
+    --card-foreground: oklch(0.985 0 0);
+    --popover: oklch(0.205 0 0);
+    --popover-foreground: oklch(0.985 0 0);
+    --primary: oklch(0.922 0 0);
+    --primary-foreground: oklch(0.205 0 0);
+    --secondary: oklch(0.269 0 0);
+    --secondary-foreground: oklch(0.985 0 0);
+    --sand: oklch(0.235 0.008 70);
+    --surface: oklch(0.275 0.01 70);
+    --muted: oklch(0.269 0 0);
+    --muted-foreground: oklch(0.708 0 0);
+    --accent: oklch(0.269 0 0);
+    --accent-foreground: oklch(0.985 0 0);
+    --destructive: oklch(0.704 0.191 22.216);
+    --border: oklch(1 0 0 / 10%);
+    --input: oklch(1 0 0 / 15%);
+    --ring: oklch(0.556 0 0);
+    --chart-1: oklch(0.87 0 0);
+    --chart-2: oklch(0.556 0 0);
+    --chart-3: oklch(0.439 0 0);
+    --chart-4: oklch(0.371 0 0);
+    --chart-5: oklch(0.269 0 0);
+    --sidebar: oklch(0.205 0 0);
+    --sidebar-foreground: oklch(0.985 0 0);
+    --sidebar-primary: oklch(0.488 0.243 264.376);
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.269 0 0);
+    --sidebar-accent-foreground: oklch(0.985 0 0);
+    --sidebar-border: oklch(1 0 0 / 10%);
+    --sidebar-ring: oklch(0.556 0 0);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    /* Generous base size for older readers (respects the user's browser
+       font-size preference because it is percentage-based). */
+    font-size: 112.5%;
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    /* Comfortable default line-height for easy reading. */
+    line-height: 1.65;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Body-copy links get a clear underline so they are easy to recognise and
+     click for older users. Buttons and card links opt out via their own
+     background/rounded classes. */
+  main p a:not([class*='rounded']):not([class*='bg-']) {
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+    font-weight: 600;
+  }
+
+  /* Headings use the sans heading face with slightly tighter tracking for a
+     confident, contemporary feel. */
+  h1,
+  h2,
+  h3 {
+    letter-spacing: -0.015em;
+  }
+
+  /* Clearly visible keyboard focus for every interactive element,
+     including plain links that don't inherit the button ring. */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible,
+  summary:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-foreground);
+  }
+}
+
+/* High-contrast mode toggled from the accessibility menu.
+   Darkens muted text and strengthens borders/rings so low-vision and older
+   users get maximum legibility without changing the layout. */
+.a11y-contrast {
+  --foreground: #000000;
+  --card-foreground: #000000;
+  --popover-foreground: #000000;
+  --secondary-foreground: #000000;
+  --muted-foreground: #2a2620;
+  --border: #6f6a5f;
+  --input: #6f6a5f;
+  --primary: oklch(0.22 0.012 70);
+  --ring: oklch(0.22 0.012 70);
+}
+
+.a11y-contrast a:not([class*='bg-']),
+.a11y-contrast .text-muted-foreground {
+  text-decoration-thickness: from-font;
+}
+
+
