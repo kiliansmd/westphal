@@ -67,7 +67,7 @@ export const navigation: NavEntry[] = [
       { label: 'Hörgeräte-Preise', href: '/preise-krankenkasse' },
       { label: 'Krankenkassenzuschuss', href: '/preise-krankenkasse#krankenkasse' },
       { label: 'Hörgeräte bei Tinnitus', href: '/tinnitusberatung-bonn' },
-      { label: 'Hörtraining erleben', href: '/hoertraining-bonn', badge: 'NEU' },
+      { label: 'Hörtraining erleben', href: '/hoertraining-bonn', badge: 'Neu' },
       { label: 'Alles über Gehörschutz', href: '/gehoerschutz-bonn' },
     ],
   },

@@ -12,21 +12,21 @@ export function ComparisonTable({
   rows: ComparisonRow[]
 }) {
   return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
+    <div className="border-t-2 border-foreground">
       <div className="overflow-x-auto">
         <table className="w-full min-w-[36rem] border-collapse text-left">
           <caption className="sr-only">
             Vergleich zwischen {columns[1]} und {columns[2]}
           </caption>
           <thead>
-            <tr className="border-b border-border bg-secondary">
-              <th scope="col" className="px-5 py-4 text-sm font-semibold text-foreground">
+            <tr className="border-b border-foreground/15">
+              <th scope="col" className="px-4 py-5 text-base font-semibold text-foreground">
                 {columns[0]}
               </th>
-              <th scope="col" className="px-5 py-4 text-sm font-semibold text-primary">
+              <th scope="col" className="px-4 py-5 text-base font-semibold text-primary">
                 {columns[1]}
               </th>
-              <th scope="col" className="px-5 py-4 text-sm font-semibold text-muted-foreground">
+              <th scope="col" className="px-4 py-5 text-base font-semibold text-muted-foreground">
                 {columns[2]}
               </th>
             </tr>
@@ -35,18 +35,18 @@ export function ComparisonTable({
             {rows.map((row) => (
               <tr
                 key={row.topic}
-                className="border-b border-border/60 last:border-0"
+                className="border-b border-foreground/15"
               >
                 <th
                   scope="row"
-                  className="px-5 py-4 text-sm font-semibold text-foreground"
+                  className="px-4 py-5 text-base font-semibold text-foreground"
                 >
                   {row.topic}
                 </th>
-                <td className="px-5 py-4 text-sm leading-relaxed text-card-foreground">
+                <td className="px-4 py-5 text-base leading-relaxed text-card-foreground">
                   {row.westphal}
                 </td>
-                <td className="px-5 py-4 text-sm leading-relaxed text-muted-foreground">
+                <td className="px-4 py-5 text-base leading-relaxed text-muted-foreground">
                   {row.other}
                 </td>
               </tr>

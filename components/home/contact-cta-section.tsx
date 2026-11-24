@@ -26,7 +26,7 @@ export function ContactCtaSection() {
 
           <a
             href={company.phoneHref}
-            className="mt-10 block w-fit font-serif text-4xl text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
+            className="mt-10 block w-fit whitespace-nowrap font-serif text-[1.9rem] text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
           >
             {company.phone}
           </a>

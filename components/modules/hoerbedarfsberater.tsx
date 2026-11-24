@@ -111,7 +111,7 @@ export function Hoerbedarfsberater() {
   const canContinue = currentAnswers.length > 0
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+    <div>
       {/* Progress */}
       <div className="mb-6">
         <div className="flex items-center justify-between text-sm font-semibold text-muted-foreground">

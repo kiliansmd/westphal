@@ -1,5 +1,4 @@
 import type { Metadata } from 'next'
-import { MapPin, Phone, PhoneCall, Mail, Clock, Star } from 'lucide-react'
 import { SiteHeader } from '@/components/site-header'
 import { SiteFooter } from '@/components/site-footer'
 import { MobileContactBar } from '@/components/mobile-contact-bar'
@@ -37,142 +36,99 @@ export default async function ContactPage({
       />
       <SiteHeader />
       <main id="main-content" className="flex-1 pb-20 xl:pb-0">
-        <section className="border-b border-border bg-secondary">
-          <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-16">
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-              Kontakt
-            </p>
-            <h1 className="mt-2 max-w-3xl text-balance font-serif text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
-              Kontakt & Termin anfragen
-            </h1>
-            <p className="mt-4 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
-              Am schnellsten geht es telefonisch. Sie können sich aber auch
-              zurückrufen lassen oder uns das Formular ausfüllen.
-            </p>
-            <p className="mt-6 max-w-2xl border-l-4 border-primary pl-4 text-pretty text-lg leading-relaxed text-foreground">
-              Getreu unserem Motto{' '}
-              <span className="font-serif font-semibold italic text-primary">
-                „Hören verbindet“
-              </span>{' '}
-              haben wir immer ein offenes Ohr für Sie.
-            </p>
-
-            {/* Two clear options up top */}
-            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+        <section className="border-b border-border bg-background">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-end lg:gap-20 lg:py-20">
+            <div>
+              <h1 className="max-w-3xl text-balance break-words hyphens-auto font-serif text-[2.3rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
+                Kontakt &amp; Termin anfragen
+              </h1>
+              <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+                Am schnellsten geht es telefonisch. Sie können sich aber auch
+                zurückrufen lassen oder uns das Formular ausfüllen.
+              </p>
+            </div>
+            <div>
+              <p className="text-base text-muted-foreground">Direkt anrufen</p>
               <a
                 href={company.phoneHref}
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/50"
+                className="mt-1 block w-fit whitespace-nowrap font-serif text-[1.9rem] text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
               >
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-primary text-primary-foreground">
-                  <Phone className="size-6" aria-hidden="true" />
-                </span>
-                <span className="flex flex-col">
-                  <span className="text-base font-semibold text-card-foreground">
-                    Direkt anrufen
-                  </span>
-                  <span className="text-lg font-bold text-primary">
-                    {company.phone}
-                  </span>
-                </span>
+                {company.phone}
               </a>
-              <a
-                href="#anfrage"
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/50"
-              >
-                <span className="flex size-12 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
-                  <PhoneCall className="size-6" aria-hidden="true" />
-                </span>
-                <span className="flex flex-col">
-                  <span className="text-base font-semibold text-card-foreground">
-                    Rückruf wünschen
-                  </span>
-                  <span className="text-muted-foreground">
-                    Wir melden uns zu Ihrer Wunschzeit.
-                  </span>
-                </span>
-              </a>
+              <p className="mt-5 text-lg text-muted-foreground">
+                Lieber später?{' '}
+                <a href="#anfrage" className="link-accent">
+                  Rückruf wünschen
+                </a>{' '}
+                – wir melden uns zu Ihrer Wunschzeit.
+              </p>
             </div>
           </div>
         </section>
 
-        <section className="bg-background py-14 sm:py-16">
-          <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_400px]">
-            <div id="anfrage" className="scroll-mt-24">
-              <h2 className="font-serif text-2xl font-semibold text-foreground">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_360px] lg:gap-20">
+            <div id="anfrage" className="scroll-mt-28">
+              <h2 className="font-serif text-3xl font-medium text-foreground sm:text-[2.6rem]">
                 Schreiben Sie uns
               </h2>
-              <p className="mt-1 text-muted-foreground">
+              <p className="mt-3 text-lg text-muted-foreground">
                 Ein paar Angaben genügen – wir melden uns persönlich bei Ihnen.
               </p>
-              <div className="mt-6">
+              <div className="mt-8">
                 <ContactForm defaultReason={defaultReason} />
               </div>
             </div>
 
-            <aside className="flex flex-col gap-6">
-              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <h2 className="font-serif text-xl font-semibold text-card-foreground">
-                  {company.name}
-                </h2>
-                <ul className="mt-4 space-y-4 text-base text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <MapPin className="mt-0.5 size-5 shrink-0 text-primary" aria-hidden="true" />
-                    <span>
-                      {company.street}
-                      <br />
-                      {company.city}
-                    </span>
-                  </li>
-                  <li>
-                    <a
-                      href={company.phoneHref}
-                      className="flex items-center gap-3 hover:text-foreground"
-                    >
-                      <Phone className="size-5 shrink-0 text-primary" aria-hidden="true" />
+            <aside>
+              <dl className="space-y-10 text-lg leading-relaxed">
+                <div className="border-t-2 border-foreground pt-6">
+                  <dt className="font-serif text-2xl font-medium text-foreground">
+                    {company.name}
+                  </dt>
+                  <dd className="mt-3 text-muted-foreground">
+                    {company.street}
+                    <br />
+                    {company.city}
+                  </dd>
+                  <dd className="mt-4">
+                    <a href={company.phoneHref} className="link-accent">
                       {company.phone}
                     </a>
-                  </li>
-                  <li>
-                    <a
-                      href={company.emailHref}
-                      className="flex items-center gap-3 break-all hover:text-foreground"
-                    >
-                      <Mail className="size-5 shrink-0 text-primary" aria-hidden="true" />
+                  </dd>
+                  <dd className="mt-2">
+                    <a href={company.emailHref} className="link-accent break-all">
                       {company.email}
                     </a>
-                  </li>
-                </ul>
-                <div className="mt-5 flex items-center gap-2 border-t border-border pt-4 text-sm font-semibold text-foreground">
-                  <Star className="size-4 fill-amber-400 text-amber-400" aria-hidden="true" />
-                  {company.rating} ★ Google-Bewertung · {company.claim}
+                  </dd>
                 </div>
-              </div>
-
-              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-                <h2 className="flex items-center gap-2 font-serif text-xl font-semibold text-card-foreground">
-                  <Clock className="size-5 text-primary" aria-hidden="true" />
-                  Öffnungszeiten
-                </h2>
-                <ul className="mt-4 space-y-2 text-base text-muted-foreground">
-                  {openingHours.map((entry) => (
-                    <li
-                      key={entry.day}
-                      className="flex items-center justify-between gap-4 border-b border-border/60 pb-2 last:border-0 last:pb-0"
-                    >
-                      <span className="text-foreground">{entry.day}</span>
-                      <span>{entry.time}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+                <div className="border-t-2 border-foreground pt-6">
+                  <dt className="font-serif text-2xl font-medium text-foreground">
+                    Öffnungszeiten
+                  </dt>
+                  <dd className="mt-3">
+                    <ul className="text-muted-foreground">
+                      {openingHours.map((entry) => (
+                        <li key={entry.day} className="flex justify-between gap-4 py-0.5">
+                          <span className="text-foreground">{entry.day}</span>
+                          <span>{entry.time}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </dd>
+                </div>
+              </dl>
+              <p className="mt-10 font-serif text-2xl italic text-foreground">
+                „Hören verbindet.“
+              </p>
             </aside>
           </div>
 
-          <div className="mx-auto mt-10 max-w-6xl px-4 sm:px-6">
-            <h2 className="font-serif text-2xl font-semibold text-foreground">
+          <div className="mx-auto mt-20 max-w-6xl px-4 sm:px-6">
+            <h2 className="font-serif text-3xl font-medium text-foreground">
               So finden Sie uns
             </h2>
-            <p className="mt-1 mb-6 text-muted-foreground">
+            <p className="mt-3 mb-8 text-lg text-muted-foreground">
               Mitten in Bonn-Beuel, gut erreichbar mit Bus, Bahn und Auto.
             </p>
             <MapConsent />

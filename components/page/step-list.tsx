@@ -1,20 +1,15 @@
 export function StepList({ steps }: { steps: string[] }) {
   return (
-    <ol className="grid gap-4 sm:grid-cols-2">
+    <ol className="grid gap-x-12 sm:grid-cols-2">
       {steps.map((step, index) => (
         <li
           key={step}
-          className="flex items-start gap-4 rounded-2xl border border-border bg-card p-5 shadow-sm"
+          className="flex items-baseline gap-5 border-t border-foreground/15 py-5"
         >
-          <span
-            className="flex size-9 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-primary-foreground"
-            aria-hidden="true"
-          >
+          <span className="w-8 shrink-0 font-serif text-2xl text-brand-deep" aria-hidden="true">
             {index + 1}
           </span>
-          <span className="pt-1 text-base leading-relaxed text-card-foreground">
-            {step}
-          </span>
+          <span className="text-lg leading-relaxed text-foreground">{step}</span>
         </li>
       ))}
     </ol>

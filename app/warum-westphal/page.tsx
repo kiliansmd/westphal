@@ -134,20 +134,16 @@ export default function WarumWestphalPage() {
       >
         <div className="grid gap-6 sm:grid-cols-2">
           {team.map((member) => {
-            const Icon = member.icon
             return (
               <div
                 key={member.name}
-                className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm"
+                className="flex flex-col border-t-2 border-foreground pt-6"
               >
-                <span className="flex size-12 items-center justify-center rounded-xl bg-accent text-primary">
-                  <Icon className="size-6" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-card-foreground">
+                <h3 className="font-serif text-2xl font-medium leading-snug text-foreground">
                   {member.name}
                 </h3>
-                <p className="text-sm font-medium text-primary">{member.role}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-1 text-base font-medium text-brand-deep">{member.role}</p>
+                <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
                   {member.text}
                 </p>
               </div>
@@ -165,12 +161,12 @@ export default function WarumWestphalPage() {
           {values.map((value) => (
             <div
               key={value.title}
-              className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm"
+              className="flex flex-col border-t-2 border-foreground pt-6"
             >
-              <h3 className="font-serif text-lg font-semibold text-card-foreground">
+              <h3 className="font-serif text-xl font-medium text-foreground">
                 {value.title}
               </h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              <p className="mt-2 text-lg leading-relaxed text-muted-foreground">
                 {value.text}
               </p>
             </div>

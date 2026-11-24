@@ -9,7 +9,7 @@ export function FittingSection() {
   return (
     <section className="bg-secondary py-16 sm:py-20">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
-        <div className="order-2 overflow-hidden rounded-2xl border border-border shadow-sm lg:order-1">
+        <div className="order-2 overflow-hidden rounded-2xl border border-border lg:order-1">
           <Image
             src="/images/real/anpassung-ohr.webp"
             alt="Hörakustikerin setzt einem Kunden bei Westphal Hörgeräte behutsam ein modernes Hörgerät ein"
@@ -20,10 +20,7 @@ export function FittingSection() {
         </div>
 
         <div className="order-1 lg:order-2">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-            Unser besonderes Anpassverfahren
-          </p>
-          <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             Sie sollen besser hören – nicht nur anders
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">

@@ -1,4 +1,3 @@
-import { Check } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 export function FeatureList({
@@ -11,21 +10,17 @@ export function FeatureList({
   return (
     <ul
       className={cn(
-        'grid gap-3',
+        'grid gap-x-12 border-t border-foreground/15',
         columns === 2 ? 'sm:grid-cols-2' : 'grid-cols-1',
       )}
     >
       {items.map((item) => (
-        <li key={item} className="flex items-start gap-3">
-          <span
-            className="mt-0.5 flex size-5 shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground"
-            aria-hidden="true"
-          >
-            <Check className="size-3.5" />
-          </span>
-          <span className="text-base leading-relaxed text-foreground/90">
-            {item}
-          </span>
+        <li
+          key={item}
+          className="flex items-baseline gap-4 border-b border-foreground/15 py-4"
+        >
+          <span className="h-0.5 w-4 shrink-0 -translate-y-1 bg-brand" aria-hidden="true" />
+          <span className="text-lg leading-relaxed text-foreground">{item}</span>
         </li>
       ))}
     </ul>

@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CalendarCheck, PhoneCall } from 'lucide-react'
+import { CalendarCheck } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { company } from '@/lib/site-data'
@@ -16,16 +16,24 @@ export function CTASection({
   primaryLabel = 'Termin anfragen',
 }: CTASectionProps) {
   return (
-    <section className="bg-secondary py-14 sm:py-16">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <div className="rounded-3xl border border-border bg-card p-8 text-center shadow-sm sm:p-12">
-          <h2 className="text-balance font-serif text-3xl font-semibold tracking-tight text-card-foreground sm:text-4xl">
+    <section className="border-b border-border bg-secondary py-16 sm:py-24">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-end lg:gap-20">
+        <div>
+          <h2 className="text-balance break-words hyphens-auto font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             {heading}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
             {text}
           </p>
-          <div className="mt-8 flex flex-col justify-center gap-4 sm:flex-row">
+        </div>
+        <div>
+          <a
+            href={company.phoneHref}
+            className="block w-fit whitespace-nowrap font-serif text-[1.9rem] text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
+          >
+            {company.phone}
+          </a>
+          <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
             <Link
               href="/kontakt"
               className={cn(buttonVariants({ size: 'lg' }), 'w-full sm:w-auto')}
@@ -33,26 +41,10 @@ export function CTASection({
               <CalendarCheck aria-hidden="true" />
               {primaryLabel}
             </Link>
-            <Link
-              href="/kontakt?anliegen=Rückrufwunsch"
-              className={cn(
-                buttonVariants({ variant: 'outline', size: 'lg' }),
-                'w-full sm:w-auto',
-              )}
-            >
-              <PhoneCall aria-hidden="true" />
+            <Link href="/kontakt?anliegen=Rückrufwunsch" className="link-accent text-lg">
               Rückruf wünschen
             </Link>
           </div>
-          <p className="mt-6 text-base text-muted-foreground">
-            Lieber direkt anrufen?{' '}
-            <a
-              href={company.phoneHref}
-              className="font-semibold text-primary underline underline-offset-4 hover:no-underline"
-            >
-              {company.phone}
-            </a>
-          </p>
         </div>
       </div>
     </section>

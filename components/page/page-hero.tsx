@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { CalendarCheck, PhoneCall } from 'lucide-react'
+import { CalendarCheck } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 
@@ -40,39 +40,34 @@ export function PageHero({
   ctas = defaultCtas,
   image,
 }: PageHeroProps) {
+  const [primary, ...secondary] = ctas
+
   const content = (
     <>
-      <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-        {eyebrow}
-      </p>
-      <h1 className="mt-3 max-w-3xl text-balance font-serif text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl">
+      <p className="text-base font-medium text-muted-foreground">{eyebrow}</p>
+      <h1 className="mt-4 max-w-3xl text-balance break-words hyphens-auto font-serif text-[2.1rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
         {headline}
       </h1>
-      <p className="mt-5 max-w-2xl text-pretty text-xl leading-relaxed text-muted-foreground">
+      <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
         {text}
       </p>
       {trustLine && (
-        <p className="mt-4 text-base font-medium text-foreground">{trustLine}</p>
+        <p className="mt-4 text-base text-muted-foreground">{trustLine}</p>
       )}
-      {ctas.length > 0 && (
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-          {ctas.map((cta, index) => (
-            <Link
-              key={cta.label}
-              href={cta.href}
-              className={cn(
-                buttonVariants({
-                  variant: cta.variant ?? (index === 0 ? 'default' : 'outline'),
-                  size: 'lg',
-                }),
-                'w-full sm:w-auto',
-              )}
-            >
-              {index === 0 ? (
-                <CalendarCheck aria-hidden="true" />
-              ) : (
-                <PhoneCall aria-hidden="true" />
-              )}
+      {primary && (
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+          <Link
+            href={primary.href}
+            className={cn(
+              buttonVariants({ variant: primary.variant ?? 'default', size: 'lg' }),
+              'w-full sm:w-auto',
+            )}
+          >
+            <CalendarCheck aria-hidden="true" />
+            {primary.label}
+          </Link>
+          {secondary.map((cta) => (
+            <Link key={cta.label} href={cta.href} className="link-accent text-lg">
               {cta.label}
             </Link>
           ))}
@@ -82,32 +77,30 @@ export function PageHero({
   )
 
   return (
-    <section className="overflow-x-clip border-b border-border bg-secondary">
-      <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
-        {image ? (
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-            <div>{content}</div>
-            <div className="relative">
-              <div
-                className="absolute -inset-3 -z-10 rounded-[2rem] bg-sand sm:-inset-4"
-                aria-hidden="true"
+    <section className="border-b border-border bg-background">
+      {image ? (
+        <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1fr_1fr]">
+          <div className="relative aspect-[4/3] lg:order-2 lg:aspect-auto lg:min-h-[540px]">
+            <div className="absolute inset-0 lg:-right-[max(0px,calc((100vw-72rem)/2))]">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover"
+                priority
               />
-              <div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-lg ring-1 ring-border">
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  fill
-                  sizes="(min-width: 1024px) 40rem, 100vw"
-                  className="object-cover"
-                  priority
-                />
-              </div>
             </div>
           </div>
-        ) : (
-          content
-        )}
-      </div>
+          <div className="flex min-w-0 flex-col justify-center px-4 py-10 sm:px-6 lg:order-1 lg:py-20 lg:pr-14">
+            {content}
+          </div>
+        </div>
+      ) : (
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
+          {content}
+        </div>
+      )}
     </section>
   )
 }

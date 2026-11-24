@@ -28,7 +28,7 @@ function ConsentGate({
   if (loaded) return <>{children}</>
 
   return (
-    <div className="flex min-h-64 flex-col items-center justify-center gap-4 rounded-xl border border-dashed border-border bg-muted/40 p-8 text-center">
+    <div className="flex min-h-64 flex-col items-center justify-center gap-4 border-t-2 border-foreground bg-secondary p-8 text-center">
       <span
         aria-hidden="true"
         className="flex size-12 items-center justify-center rounded-full bg-accent text-accent-foreground"

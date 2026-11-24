@@ -1,7 +1,7 @@
 'use client'
 
 import { useRef, useState, type FormEvent } from 'react'
-import { Send, CheckCircle2, ChevronDown, AlertCircle } from 'lucide-react'
+import { Send, ChevronDown, AlertCircle } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { contactReasons } from '@/lib/site-data'
 
@@ -73,14 +73,11 @@ export function ContactForm({ defaultReason = '', defaultMessage = '' }: Contact
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
-        <span className="flex size-14 items-center justify-center rounded-full bg-accent text-primary">
-          <CheckCircle2 className="size-8" aria-hidden="true" />
-        </span>
-        <h2 className="mt-4 font-serif text-2xl font-semibold text-card-foreground">
+      <div className="flex flex-col items-start border-t-2 border-foreground pt-8">
+        <h2 className="font-serif text-3xl font-medium text-foreground">
           Vielen Dank
         </h2>
-        <p className="mt-2 max-w-md text-pretty leading-relaxed text-muted-foreground">
+        <p className="mt-3 max-w-md text-pretty text-lg leading-relaxed text-muted-foreground">
           Ihre Anfrage wurde vorbereitet. Westphal Hörgeräte meldet sich
           persönlich bei Ihnen.
         </p>
@@ -95,7 +92,7 @@ export function ContactForm({ defaultReason = '', defaultMessage = '' }: Contact
     <form
       ref={formRef}
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8"
+      className="border-t-2 border-foreground pt-8"
       noValidate
     >
       <div className="grid gap-5 sm:grid-cols-2">
@@ -257,7 +254,7 @@ export function ContactForm({ defaultReason = '', defaultMessage = '' }: Contact
             Ich habe die{' '}
             <a
               href="/datenschutz"
-              className="font-medium text-primary underline underline-offset-2 hover:text-primary/80"
+              className="link-accent"
             >
               Datenschutzhinweise
             </a>{' '}

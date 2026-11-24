@@ -13,7 +13,7 @@ function FeatureValue({ value }: { value: boolean | string }) {
   if (value === true) {
     return (
       <>
-        <Check className="size-5 text-primary" aria-hidden="true" />
+        <Check className="size-5 text-brand-deep" aria-hidden="true" />
         <span className="sr-only">enthalten</span>
       </>
     )
@@ -27,40 +27,32 @@ function FeatureValue({ value }: { value: boolean | string }) {
     )
   }
   return (
-    <span className="rounded-full bg-accent px-2.5 py-0.5 text-xs font-semibold text-accent-foreground">
+    <span className="text-sm font-semibold text-foreground">
       {value}
     </span>
   )
 }
 
 function PriceHeader({ tier }: { tier: PriceTier }) {
-  const Icon = tier.icon
   return (
     <div className="flex h-full flex-col">
-      <div className="flex items-center gap-2">
-        <span className="flex size-9 items-center justify-center rounded-lg bg-accent text-primary">
-          <Icon className="size-5" aria-hidden="true" />
-        </span>
-        {tier.featured && (
-          <span className="rounded-full bg-primary px-2.5 py-0.5 text-xs font-semibold text-primary-foreground">
-            Beliebt
-          </span>
-        )}
-      </div>
-      <h3 className="mt-3 font-serif text-lg font-semibold text-card-foreground">
+      <p className="h-6 text-sm font-semibold text-brand-deep">
+        {tier.featured ? 'Häufig gewählt' : ''}
+      </p>
+      <h3 className="mt-1 font-serif text-2xl font-medium text-foreground">
         {tier.title}
       </h3>
       <p className="text-sm text-muted-foreground">{tier.subtitle}</p>
-      <div className="mt-4 border-t border-border pt-4">
-        <p className="text-xs font-medium text-muted-foreground">
+      <div className="mt-4 border-t border-foreground/15 pt-4">
+        <p className="text-sm text-muted-foreground">
           Eigenanteil mit Kasse
         </p>
-        <p className="text-2xl font-bold text-foreground">{tier.priceKasse}</p>
+        <p className="font-serif text-3xl text-foreground">{tier.priceKasse}</p>
         <p className="mt-1 text-sm text-muted-foreground">
           privat <span className="font-semibold text-foreground">{tier.pricePrivat}</span>
         </p>
         {tier.note && (
-          <p className="mt-1 text-xs italic text-primary">{tier.note}</p>
+          <p className="mt-1 text-sm italic text-muted-foreground">{tier.note}</p>
         )}
       </div>
     </div>
@@ -71,14 +63,14 @@ export function PriceTable() {
   return (
     <div>
       {/* Desktop: comparison table */}
-      <div className="hidden overflow-hidden rounded-2xl border border-border lg:block">
+      <div className="hidden border-t-2 border-foreground lg:block">
         <table className="w-full border-collapse text-left">
           <caption className="sr-only">
             Preisübersicht der Hörgeräte-Leistungsstufen mit Funktionsvergleich
           </caption>
           <thead>
             <tr>
-              <th scope="col" className="w-[22%] bg-secondary p-5 align-bottom">
+              <th scope="col" className="w-[22%] py-5 pr-5 align-bottom">
                 <span className="text-sm font-semibold text-foreground">
                   Leistung & Funktionen
                 </span>
@@ -89,7 +81,7 @@ export function PriceTable() {
                   scope="col"
                   className={cn(
                     'p-5 align-top',
-                    tier.featured ? 'bg-accent/50' : 'bg-secondary',
+                    tier.featured && 'bg-background/60',
                   )}
                 >
                   <PriceHeader tier={tier} />
@@ -98,17 +90,16 @@ export function PriceTable() {
             </tr>
           </thead>
           <tbody>
-            {priceFeatureMatrix.map((row, rowIndex) => (
+            {priceFeatureMatrix.map((row) => (
               <tr
                 key={row.label}
                 className={cn(
-                  'border-t border-border',
-                  rowIndex % 2 === 1 && 'bg-muted/30',
+                  'border-t border-foreground/15',
                 )}
               >
                 <th
                   scope="row"
-                  className="p-4 pl-5 text-sm font-medium text-card-foreground"
+                  className="py-4 pr-5 text-base font-medium text-foreground"
                 >
                   {row.label}
                 </th>
@@ -117,7 +108,7 @@ export function PriceTable() {
                     key={priceTiers[i].key}
                     className={cn(
                       'p-4 text-center',
-                      priceTiers[i].featured && 'bg-accent/30',
+                      priceTiers[i].featured && 'bg-background/60',
                     )}
                   >
                     <span className="inline-flex items-center justify-center">
@@ -128,10 +119,10 @@ export function PriceTable() {
               </tr>
             ))}
             {/* Device examples row */}
-            <tr className="border-t border-border">
+            <tr className="border-t border-foreground/15">
               <th
                 scope="row"
-                className="p-4 pl-5 text-sm font-medium text-card-foreground align-top"
+                className="py-4 pr-5 text-base font-medium text-foreground align-top"
               >
                 Beispielgeräte
               </th>
@@ -139,8 +130,8 @@ export function PriceTable() {
                 <td
                   key={tier.key}
                   className={cn(
-                    'p-4 align-top text-center text-xs text-muted-foreground',
-                    tier.featured && 'bg-accent/30',
+                    'p-4 align-top text-center text-sm text-muted-foreground',
+                    tier.featured && 'bg-background/60',
                   )}
                 >
                   {tier.devices ? tier.devices.join(', ') : '—'}
@@ -148,12 +139,12 @@ export function PriceTable() {
               ))}
             </tr>
             {/* CTA row */}
-            <tr className="border-t border-border">
-              <td className="p-4 pl-5" />
+            <tr className="border-t border-foreground/15">
+              <td className="py-4 pr-5" />
               {priceTiers.map((tier) => (
                 <td
                   key={tier.key}
-                  className={cn('p-4 text-center', tier.featured && 'bg-accent/30')}
+                  className={cn('p-4 text-center', tier.featured && 'bg-background/60')}
                 >
                   <Link
                     href="/kontakt?anliegen=Preise%20%26%20Krankenkasse"
@@ -174,26 +165,24 @@ export function PriceTable() {
       </div>
 
       {/* Mobile / tablet: stacked cards */}
-      <div className="grid gap-6 sm:grid-cols-2 lg:hidden">
+      <div className="grid gap-x-10 sm:grid-cols-2 lg:hidden">
         {priceTiers.map((tier) => (
           <div
             key={tier.key}
             className={cn(
-              'flex flex-col rounded-2xl border bg-card p-6 shadow-sm',
-              tier.featured
-                ? 'border-primary ring-1 ring-primary/30'
-                : 'border-border',
+              'flex flex-col border-t-2 py-8',
+              tier.featured ? 'border-brand' : 'border-foreground',
             )}
           >
             <PriceHeader tier={tier} />
-            <ul className="mt-5 space-y-2 border-t border-border pt-5">
+            <ul className="mt-5 space-y-2 border-t border-foreground/15 pt-5">
               {priceFeatureMatrix.map((row, i) => {
                 const value = row.values[priceTiers.indexOf(tier)]
                 return (
                   <li
                     key={row.label}
                     className={cn(
-                      'flex items-center justify-between gap-2 text-sm',
+                      'flex items-center justify-between gap-2 text-base',
                       value === false
                         ? 'text-muted-foreground/50'
                         : 'text-card-foreground',
@@ -208,8 +197,8 @@ export function PriceTable() {
               })}
             </ul>
             {tier.devices && (
-              <p className="mt-4 text-xs leading-relaxed text-muted-foreground">
-                <span className="font-medium text-card-foreground">
+              <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+                <span className="font-medium text-foreground">
                   Beispielgeräte:{' '}
                 </span>
                 {tier.devices.join(', ')}

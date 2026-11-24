@@ -15,31 +15,31 @@ export function RelatedLinks({
   heading?: string
 }) {
   return (
-    <section className="bg-background py-14 sm:py-16">
+    <section className="bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <h2 className="text-balance font-serif text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+        <h2 className="text-balance font-serif text-3xl font-medium text-foreground">
           {heading}
         </h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-8 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
           {links.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="group flex flex-col rounded-2xl border border-border bg-card p-5 shadow-sm transition-colors hover:border-primary/40"
-            >
-              <span className="text-base font-semibold text-card-foreground">
-                {link.label}
-              </span>
-              <span className="mt-1 flex-1 text-sm leading-relaxed text-muted-foreground">
-                {link.description}
-              </span>
-              <span className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-all group-hover:gap-2.5">
-                Mehr erfahren
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </span>
-            </Link>
+            <li key={link.href} className="border-t border-foreground/15">
+              <Link href={link.href} className="group flex items-start gap-4 py-6">
+                <span className="flex-1">
+                  <span className="block font-serif text-xl font-medium text-foreground">
+                    {link.label}
+                  </span>
+                  <span className="mt-1 block text-base leading-relaxed text-muted-foreground">
+                    {link.description}
+                  </span>
+                </span>
+                <ArrowRight
+                  className="mt-1 size-5 shrink-0 text-foreground transition-transform group-hover:translate-x-1"
+                  aria-hidden="true"
+                />
+              </Link>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </section>
   )

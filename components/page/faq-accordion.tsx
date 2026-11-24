@@ -21,16 +21,13 @@ export function FAQAccordion({
   const [openIndex, setOpenIndex] = useState<number | null>(0)
 
   return (
-    <section className="scroll-mt-24 bg-background py-14 sm:py-16">
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
-        <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-          {eyebrow}
-        </p>
-        <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+    <section className="scroll-mt-28 border-b border-border bg-background py-16 sm:py-24" aria-label={eyebrow}>
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <h2 className="text-balance break-words hyphens-auto font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
           {heading}
         </h2>
 
-        <ul className="mt-8 space-y-3">
+        <ul className="border-t border-foreground/15">
           {items.map((item, index) => {
             const isOpen = openIndex === index
             const panelId = `faq-panel-${index}`
@@ -38,7 +35,7 @@ export function FAQAccordion({
             return (
               <li
                 key={item.question}
-                className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm"
+                className="border-b border-foreground/15"
               >
                 <h3>
                   <button
@@ -47,11 +44,11 @@ export function FAQAccordion({
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left text-base font-semibold text-card-foreground transition-colors hover:bg-muted/60"
+                    className="flex w-full items-center justify-between gap-6 py-5 text-left text-lg font-semibold text-foreground transition-colors hover:text-brand-deep"
                   >
                     <span>{item.question}</span>
                     <span
-                      className="flex size-7 shrink-0 items-center justify-center rounded-full bg-accent text-primary"
+                      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-foreground/20 text-foreground"
                       aria-hidden="true"
                     >
                       {isOpen ? (
@@ -67,9 +64,9 @@ export function FAQAccordion({
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
-                  className={cn('px-5 pb-5', !isOpen && 'hidden')}
+                  className={cn('pb-6 pr-12', !isOpen && 'hidden')}
                 >
-                  <p className="text-base leading-relaxed text-muted-foreground">
+                  <p className="text-lg leading-relaxed text-muted-foreground">
                     {item.answer}
                   </p>
                 </div>

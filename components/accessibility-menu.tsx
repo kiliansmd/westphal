@@ -25,6 +25,9 @@ const SCALE_LABELS = ['Normal', 'Groß', 'Größer', 'Sehr groß'] as const
 const STORAGE_SCALE = 'a11y-font-scale'
 const STORAGE_CONTRAST = 'a11y-contrast'
 
+/** Window event the mobile contact bar fires to open/close the menu. */
+export const A11Y_TOGGLE_EVENT = 'a11y-menu:toggle'
+
 export function AccessibilityMenu() {
   const [open, setOpen] = useState(false)
   const [scaleIndex, setScaleIndex] = useState(0)
@@ -62,7 +65,10 @@ export function AccessibilityMenu() {
       if (e.key === 'Escape') setOpen(false)
     }
     const onPointer = (e: PointerEvent) => {
-      if (!containerRef.current?.contains(e.target as Node)) setOpen(false)
+      const target = e.target as Element
+      // The mobile contact bar has its own toggle; let its click handle it.
+      if (target.closest?.('[data-a11y-toggle]')) return
+      if (!containerRef.current?.contains(target)) setOpen(false)
     }
     document.addEventListener('keydown', onKey)
     document.addEventListener('pointerdown', onPointer)
@@ -71,6 +77,14 @@ export function AccessibilityMenu() {
       document.removeEventListener('pointerdown', onPointer)
     }
   }, [open])
+
+  // The mobile contact bar opens the menu via a window event, so no floating
+  // tab has to cover page content on small screens.
+  useEffect(() => {
+    const onToggle = () => setOpen((v) => !v)
+    window.addEventListener(A11Y_TOGGLE_EVENT, onToggle)
+    return () => window.removeEventListener(A11Y_TOGGLE_EVENT, onToggle)
+  }, [])
 
   // Move keyboard focus into the panel when it opens.
   useEffect(() => {
@@ -95,9 +109,9 @@ export function AccessibilityMenu() {
   return (
     <div
       ref={containerRef}
-      // On mobile/tablet the fixed contact bar occupies the bottom edge, so the
-      // tab sits just above it to avoid overlapping page content. From xl up
-      // (contact bar hidden) it is vertically centred on the right edge.
+      // On mobile/tablet the panel opens just above the fixed contact bar,
+      // which carries the toggle. From xl up (contact bar hidden) a slim tab
+      // is vertically centred on the right edge.
       className="fixed bottom-24 right-0 z-50 flex items-stretch xl:bottom-auto xl:top-1/2 xl:-translate-y-1/2"
       // Region so screen readers can jump straight to the helpers.
       role="region"
@@ -110,16 +124,14 @@ export function AccessibilityMenu() {
         aria-expanded={open}
         aria-controls="a11y-panel"
         aria-label={open ? 'Bedienungshilfen schließen' : 'Bedienungshilfen öffnen'}
-        className="flex w-12 flex-col items-center justify-center gap-2 rounded-l-xl bg-primary py-4 text-primary-foreground shadow-lg transition-colors hover:bg-primary/90 xl:w-11 xl:py-5"
+        className="hidden w-11 flex-col items-center justify-center gap-2 rounded-l-md bg-primary py-5 text-primary-foreground transition-colors hover:bg-primary/90 xl:flex"
       >
         {open ? (
           <X className="size-6 shrink-0" aria-hidden="true" />
         ) : (
           <PersonStanding className="size-6 shrink-0" aria-hidden="true" />
         )}
-        {/* Label shown only from xl up; on mobile the icon-only launcher keeps a
-            small footprint so it never covers page content or CTAs. */}
-        <span className="hidden text-sm font-semibold tracking-wide xl:inline xl:[writing-mode:vertical-rl]">
+        <span className="text-sm font-semibold [writing-mode:vertical-rl]">
           {open ? 'Schließen' : 'Bedienung'}
         </span>
       </button>
@@ -131,7 +143,7 @@ export function AccessibilityMenu() {
         hidden={!open}
         tabIndex={-1}
         aria-label="Darstellung anpassen"
-        className="max-h-[calc(100vh-2rem)] w-[min(20rem,calc(100vw-3.75rem))] overflow-y-auto rounded-bl-xl border-y border-l border-border bg-card p-5 shadow-xl outline-none"
+        className="max-h-[calc(100vh-2rem)] w-[min(20rem,calc(100vw-3.75rem))] overflow-y-auto rounded-l-md border-y border-l border-border bg-card p-5 shadow-xl outline-none"
       >
         <h2 className="text-lg font-semibold text-card-foreground">
           Darstellung anpassen

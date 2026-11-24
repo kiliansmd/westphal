@@ -12,10 +12,10 @@ function isGroup(entry: NavEntry): entry is { label: string; children: { label: 
   return 'children' in entry
 }
 
-/** Small "NEU"-style pill shown next to highlighted nav items. */
+/** Small "Neu" marker shown next to highlighted nav items. */
 function NavBadge({ label }: { label: string }) {
   return (
-    <span className="ml-2 inline-flex items-center rounded-full bg-primary px-2 py-0.5 text-xs font-bold uppercase leading-none tracking-wide text-primary-foreground">
+    <span className="ml-2 text-sm font-semibold text-brand-deep">
       {label}
     </span>
   )
@@ -86,7 +86,7 @@ function NavDropdown({
       {open && (
         <div
           role="menu"
-          className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-xl border border-border bg-popover py-2 shadow-lg"
+          className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-md border border-border bg-popover py-2 shadow-lg"
         >
           {children.map((item) => (
             <Link
@@ -201,7 +201,7 @@ export function SiteHeader() {
             {navigation.map((entry) =>
               isGroup(entry) ? (
                 <div key={entry.label} className="py-1">
-                  <p className="px-4 pb-1 pt-3 text-sm font-semibold uppercase tracking-wide text-primary">
+                  <p className="px-4 pb-1 pt-3 text-base font-medium text-muted-foreground">
                     {entry.label}
                   </p>
                   {entry.children.map((item) => (

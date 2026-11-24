@@ -73,19 +73,15 @@ export default function JobsPage() {
       >
         <div className="grid gap-6 sm:grid-cols-2">
           {benefits.map((benefit) => {
-            const Icon = benefit.icon
             return (
               <div
                 key={benefit.title}
-                className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm"
+                className="flex flex-col border-t-2 border-foreground pt-6"
               >
-                <span className="flex size-12 items-center justify-center rounded-xl bg-accent text-primary">
-                  <Icon className="size-6" aria-hidden="true" />
-                </span>
-                <h3 className="mt-4 text-lg font-semibold text-card-foreground">
+                <h3 className="font-serif text-2xl font-medium leading-snug text-foreground">
                   {benefit.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
                   {benefit.text}
                 </p>
               </div>

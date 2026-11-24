@@ -290,3 +290,17 @@
 }
 
 
+
+/* Quiet text link with a brand-coloured underline — the site's standard
+   secondary action instead of outline buttons. */
+@utility link-accent {
+  color: var(--foreground);
+  font-weight: 600;
+  text-decoration-line: underline;
+  text-decoration-color: var(--brand);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 5px;
+  &:hover {
+    text-decoration-color: var(--foreground);
+  }
+}

@@ -222,16 +222,13 @@ export default function GehoerschutzBonnPage() {
       {/* Detailbereiche */}
       <section className="bg-secondary py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-            Im Detail
-          </p>
-          <h2 className="mt-2 max-w-2xl text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="max-w-2xl text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             Unsere Gehörschutz-Lösungen im Detail
           </h2>
 
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="font-serif text-2xl font-medium text-foreground">
                 Schlaf-Otoplastiken
               </h3>
               <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
@@ -240,8 +237,8 @@ export default function GehoerschutzBonnPage() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="font-serif text-2xl font-medium text-foreground">
                 Snug-Otoplastiken für AirPods
               </h3>
               <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
@@ -251,8 +248,8 @@ export default function GehoerschutzBonnPage() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="font-serif text-2xl font-medium text-foreground">
                 Musiker-Gehörschutz
               </h3>
               <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
@@ -266,8 +263,8 @@ export default function GehoerschutzBonnPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="font-serif text-2xl font-medium text-foreground">
                 Kinder-Gehörschutz
               </h3>
               <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
@@ -278,8 +275,8 @@ export default function GehoerschutzBonnPage() {
               </p>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="font-serif text-2xl font-medium text-foreground">
                 Schwimmschutz
               </h3>
               <div className="mt-4">
@@ -287,8 +284,8 @@ export default function GehoerschutzBonnPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="font-serif text-2xl font-medium text-foreground">
                 Motorrad-Gehörschutz
               </h3>
               <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
@@ -301,8 +298,8 @@ export default function GehoerschutzBonnPage() {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm lg:col-span-2">
-              <h3 className="font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6 lg:col-span-2">
+              <h3 className="font-serif text-2xl font-medium text-foreground">
                 Fly-Gehörschutz
               </h3>
               <p className="mt-3 text-pretty leading-relaxed text-muted-foreground">
@@ -319,23 +316,20 @@ export default function GehoerschutzBonnPage() {
       {/* In-Ear-Monitoring */}
       <section className="bg-background py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-            Für Musiker & Gamer
-          </p>
-          <h2 className="mt-2 max-w-2xl text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="max-w-2xl text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             In-Ear-Monitoring – warum bei uns?
           </h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="font-serif text-lg font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="font-serif text-xl font-medium text-foreground">
                 Ihre Vorteile bei uns
               </h3>
               <div className="mt-4">
                 <FeatureList items={inEarPoints} />
               </div>
             </div>
-            <div className="rounded-3xl bg-sand p-7">
-              <h3 className="font-serif text-lg font-semibold text-foreground">
+            <div className="border-t-2 border-brand pt-6">
+              <h3 className="font-serif text-xl font-medium text-foreground">
                 Vorteile von In-Ear-Kopfhörern
               </h3>
               <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">

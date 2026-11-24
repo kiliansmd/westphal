@@ -14,7 +14,7 @@ export function HoersituationsCheck() {
   }
 
   return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+    <div>
       <h3 className="font-serif text-xl font-semibold text-card-foreground sm:text-2xl">
         Wo möchten Sie besser hören?
       </h3>
@@ -63,7 +63,7 @@ export function HoersituationsCheck() {
 
       <div aria-live="polite">
         {active && (
-          <div className="mt-6 rounded-xl border border-border bg-sand p-5">
+          <div className="mt-6 border-l-2 border-brand pl-5">
             <p className="text-base font-semibold text-foreground">
               {active.label}
             </p>

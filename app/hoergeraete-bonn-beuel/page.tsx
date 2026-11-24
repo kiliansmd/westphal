@@ -202,18 +202,12 @@ export default function HoergeraeteBonnBeuelPage() {
 
       <section className="bg-secondary py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-            Bauformen
-          </p>
-          <h2 className="mt-2 max-w-2xl text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="max-w-2xl text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             RIC-Akku-Hörsysteme oder Im-Ohr-Hörgeräte?
           </h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <span className="flex size-12 items-center justify-center rounded-xl bg-accent text-primary">
-                <Ear className="size-6" aria-hidden="true" />
-              </span>
-              <h3 className="mt-4 font-serif text-xl font-semibold text-card-foreground">
+            <div className="flex flex-col border-t-2 border-foreground pt-6">
+              <h3 className="mt-4 font-serif text-2xl font-medium text-foreground">
                 RIC-Hörsysteme (Receiver-in-Canal)
               </h3>
               <p className="mt-2 text-pretty leading-relaxed text-muted-foreground">
@@ -224,11 +218,8 @@ export default function HoergeraeteBonnBeuelPage() {
                 <FeatureList items={ricFeatures} />
               </div>
             </div>
-            <div className="flex flex-col rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <span className="flex size-12 items-center justify-center rounded-xl bg-accent text-primary">
-                <Headphones className="size-6" aria-hidden="true" />
-              </span>
-              <h3 className="mt-4 font-serif text-xl font-semibold text-card-foreground">
+            <div className="flex flex-col border-t-2 border-foreground pt-6">
+              <h3 className="mt-4 font-serif text-2xl font-medium text-foreground">
                 Im-Ohr-Hörgeräte (IdO)
               </h3>
               <p className="mt-2 text-pretty leading-relaxed text-muted-foreground">
@@ -263,19 +254,19 @@ export default function HoergeraeteBonnBeuelPage() {
 
       <section className="bg-background pb-4">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="rounded-2xl border border-border bg-card p-6 text-pretty leading-relaxed text-muted-foreground shadow-sm sm:p-7">
+          <div className="border-l-2 border-brand pl-6 text-pretty text-lg leading-relaxed text-muted-foreground">
             Um diese Funktionen optimal nutzen zu können, arbeiten wir mit
             unserem{' '}
             <Link
               href="/klangwellen-anpassverfahren"
-              className="font-semibold text-primary underline underline-offset-4"
+              className="link-accent"
             >
               Klangwellen-Anpassverfahren
             </Link>
             . Mehr zur Linderung von Ohrgeräuschen erfahren Sie in unserer{' '}
             <Link
               href="/tinnitusberatung-bonn"
-              className="font-semibold text-primary underline underline-offset-4"
+              className="link-accent"
             >
               Tinnitusberatung
             </Link>

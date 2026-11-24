@@ -145,12 +145,9 @@ export default function KlangwellenAnpassverfahrenPage() {
 
       <section className="bg-secondary py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid gap-8 rounded-3xl border border-border bg-card p-6 shadow-sm sm:p-9 lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="grid gap-8 border-t-2 border-foreground pt-6 sm:p-9 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-                So funktioniert es
-              </p>
-              <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-card-foreground sm:text-4xl">
+              <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
                 Die KlangBalance-Methode
               </h2>
               <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -161,12 +158,9 @@ export default function KlangwellenAnpassverfahrenPage() {
                 Ihre Hörminderung bis auf 1 Dezibel genau aus.
               </p>
             </div>
-            <div className="flex items-start gap-4 rounded-2xl bg-sand p-6">
-              <span className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-accent text-primary">
-                <Radio className="size-6" aria-hidden="true" />
-              </span>
+            <div className="flex items-start gap-4 border-t-2 border-brand pt-6">
               <div>
-                <h3 className="font-serif text-xl font-semibold text-card-foreground">
+                <h3 className="font-serif text-2xl font-medium text-foreground">
                   Modernes Hörstudio
                 </h3>
                 <p className="mt-2 text-base leading-relaxed text-muted-foreground">

@@ -212,7 +212,7 @@ export function HoertrainingDemo() {
   const resultIsGood = correctCount >= 3
 
   return (
-    <div className="overflow-hidden rounded-3xl border border-border bg-card shadow-sm">
+    <div className="border-t-2 border-foreground">
       {/* Header strip */}
       <div className="flex items-center gap-3 border-b border-border bg-secondary px-6 py-4">
         <span className="flex size-9 items-center justify-center rounded-full bg-primary text-primary-foreground">
@@ -255,7 +255,7 @@ export function HoertrainingDemo() {
               ))}
             </ul>
 
-            <div className="mt-6 flex items-start gap-3 rounded-xl border border-border bg-sand p-4">
+            <div className="mt-6 flex items-start gap-3 border-l-2 border-brand pl-4">
               <ShieldCheck
                 className="mt-0.5 size-5 shrink-0 text-primary"
                 aria-hidden="true"
@@ -294,7 +294,7 @@ export function HoertrainingDemo() {
           <div>
             {/* Progress */}
             <div className="flex items-center justify-between gap-4">
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+              <p className="text-base font-semibold text-brand-deep">
                 Schritt {stepNumber} von {totalSteps}
               </p>
               <span className="text-sm text-muted-foreground">
@@ -475,7 +475,7 @@ export function HoertrainingDemo() {
 
                 <div aria-live="polite">
                   {answered && (
-                    <div className="mt-5 rounded-xl border-l-4 border-primary bg-sand p-5">
+                    <div className="mt-5 border-l-2 border-brand pl-5">
                       <p className="text-base leading-relaxed text-foreground">
                         {step.feedback}
                       </p>

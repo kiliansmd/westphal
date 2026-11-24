@@ -14,7 +14,7 @@ const facts = [
 export function Hero() {
   return (
     <section className="relative border-b border-border bg-background">
-      <div className="mx-auto grid max-w-6xl lg:grid-cols-[1fr_1.05fr]">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1fr_1.05fr]">
         {/* Photo — first on mobile so a real face greets the visitor, bleeding
             to the right edge of the viewport on desktop. */}
         <div className="relative aspect-[4/3] lg:order-2 lg:aspect-auto lg:min-h-[620px]">
@@ -36,7 +36,7 @@ export function Hero() {
             Hörakustik-Meisterbetrieb in Bonn-Beuel
           </p>
 
-          <h1 className="mt-4 text-balance font-serif text-[2.4rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.6rem] lg:leading-[1.04]">
+          <h1 className="mt-4 text-balance break-words hyphens-auto font-serif text-[2.4rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.6rem] lg:leading-[1.04]">
             Wieder klar hören.{' '}
             <em className="font-normal">Ohne Verkaufsdruck.</em>
           </h1>

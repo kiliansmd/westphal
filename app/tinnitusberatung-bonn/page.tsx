@@ -165,10 +165,10 @@ export default function TinnitusberatungBonnPage() {
       {/* Warnung Hörsturz */}
       <section className="bg-background py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="flex items-start gap-4 rounded-2xl border-l-4 border-primary bg-card p-6 shadow-sm sm:p-8">
+          <div className="flex items-start gap-4 border-l-2 border-brand pl-6">
             <AlertTriangle className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden="true" />
             <div>
-              <h2 className="font-serif text-2xl font-semibold text-card-foreground">
+              <h2 className="font-serif text-2xl font-semibold text-foreground">
                 Tinnitus als Vorbote eines Hörsturzes
               </h2>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">
@@ -179,7 +179,7 @@ export default function TinnitusberatungBonnPage() {
                 {hoersturzSymptoms.map((symptom) => (
                   <li
                     key={symptom}
-                    className="flex items-start gap-2 text-base leading-relaxed text-card-foreground"
+                    className="flex items-start gap-2 text-base leading-relaxed text-foreground"
                   >
                     <span className="mt-2 size-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
                     {symptom}
@@ -199,15 +199,12 @@ export default function TinnitusberatungBonnPage() {
       {/* HNO-Anlaufstellen */}
       <section className="bg-secondary py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-            Anlaufstellen
-          </p>
-          <h2 className="mt-2 max-w-2xl text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="max-w-2xl text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             HNO-Praxen & Kliniken in Bonn und Beuel
           </h2>
           <div className="mt-8 grid gap-6 lg:grid-cols-2">
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="flex items-center gap-2 font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="flex items-center gap-2 font-serif text-2xl font-medium text-foreground">
                 <MapPin className="size-5 text-primary" aria-hidden="true" />
                 HNO in Bonn
               </h3>
@@ -222,8 +219,8 @@ export default function TinnitusberatungBonnPage() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-3xl border border-border bg-card p-7 shadow-sm">
-              <h3 className="flex items-center gap-2 font-serif text-xl font-semibold text-card-foreground">
+            <div className="border-t-2 border-foreground pt-6">
+              <h3 className="flex items-center gap-2 font-serif text-2xl font-medium text-foreground">
                 <MapPin className="size-5 text-primary" aria-hidden="true" />
                 HNO in Beuel
               </h3>
@@ -245,10 +242,10 @@ export default function TinnitusberatungBonnPage() {
       {/* Fazit */}
       <section className="bg-background py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="flex items-start gap-4 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+          <div className="flex items-start gap-4 border-t-2 border-foreground pt-6 sm:p-8">
             <Stethoscope className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden="true" />
             <div>
-              <h2 className="font-serif text-2xl font-semibold text-card-foreground">
+              <h2 className="font-serif text-2xl font-semibold text-foreground">
                 Fazit: Hörgeräte als wertvolle Unterstützung bei Tinnitus
               </h2>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">

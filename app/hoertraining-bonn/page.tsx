@@ -64,7 +64,7 @@ export default function HoertrainingBonnPage() {
           'Hörtraining kann helfen, diese Höreindrücke bewusster wahrzunehmen, Sprache besser aus Hintergrundgeräuschen herauszufiltern und sich schrittweise an das neue Hören zu gewöhnen.',
         ]}
       >
-        <div className="flex items-start gap-4 rounded-2xl border-l-4 border-primary bg-card p-6 shadow-sm sm:p-8">
+        <div className="flex items-start gap-4 border-l-2 border-brand pl-6">
           <Info className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden="true" />
           <p className="text-base leading-relaxed text-muted-foreground">
             Hörtraining ersetzt keinen Hörtest und keine medizinische Abklärung.
@@ -78,10 +78,7 @@ export default function HoertrainingBonnPage() {
       {/* Interaktive Mini-Hörübung */}
       <section id="uebung" className="scroll-mt-24 bg-secondary py-14 sm:py-16">
         <div className="mx-auto max-w-3xl px-4 sm:px-6">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-            Interaktiv erleben
-          </p>
-          <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             Hörverstehen erleben – in 60 bis 90 Sekunden
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -118,10 +115,7 @@ export default function HoertrainingBonnPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
             <div>
-              <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-                Unabhängig
-              </p>
-              <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+              <h2 className="text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
                 Wir beraten unabhängig zu Hörtraining
               </h2>
               <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
@@ -139,15 +133,9 @@ export default function HoertrainingBonnPage() {
               </p>
             </div>
 
-            <ul className="grid content-start gap-3 rounded-2xl border border-border bg-card p-6 shadow-sm sm:p-8">
+            <ul className="grid content-start gap-3 border-t-2 border-foreground pt-6 sm:p-8">
               {hoertrainingIndependencePoints.map((point) => (
                 <li key={point} className="flex items-start gap-3">
-                  <span
-                    className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-accent text-primary"
-                    aria-hidden="true"
-                  >
-                    <Check className="size-4" />
-                  </span>
                   <span className="text-base leading-relaxed text-foreground">
                     {point}
                   </span>
@@ -161,10 +149,7 @@ export default function HoertrainingBonnPage() {
       {/* Ablauf der Beratung */}
       <section className="bg-secondary py-14 sm:py-16">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-sm font-semibold uppercase tracking-wide text-primary">
-            Ablauf
-          </p>
-          <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          <h2 className="text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             So beraten wir Sie zum Hörtraining
           </h2>
 
@@ -172,15 +157,15 @@ export default function HoertrainingBonnPage() {
             {hoertrainingProcess.map((item, index) => (
               <li
                 key={item.title}
-                className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm"
+                className="flex flex-col border-t-2 border-foreground pt-6"
               >
-                <span className="flex size-10 items-center justify-center rounded-full bg-primary text-lg font-semibold text-primary-foreground">
+                <span className="font-serif text-3xl text-brand-deep" aria-hidden="true">
                   {index + 1}
                 </span>
-                <h3 className="mt-4 text-lg font-semibold leading-snug text-card-foreground">
+                <h3 className="font-serif text-2xl font-medium leading-snug text-foreground">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+                <p className="mt-2 text-lg leading-relaxed text-muted-foreground">
                   {item.text}
                 </p>
               </li>

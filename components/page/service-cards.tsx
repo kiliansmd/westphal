@@ -1,7 +1,9 @@
 import type { LucideIcon } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 export type ServiceCard = {
-  icon: LucideIcon
+  /** Kept for data compatibility; the redesign deliberately shows no icons. */
+  icon?: LucideIcon
   title: string
   text: string
 }
@@ -13,32 +15,23 @@ export function ServiceCards({
   cards: ServiceCard[]
   columns?: 2 | 3
 }) {
-  const gridCols =
-    columns === 3
-      ? 'sm:grid-cols-2 lg:grid-cols-3'
-      : 'sm:grid-cols-2'
-
   return (
-    <div className={`grid gap-5 ${gridCols}`}>
-      {cards.map((card) => {
-        const Icon = card.icon
-        return (
-          <div
-            key={card.title}
-            className="flex flex-col rounded-2xl border border-border bg-card p-6 shadow-sm transition-colors hover:border-primary/40"
-          >
-            <span className="flex size-12 items-center justify-center rounded-xl bg-accent text-primary">
-              <Icon className="size-6" aria-hidden="true" />
-            </span>
-            <h3 className="mt-4 text-lg font-semibold leading-snug text-card-foreground">
-              {card.title}
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              {card.text}
-            </p>
-          </div>
-        )
-      })}
+    <div
+      className={cn(
+        'grid gap-x-12',
+        columns === 3 ? 'sm:grid-cols-2 lg:grid-cols-3' : 'sm:grid-cols-2',
+      )}
+    >
+      {cards.map((card) => (
+        <div key={card.title} className="border-t border-foreground/15 py-7">
+          <h3 className="font-serif text-2xl font-medium leading-snug text-foreground">
+            {card.title}
+          </h3>
+          <p className="mt-3 text-lg leading-relaxed text-muted-foreground">
+            {card.text}
+          </p>
+        </div>
+      ))}
     </div>
   )
 }
