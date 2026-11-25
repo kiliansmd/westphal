@@ -60,7 +60,7 @@ export function ModuleTeaser({
                 aria-expanded={false}
                 aria-controls={panelId}
                 onClick={() => setOpen(true)}
-                className="link-accent mt-5 inline-flex items-center gap-2 text-lg"
+                className="link-accent mt-5 inline-flex min-h-11 items-center gap-2 text-lg"
               >
                 {openLabel}
                 <ChevronDown className="size-5" aria-hidden="true" />

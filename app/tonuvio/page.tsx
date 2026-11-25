@@ -32,15 +32,17 @@ export const metadata: Metadata = {
   description:
     'tonuvio ist das persönliche Hörtraining von Westphal Hörgeräte: kurze Übungen mit Alltagssätzen, abgestimmt auf Ihr Hörsystem und Ihre Ziele. Eingerichtet und begleitet in Bonn-Beuel.',
   openGraph: {
+    type: 'website',
+    locale: 'de_DE',
+    siteName: 'Westphal Hörgeräte',
     title: 'tonuvio: die Hörtraining-App von Westphal Hörgeräte',
     description:
       'Wenige Minuten am Tag für mehr Sicherheit im Gespräch. Persönlich eingerichtet im Fachgeschäft in Bonn-Beuel.',
-    images: [{ url: '/images/tonuvio/uebersicht.webp', width: 828, height: 1736 }],
   },
 }
 
 const h2 =
-  'text-balance break-words hyphens-auto font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]'
+  'text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]'
 const lead = 'mt-5 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl'
 
 function AppJsonLd() {

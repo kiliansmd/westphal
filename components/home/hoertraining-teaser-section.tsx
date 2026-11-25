@@ -28,7 +28,7 @@ export function HoertrainingTeaserSection() {
             </Link>
             <Link
               href="/hoertraining-bonn"
-              className="inline-flex items-center gap-2 text-lg font-semibold text-background underline decoration-background/40 decoration-2 underline-offset-[6px] hover:decoration-brand"
+              className="inline-flex min-h-11 items-center gap-2 text-lg font-semibold text-background underline decoration-background/40 decoration-2 underline-offset-[6px] hover:decoration-brand"
             >
               Mehr über Hörtraining
               <ArrowRight className="size-5" aria-hidden="true" />

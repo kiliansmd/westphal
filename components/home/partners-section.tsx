@@ -27,7 +27,7 @@ export function PartnersSection() {
                 width={200}
                 height={80}
                 sizes="(min-width: 1024px) 160px, (min-width: 640px) 30vw, 44vw"
-                className={`h-auto w-auto max-w-[9rem] object-contain opacity-70 mix-blend-multiply grayscale transition hover:opacity-100 hover:grayscale-0 ${
+                className={`h-auto w-auto max-w-[9rem] object-contain opacity-80 mix-blend-multiply grayscale transition hover:opacity-100 hover:grayscale-0 ${
                   partner.wide ? 'max-h-9' : 'max-h-12'
                 }`}
               />

@@ -381,7 +381,7 @@ export const partners: Partner[] = [
     name: 'Humantechnik',
     src: '/images/partners/humantechnik.png',
     alt: 'Humantechnik Signalanlagen – Partner von Westphal Hörgeräte in Bonn-Beuel',
-    wide: true,
+    wide: false,
   },
   {
     name: 'Bellman & Symfon',

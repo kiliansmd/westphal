@@ -39,7 +39,7 @@ export default async function ContactPage({
         <section className="border-b border-border bg-background">
           <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-end lg:gap-20 lg:py-20">
             <div>
-              <h1 className="max-w-3xl text-balance break-words hyphens-auto font-serif text-[2.3rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
+              <h1 className="max-w-3xl text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-[2.3rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
                 Kontakt &amp; Termin anfragen
               </h1>
               <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">

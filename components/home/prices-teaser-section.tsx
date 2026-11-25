@@ -76,7 +76,7 @@ export function PricesTeaserSection() {
           </p>
           <Link
             href="/preise-krankenkasse"
-            className="inline-flex shrink-0 items-center gap-2 text-lg font-semibold text-foreground underline decoration-brand decoration-2 underline-offset-[6px] hover:decoration-foreground"
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 text-lg font-semibold text-foreground underline decoration-brand decoration-2 underline-offset-[6px] hover:decoration-foreground"
           >
             Alle Preise &amp; Kassenzuschuss
             <ArrowRight className="size-5" aria-hidden="true" />

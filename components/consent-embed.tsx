@@ -39,13 +39,13 @@ function ConsentGate({
         <h3 className="font-serif text-lg font-semibold text-foreground">
           {title}
         </h3>
-        <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-1 text-base leading-relaxed text-muted-foreground">
           {description}
         </p>
       </div>
       <Button onClick={() => setLoaded(true)}>{actionLabel}</Button>
-      <p className="flex items-center gap-1.5 text-xs text-muted-foreground">
-        <ShieldCheck className="size-3.5" aria-hidden="true" />
+      <p className="flex items-center gap-1.5 text-sm text-muted-foreground">
+        <ShieldCheck className="size-4" aria-hidden="true" />
         Erst nach Ihrer Zustimmung werden externe Inhalte geladen.
       </p>
     </div>

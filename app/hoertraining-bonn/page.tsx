@@ -191,7 +191,7 @@ export default function HoertrainingBonnPage() {
             </p>
             <Link
               href="/tonuvio"
-              className="mt-7 inline-flex text-lg font-semibold text-white underline decoration-brand decoration-2 underline-offset-[6px] hover:decoration-white"
+              className="mt-7 inline-flex min-h-11 items-center text-lg font-semibold text-white underline decoration-brand decoration-2 underline-offset-[6px] hover:decoration-white"
             >
               tonuvio kennenlernen
             </Link>

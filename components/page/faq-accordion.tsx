@@ -23,7 +23,7 @@ export function FAQAccordion({
   return (
     <section className="scroll-mt-28 border-b border-border bg-background py-16 sm:py-24" aria-label={eyebrow}>
       <div className="mx-auto grid max-w-6xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
-        <h2 className="text-balance break-words hyphens-auto font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
+        <h2 className="text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
           {heading}
         </h2>
 

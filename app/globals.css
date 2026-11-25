@@ -304,3 +304,13 @@
     text-decoration-color: var(--foreground);
   }
 }
+
+/* Allein stehende Textlinks (nicht im Fließtext) bekommen eine
+   Tippfläche von mindestens 44 px, wichtig für ältere Nutzerinnen. */
+@layer components {
+  a.link-accent:not(:where(p, li, td, dd, label, span) a) {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+}

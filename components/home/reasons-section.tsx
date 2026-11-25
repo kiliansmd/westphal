@@ -73,7 +73,7 @@ export function ReasonsSection() {
 
           <Link
             href="/warum-westphal"
-            className="mt-10 inline-flex items-center gap-2 text-lg font-semibold text-foreground underline decoration-brand decoration-2 underline-offset-[6px] hover:decoration-foreground"
+            className="mt-10 inline-flex min-h-11 items-center gap-2 text-lg font-semibold text-foreground underline decoration-brand decoration-2 underline-offset-[6px] hover:decoration-foreground"
           >
             Mehr über uns und unser Team
             <ArrowRight className="size-5" aria-hidden="true" />

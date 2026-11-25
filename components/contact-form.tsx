@@ -8,7 +8,7 @@ import { contactReasons } from '@/lib/site-data'
 const fieldBase =
   'w-full rounded-lg border bg-background text-base text-foreground shadow-sm outline-none transition-colors placeholder:text-muted-foreground focus-visible:ring-3 focus-visible:ring-ring/40'
 
-const labelClass = 'mb-2 block text-sm font-semibold text-foreground'
+const labelClass = 'mb-2 block text-base font-semibold text-foreground'
 
 type Errors = Partial<Record<'name' | 'contact' | 'email' | 'reason' | 'privacy', string>>
 
@@ -247,10 +247,10 @@ export function ContactForm({ defaultReason = '', defaultMessage = '' }: Contact
           aria-required="true"
           aria-invalid={errors.privacy ? 'true' : undefined}
           aria-describedby={errors.privacy ? 'privacy-error' : undefined}
-          className="mt-1 size-5 shrink-0 rounded border-input text-primary accent-primary focus-visible:ring-3 focus-visible:ring-ring/40"
+          className="mt-0.5 size-6 shrink-0 rounded border-input text-primary accent-primary focus-visible:ring-3 focus-visible:ring-ring/40"
         />
         <div>
-          <label htmlFor="privacy" className="text-sm leading-relaxed text-muted-foreground">
+          <label htmlFor="privacy" className="text-base leading-relaxed text-muted-foreground">
             Ich habe die{' '}
             <a
               href="/datenschutz"

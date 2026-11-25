@@ -45,7 +45,7 @@ export function PageHero({
   const content = (
     <>
       <p className="text-base font-medium text-muted-foreground">{eyebrow}</p>
-      <h1 className="mt-4 max-w-3xl text-balance break-words hyphens-auto font-serif text-[2.1rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
+      <h1 className="mt-4 max-w-3xl text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-[2.1rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
         {headline}
       </h1>
       <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">

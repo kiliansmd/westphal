@@ -40,39 +40,18 @@ export const metadata: Metadata = {
     'Gehörschutz',
     'Westphal Hörgeräte',
   ],
+  // Titel, Beschreibung und Vorschaubild kommen je Seite aus <title>,
+  // der Meta-Beschreibung und der Datei opengraph-image.jpg im Segment.
   openGraph: {
     type: 'website',
     locale: 'de_DE',
     siteName: 'Westphal Hörgeräte',
-    title: 'Westphal Hörgeräte – Hörakustik in Bonn-Beuel',
-    description:
-      'Persönliche, unabhängige Hörgeräte-Beratung in Bonn-Beuel. Meisterbetreuung, herstellerunabhängige Auswahl und transparente Preise.',
-    url: company.url,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Westphal Hörgeräte – Hörakustik in Bonn-Beuel',
-    description:
-      'Persönliche, unabhängige Hörgeräte-Beratung in Bonn-Beuel. Hören verbindet.',
   },
-  generator: 'v0.app',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
+  applicationName: 'Westphal Hörgeräte',
+  formatDetection: { telephone: true, address: true, email: true },
 }
 
 export const viewport: Viewport = {

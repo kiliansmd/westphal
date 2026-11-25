@@ -36,7 +36,7 @@ export function Hero() {
             Hörakustik-Meisterbetrieb in Bonn-Beuel
           </p>
 
-          <h1 className="mt-4 text-balance break-words hyphens-auto font-serif text-[2.4rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.6rem] lg:leading-[1.04]">
+          <h1 className="mt-4 text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-[2.4rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.6rem] lg:leading-[1.04]">
             Wieder klar hören.{' '}
             <em className="font-normal">Ohne Verkaufsdruck.</em>
           </h1>
