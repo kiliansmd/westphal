@@ -21,6 +21,7 @@ import {
   tonuvioFacts,
   tonuvioFaqs,
   tonuvioPersonalPoints,
+  tonuvioPurpose,
   tonuvioProgressPoints,
   tonuvioRelated,
   tonuvioSituations,
@@ -30,16 +31,16 @@ import {
 
 export const metadata: Metadata = {
   alternates: { canonical: '/tonuvio' },
-  title: 'Hörtraining-App tonuvio: Gespräche wieder sicherer verstehen',
+  title: 'tonuvio: Übungs-App für Sprachverstehen im Alltag',
   description:
-    'tonuvio ist das persönliche Hörtraining von Westphal Hörgeräte: kurze Übungen mit Alltagssätzen, abgestimmt auf Ihr Hörsystem und Ihre Ziele. Eingerichtet und begleitet in Bonn-Beuel.',
+    'tonuvio ist die Übungs-App von Westphal Hörgeräte: kurze Einheiten mit Alltagssätzen, um Gespräche im Restaurant, am Telefon oder in der Familie sicherer zu verstehen. Persönlich eingerichtet in Bonn-Beuel.',
   openGraph: {
     type: 'website',
     locale: 'de_DE',
     siteName: 'Westphal Hörgeräte',
-    title: 'tonuvio: die Hörtraining-App von Westphal Hörgeräte',
+    title: 'tonuvio: die Übungs-App für Sprachverstehen von Westphal Hörgeräte',
     description:
-      'Wenige Minuten am Tag für mehr Sicherheit im Gespräch. Persönlich eingerichtet im Fachgeschäft in Bonn-Beuel.',
+      'Gespräche im Alltag sicherer verstehen, mit wenigen Minuten Übung am Tag. Persönlich eingerichtet im Fachgeschäft in Bonn-Beuel.',
   },
 }
 
@@ -51,12 +52,11 @@ function AppJsonLd() {
   const data = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'tonuvio Hörtraining',
-    applicationCategory: 'HealthApplication',
+    name: 'tonuvio',
+    applicationCategory: 'EducationalApplication',
     operatingSystem: 'Web (Smartphone, Tablet, Computer)',
     inLanguage: 'de',
-    description:
-      'Persönliches, adaptives Hörtraining mit kurzen Übungen aus dem Alltag in vier Trainingsbereichen.',
+    description: tonuvioPurpose,
     url: `${company.url}/tonuvio`,
     provider: { '@type': 'Organization', name: company.name, url: company.url },
   }
@@ -74,8 +74,7 @@ export default function TonuvioPage() {
       <BreadcrumbJsonLd
         items={[
           { name: 'Home', path: '/' },
-          { name: 'Hörtraining', path: '/hoertraining-bonn' },
-          { name: 'Hörtraining-App tonuvio', path: '/tonuvio' },
+          { name: 'Übungs-App tonuvio', path: '/tonuvio' },
         ]}
       />
       <FaqJsonLd items={tonuvioFaqs} />
@@ -95,18 +94,18 @@ export default function TonuvioPage() {
               />
               <p className="flex items-center gap-2 text-base font-medium text-muted-foreground">
                 <span aria-hidden="true" className="tv-dot size-2.5 rounded-full bg-brand" />
-                Neu · Die Hörtraining-App von Westphal
+                Neu · Die Übungs-App von Westphal
               </p>
             </div>
             <h1 style={{ ['--d' as string]: '80ms' }} className="tv-rise mt-6 max-w-2xl text-balance font-serif text-[2.3rem] font-medium leading-[1.06] text-foreground sm:text-5xl lg:text-[3.5rem]">
-              Gespräche wieder sicherer verstehen.{' '}
-              <em className="font-normal">Mit wenigen Minuten am Tag.</em>
+              Gespräche im Alltag sicherer verstehen.{' '}
+              <em className="font-normal">Mit wenigen Minuten Übung am Tag.</em>
             </h1>
             <p className={cn(lead, 'tv-rise')} style={{ ['--d' as string]: '180ms' }}>
-              tonuvio ist Ihr persönliches Hörtraining für den Alltag. Kurze
-              Übungen mit echten Alltagssätzen, abgestimmt auf Ihr Hörsystem und
-              auf die Situationen, die Ihnen wichtig sind. Eingerichtet und
-              begleitet von uns im Fachgeschäft.
+              tonuvio ist ein Training für das Verstehen von Sprache im Alltag.
+              Kurze Übungen mit echten Alltagssätzen, ausgerichtet auf die
+              Situationen, die Ihnen wichtig sind: Restaurant, Telefon, Familie.
+              Eingerichtet von uns im Fachgeschäft.
             </p>
             <ul className="tv-rise mt-7 flex flex-col gap-2 sm:flex-row sm:flex-wrap sm:gap-x-6" style={{ ['--d' as string]: '260ms' }}>
               {tonuvioFacts.map((fact) => (
@@ -137,7 +136,7 @@ export default function TonuvioPage() {
               <div className="tv-float">
                 <PhoneShot
                   src="/images/tonuvio/uebersicht.webp"
-                  alt="tonuvio auf dem iPhone: Übersicht mit Begrüßung, empfohlener Tagesübung „Sprache im Geräusch“, Wochenziel und Trainingsbereichen."
+                  alt="tonuvio auf dem iPhone: Übersicht mit Begrüßung, empfohlener Tagesübung „Sprache im Geräusch“, Wochenziel und Übungsbereichen."
                   priority
                   sizes="(min-width: 1024px) 300px, 62vw"
                 />
@@ -162,8 +161,8 @@ export default function TonuvioPage() {
       <section aria-label="tonuvio in Zahlen" className="border-b border-border bg-background">
         <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-4 py-10 sm:px-6 lg:grid-cols-4">
           {[
-            { value: 4, label: 'Trainingsbereiche aus dem Alltag' },
-            { value: 8, label: 'Stufen je Bereich, die mitwachsen' },
+            { value: 4, label: 'Übungsbereiche aus dem Alltag' },
+            { value: 8, label: 'Schwierigkeitsstufen je Bereich' },
             { value: 10, prefix: '6 bis ', label: 'Minuten pro Einheit' },
             { value: 3, label: 'Schriftgrößen und ein Kontrastmodus' },
           ].map((stat, index) => (
@@ -183,18 +182,19 @@ export default function TonuvioPage() {
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-20">
             <h2 className={h2}>
-              Das Hörgerät sitzt gut. Und trotzdem ist manches Gespräch anstrengend?
+              Zuhören verlangt viel. Vor allem, wenn um Sie herum viel los ist.
             </h2>
             <div className="space-y-5 text-pretty text-lg leading-relaxed text-muted-foreground">
               <p>
-                Das ist normal. Nach einer längeren Zeit mit Hörverlust muss das
-                Gehirn wieder lernen, Sprache aus vielen neuen Höreindrücken
-                herauszufiltern. Das Hörgerät liefert den Klang, das Verstehen
-                entsteht im Kopf.
+                Mehrere Menschen reden gleichzeitig, am Telefon fehlt das Gesicht,
+                in der Gruppe wechseln die Sprecher schnell. Das kennen viele.
+                Wie bei einer Fremdsprache lässt sich gezieltes Zuhören üben:
+                worauf achte ich, wie bleibe ich bei einer Stimme, wie behalte
+                ich Details?
               </p>
               <p className="font-semibold text-foreground">
-                Genau dieses Verstehen trainiert tonuvio. Gezielt, in kleinen
-                Schritten und mit Situationen aus Ihrem Alltag.
+                Genau das übt tonuvio. In kleinen Schritten und mit Situationen
+                aus Ihrem Alltag.
               </p>
             </div>
           </div>
@@ -241,10 +241,10 @@ export default function TonuvioPage() {
       {/* 4 · Was trainiert wird */}
       <section className="border-b border-border bg-background py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className={h2}>Vier Bereiche, die im Alltag zählen</h2>
+          <h2 className={h2}>Vier Übungsbereiche, die im Alltag zählen</h2>
           <p className={lead}>
-            Jeder Bereich hat acht Stufen. Sie üben dort, wo es für Sie gerade am
-            meisten bringt.
+            Jeder Bereich hat acht Schwierigkeitsstufen. Sie üben dort, wo es zu
+            Ihren Situationen passt.
           </p>
           <ul className="mt-12 grid gap-x-12 sm:grid-cols-2">
             {tonuvioDomains.map((domain, index) => (
@@ -281,8 +281,8 @@ export default function TonuvioPage() {
           <div className="lg:order-2">
             <h2 className={h2}>Ein Training, das zu Ihrem Leben passt</h2>
             <p className={lead}>
-              tonuvio fängt nicht bei Null an, sondern bei Ihnen. Bei den
-              Situationen, in denen Sie besser verstehen möchten.
+              tonuvio fängt bei Ihnen an: bei den Situationen, in denen Sie
+              Gespräche sicherer verfolgen möchten.
             </p>
             <ol className="mt-10 grid gap-x-10 sm:grid-cols-3 lg:grid-cols-1">
               {tonuvioPersonalPoints.map((point, index) => (
@@ -314,10 +314,11 @@ export default function TonuvioPage() {
       <section className="border-b border-border bg-background py-16 sm:py-24">
         <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
           <div>
-            <h2 className={h2}>Fortschritt, den Sie sehen können</h2>
+            <h2 className={h2}>Ihr Übungsstand auf einen Blick</h2>
             <p className={lead}>
-              Kleine Erfolge sind der beste Grund, dranzubleiben. tonuvio zeigt
-              Ihnen ehrlich, wo Sie stehen, ohne Sie unter Druck zu setzen.
+              Kleine Erfolge machen Lust aufs Weiterüben. tonuvio zeigt Ihnen, wie
+              regelmäßig Sie üben und wie anspruchsvoll Ihre Übungen gerade sind,
+              ohne Sie unter Druck zu setzen.
             </p>
             <ul className="mt-8 space-y-4">
               {tonuvioProgressPoints.map((point, index) => (
@@ -336,7 +337,7 @@ export default function TonuvioPage() {
           <Parallax speed={0.05} className="mx-auto w-full max-w-[280px]">
             <PhoneShot
               src="/images/tonuvio/fortschritt.webp"
-              alt="tonuvio auf dem iPhone: Fortschritt mit Anzahl der Einheiten, Trainingsminuten, aktiven Tagen, Trefferquote und den Stufen der vier Bereiche."
+              alt="tonuvio auf dem iPhone: Übungsstand mit Anzahl der Einheiten, Übungsminuten, aktiven Tagen, gelösten Aufgaben und den Schwierigkeitsstufen der vier Bereiche."
             />
           </Parallax>
         </div>
@@ -346,7 +347,7 @@ export default function TonuvioPage() {
       <section className="border-b border-border bg-secondary py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="grid items-end gap-6 lg:grid-cols-2 lg:gap-20">
-            <h2 className={h2}>Gemacht für gutes Lesen und entspanntes Hören</h2>
+            <h2 className={h2}>Gemacht für gutes Lesen und entspanntes Üben</h2>
             <p className="text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
               tonuvio ist für Menschen gebaut, die nicht jeden Tag mit Apps
               arbeiten. Alles ist groß, klar beschriftet und in Ruhe bedienbar.
@@ -376,7 +377,7 @@ export default function TonuvioPage() {
               <Parallax speed={0.09} className="mt-12 w-1/2">
                 <PhoneShot
                   src="/images/tonuvio/toneinrichtung.webp"
-                  alt="tonuvio auf dem iPhone: Toneinrichtung mit Auswahl zwischen Lautsprecher, Kopfhörer und direkter Übertragung ins Hörsystem."
+                  alt="tonuvio auf dem iPhone: Toneinrichtung mit Auswahl zwischen Lautsprecher, Kopfhörer und einem per Bluetooth verbundenen Gerät."
                   sizes="(min-width: 1024px) 220px, 45vw"
                 />
               </Parallax>
@@ -388,11 +389,11 @@ export default function TonuvioPage() {
       {/* 8 · Der Weg zu tonuvio: persönliche Begleitung als Unterschied */}
       <section className="border-b border-border bg-background py-16 sm:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className={h2}>Nicht allein mit einer App: so begleiten wir Sie</h2>
+          <h2 className={h2}>Nicht allein mit einer App: so unterstützen wir Sie</h2>
           <p className={lead}>
-            Hörtraining wirkt am besten, wenn Hörsysteme und Übungen
-            zusammenpassen. Deshalb gibt es tonuvio bei uns nur mit persönlicher
-            Einrichtung.
+            Neue Technik ist leichter, wenn jemand sie einmal mit Ihnen gemeinsam
+            einrichtet. Deshalb gibt es tonuvio bei uns mit persönlicher
+            Einrichtung im Fachgeschäft.
           </p>
           <ol className="mt-12 grid gap-x-10 sm:grid-cols-2 lg:grid-cols-4">
             {tonuvioSteps.map((step, index) => (
@@ -432,7 +433,7 @@ export default function TonuvioPage() {
       {/* 9 · Vertrauen: ehrliche Grenzen und Datenschutz */}
       <section className="border-b border-border bg-sand py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <h2 className={h2}>Ehrlich, sicher und persönlich</h2>
+          <h2 className={h2}>Klar eingeordnet, sicher und persönlich</h2>
           <ul className="mt-10 grid gap-x-12 sm:grid-cols-3">
             {tonuvioTrustPoints.map((point, index) => (
               <Reveal as="li" delay={index * 110} key={point.title} className="border-t border-foreground/15 py-7">
@@ -445,6 +446,13 @@ export default function TonuvioPage() {
               </Reveal>
             ))}
           </ul>
+          <p
+            id="einordnung"
+            className="mt-6 max-w-4xl border-t border-foreground/15 pt-6 text-base leading-relaxed text-muted-foreground"
+          >
+            <strong className="font-semibold text-foreground">Einordnung:</strong>{' '}
+            {tonuvioPurpose}
+          </p>
         </div>
       </section>
 
@@ -452,7 +460,7 @@ export default function TonuvioPage() {
 
       <CTASection
         heading="Möchten Sie mit tonuvio starten?"
-        text="Vereinbaren Sie einen Termin. Wir prüfen gemeinsam, ob Hörtraining für Sie sinnvoll ist, und richten tonuvio passend zu Ihren Hörsystemen ein."
+        text="Vereinbaren Sie einen Termin. Wir zeigen Ihnen tonuvio in Ruhe und richten Ihren Zugang gemeinsam mit Ihnen ein."
         primaryLabel="Zugang anfragen"
         primaryHref={tonuvioContactHref}
       />

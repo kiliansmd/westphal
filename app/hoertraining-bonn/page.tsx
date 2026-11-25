@@ -176,18 +176,18 @@ export default function HoertrainingBonnPage() {
         </div>
       </section>
 
-      {/* Eigenes Angebot: Hörtraining-App tonuvio */}
+      {/* Eigenes Angebot: Übungs-App tonuvio (bewusst ohne Bezug zur Versorgung) */}
       <section className="overflow-hidden bg-[#3B5142] py-14 text-white sm:py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
           <div>
             <p className="text-base font-semibold text-brand">Neu bei uns</p>
             <h2 className="mt-3 text-balance font-serif text-3xl font-medium leading-[1.12] text-white sm:text-[2.6rem]">
-              Hörtraining für zuhause: tonuvio
+              Zuhause üben mit tonuvio
             </h2>
             <p className="mt-4 max-w-xl text-pretty text-lg leading-relaxed text-white/85">
-              Wenn Hörtraining für Sie passt, richten wir Ihnen unsere App tonuvio
-              ein. Kurze Übungen mit Alltagssätzen, abgestimmt auf Ihr Hörsystem
-              und Ihre Ziele.
+              Unsere Übungs-App für das Verstehen von Sprache im Alltag: kurze
+              Einheiten mit Alltagssätzen für Restaurant, Telefon und Familie. Mit
+              oder ohne Hörsystem nutzbar, kein Medizinprodukt.
             </p>
             <Link
               href="/tonuvio"
@@ -199,7 +199,7 @@ export default function HoertrainingBonnPage() {
           <div className="mx-auto w-full max-w-[220px]">
             <PhoneShot
               src="/images/tonuvio/training-hoeren.webp"
-              alt="tonuvio auf dem iPhone: Trainingsaufgabe mit Wiedergabe-Schaltfläche und vier Antwortmöglichkeiten."
+              alt="tonuvio auf dem iPhone: Übung mit Wiedergabe-Schaltfläche und vier Antwortmöglichkeiten."
               sizes="220px"
             />
           </div>
