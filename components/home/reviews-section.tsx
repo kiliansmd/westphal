@@ -34,7 +34,7 @@ export function ReviewsSection() {
               href={googleHref}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 pb-1 text-lg font-semibold whitespace-nowrap text-foreground underline decoration-brand decoration-2 underline-offset-[6px] hover:decoration-foreground"
+              className="inline-flex min-h-11 items-center gap-1.5 text-lg font-semibold whitespace-nowrap text-foreground underline decoration-brand decoration-2 underline-offset-[6px] hover:decoration-foreground"
             >
               Auf Google lesen
               <ArrowUpRight className="size-5" aria-hidden="true" />
