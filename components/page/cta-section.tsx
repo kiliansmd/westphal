@@ -8,12 +8,15 @@ type CTASectionProps = {
   heading?: string
   text?: string
   primaryLabel?: string
+  /** Ziel der Hauptschaltfläche, z. B. mit vorausgewähltem Anliegen. */
+  primaryHref?: string
 }
 
 export function CTASection({
   heading = 'Vereinbaren Sie Ihren persönlichen Termin',
   text = 'Wir nehmen uns Zeit für Ihr Anliegen. Vereinbaren Sie einen Termin oder wünschen Sie einen Rückruf – wir melden uns persönlich bei Ihnen.',
   primaryLabel = 'Termin anfragen',
+  primaryHref = '/kontakt',
 }: CTASectionProps) {
   return (
     <section className="border-b border-border bg-secondary py-16 sm:py-24">
@@ -35,7 +38,7 @@ export function CTASection({
           </a>
           <div className="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
             <Link
-              href="/kontakt"
+              href={primaryHref}
               className={cn(buttonVariants({ size: 'lg' }), 'w-full sm:w-auto')}
             >
               <CalendarCheck aria-hidden="true" />

@@ -67,7 +67,8 @@ export const navigation: NavEntry[] = [
       { label: 'Hörgeräte-Preise', href: '/preise-krankenkasse' },
       { label: 'Krankenkassenzuschuss', href: '/preise-krankenkasse#krankenkasse' },
       { label: 'Hörgeräte bei Tinnitus', href: '/tinnitusberatung-bonn' },
-      { label: 'Hörtraining erleben', href: '/hoertraining-bonn', badge: 'Neu' },
+      { label: 'Hörtraining erleben', href: '/hoertraining-bonn' },
+      { label: 'Hörtraining-App tonuvio', href: '/tonuvio', badge: 'Neu' },
       { label: 'Alles über Gehörschutz', href: '/gehoerschutz-bonn' },
     ],
   },
@@ -81,6 +82,7 @@ export const footerServiceLinks = [
   { label: 'Preise & Krankenkasse', href: '/preise-krankenkasse' },
   { label: 'Tinnitusberatung', href: '/tinnitusberatung-bonn' },
   { label: 'Hörtraining', href: '/hoertraining-bonn' },
+  { label: 'Hörtraining-App tonuvio', href: '/tonuvio' },
   { label: 'Gehörschutz', href: '/gehoerschutz-bonn' },
   { label: 'Service & Reparatur', href: '/service-reparatur' },
 ]
@@ -445,6 +447,8 @@ export const contactReasons = [
   'Hörgeräte testen',
   'bestehende Hörgeräte optimieren',
   'Tinnitusberatung',
+  'Hörtraining',
+  'Hörtraining-App tonuvio',
   'Gehörschutz',
   'Reparatur / Service',
   'Bewerbung',
@@ -871,6 +875,11 @@ export const hoertrainingFaqs = [
 
 export const hoertrainingRelated = [
   {
+    label: 'Hörtraining-App tonuvio',
+    description: 'Kurze tägliche Übungen für Ihren Hör-Alltag, eingerichtet bei uns.',
+    href: '/tonuvio',
+  },
+  {
     label: 'Hörtest Bonn-Beuel',
     description: 'Professionelle Höranalyse – persönlich im Fachgeschäft.',
     href: '/hoertest-bonn-beuel',
@@ -879,6 +888,241 @@ export const hoertrainingRelated = [
     label: 'Hörgeräte bei Tinnitus',
     description: 'Entlastung und Hörgewöhnung bei Ohrgeräuschen.',
     href: '/tinnitusberatung-bonn',
+  },
+  {
+    label: 'Klangwellen-Anpassverfahren',
+    description: 'Behutsame, individuelle Anpassung Ihres Hörens.',
+    href: '/klangwellen-anpassverfahren',
+  },
+]
+
+/* -------------------------------------------------------------------------- */
+/* tonuvio: Hörtraining-App (Unterseite /tonuvio)                            */
+/* -------------------------------------------------------------------------- */
+
+/** Anliegen-Wert für das Kontaktformular (muss in `contactReasons` stehen). */
+export const tonuvioContactHref = '/kontakt?anliegen=Hörtraining-App tonuvio'
+
+export const tonuvioFacts = [
+  '6 bis 10 Minuten pro Einheit',
+  'Smartphone, Tablet oder Computer',
+  'Persönlich bei uns eingerichtet',
+]
+
+/** Alltagssituationen, wie sie auch in der App zur Auswahl stehen. */
+export const tonuvioSituations = [
+  {
+    title: 'Im Restaurant und am Familientisch',
+    text: 'Mehrere Stimmen, Geschirr, Musik. Sie verstehen Bruchstücke und müssen sich den Rest zusammenreimen.',
+  },
+  {
+    title: 'Am Telefon',
+    text: 'Ohne Lippenbild gehen Uhrzeiten, Namen und Hausnummern schnell verloren.',
+  },
+  {
+    title: 'In der Gruppe',
+    text: 'Sprecherwechsel und längere Beiträge kosten Kraft. Nach einer Stunde sind Sie erschöpft.',
+  },
+]
+
+export type TonuvioDomain = {
+  title: string
+  text: string
+  /** Bereichsfarbe aus dem tonuvio-Styleguide (Text auf Weiß ≥ 5,9:1). */
+  color: string
+}
+
+export const tonuvioDomains: TonuvioDomain[] = [
+  {
+    title: 'Sprache im Geräusch',
+    text: 'Wörter und Sätze trotz kontrollierter Hintergrundgeräusche verstehen.',
+    color: '#3F6B5A',
+  },
+  {
+    title: 'Zielstimme fokussieren',
+    text: 'Eine wichtige Stimme erkennen und die entscheidende Information heraushören.',
+    color: '#2E5F73',
+  },
+  {
+    title: 'Satzdetails verstehen',
+    text: 'Konkrete Angaben wie Uhrzeit, Ort oder Gleis aus alltagsnahen Sätzen erfassen.',
+    color: '#6A4C6E',
+  },
+  {
+    title: 'Hörfolgen merken',
+    text: 'Mehrere gehörte Informationen in der richtigen Reihenfolge behalten.',
+    color: '#9A4F24',
+  },
+]
+
+export type TonuvioWalkStep = {
+  id: string
+  label: string
+  title: string
+  text: string
+  image: string
+  alt: string
+}
+
+/** Einblick in eine Übung: echte Abläufe und Texte aus der App. */
+export const tonuvioWalkthrough: TonuvioWalkStep[] = [
+  {
+    id: 'hoeren',
+    label: 'Anhören',
+    title: 'Ein Satz aus dem Alltag',
+    text: 'Sie hören einen kurzen Satz, zum Beispiel eine Durchsage am Bahnsteig. Wiedergabe in Ruhe starten, bei Bedarf ein zweites Mal. Die Antworten erscheinen erst, wenn Sie zugehört haben.',
+    image: '/images/tonuvio/training-hoeren.webp',
+    alt: 'tonuvio auf dem iPhone: Trainingsaufgabe mit großer Wiedergabe-Schaltfläche, Hinweis auf noch zwei Wiedergaben und vier Antwortmöglichkeiten.',
+  },
+  {
+    id: 'verstehen',
+    label: 'Verstehen',
+    title: 'Sofort sehen, was gemeint war',
+    text: 'Nach Ihrer Antwort zeigt tonuvio die richtige Lösung, erklärt in einem Satz, warum das Verwechseln leicht passiert, und blendet den gehörten Satz zum Nachlesen ein.',
+    image: '/images/tonuvio/training-rueckmeldung.webp',
+    alt: 'tonuvio auf dem iPhone: Rückmeldung nach der Antwort mit markierter richtiger Lösung, kurzer Erklärung und dem gehörten Satz zum Nachlesen.',
+  },
+  {
+    id: 'abschluss',
+    label: 'Abschließen',
+    title: 'Ergebnis und Ihr Empfinden',
+    text: 'Am Ende einer Einheit sehen Sie, wie viele Aufgaben Sie verstanden haben. Dazu geben Sie an, wie anstrengend das Hören war. Beides bestimmt, wie schwer die nächste Einheit wird.',
+    image: '/images/tonuvio/abschluss.webp',
+    alt: 'tonuvio auf dem iPhone: Abschluss einer Einheit mit 5 von 6 richtig verstandenen Aufgaben und einer Skala von 1 bis 5 für die Anstrengung.',
+  },
+  {
+    id: 'uebersicht',
+    label: 'Dranbleiben',
+    title: 'Jeden Tag ein klarer nächster Schritt',
+    text: 'Die Übersicht schlägt Ihnen eine Tagesübung vor, die zu Ihrem wichtigsten Ziel passt, und zeigt, wie Sie in dieser Woche vorankommen.',
+    image: '/images/tonuvio/uebersicht.webp',
+    alt: 'tonuvio auf dem iPhone: Übersicht mit persönlicher Begrüßung, empfohlener Tagesübung, Wochenziel und den vier Trainingsbereichen.',
+  },
+]
+
+export const tonuvioPersonalPoints = [
+  {
+    title: 'Ihre Ziele zuerst',
+    text: 'Sie wählen bis zu drei Situationen aus Ihrem Alltag, etwa Restaurant, Telefon oder Fernsehen, und legen fest, was Ihnen am wichtigsten ist.',
+  },
+  {
+    title: 'Eine kurze Einstufung',
+    text: 'Acht kurze Aufgaben zeigen, wo Sie stehen. So beginnt jeder Bereich auf der passenden von acht Stufen.',
+  },
+  {
+    title: 'Training, das mitgeht',
+    text: 'Ihre Ergebnisse und Ihr Anstrengungsempfinden steuern die Schwierigkeit. Nicht zu leicht, nicht überfordernd.',
+  },
+]
+
+export const tonuvioProgressPoints = [
+  'Wochenziel mit drei oder vier Einheiten, das Sie selbst wählen',
+  'Aktuelle Stufe in allen vier Trainingsbereichen',
+  'Ergebnisse der letzten Einheiten und Meilensteine',
+  'Keine Ranglisten, keine verlorenen Serien, kein Druck',
+]
+
+export const tonuvioAccessPoints = [
+  {
+    title: 'Große, klare Schrift',
+    text: 'Drei Schriftgrößen bis 24 Pixel und ein Modus mit sehr hohem Kontrast, einstellbar schon während der Einrichtung.',
+  },
+  {
+    title: 'Ton dort, wo Sie ihn brauchen',
+    text: 'Über Lautsprecher, Kopfhörer oder direkt ins Hörsystem gestreamt. Für jedes Gerät gibt es eine eigene Toneinstellung mit Hörprobe.',
+  },
+  {
+    title: 'Ohne Zeitdruck',
+    text: 'Keine Zeitlimits bei den Antworten. Sie können jede Einheit pausieren und später fortsetzen.',
+  },
+  {
+    title: 'Ohne Installation',
+    text: 'tonuvio läuft im Browser auf Smartphone, Tablet und Computer und lässt sich wie eine App auf den Startbildschirm legen.',
+  },
+]
+
+export const tonuvioSteps = [
+  {
+    title: 'Beratung im Fachgeschäft',
+    text: 'Wir prüfen gemeinsam, ob Hörtraining für Sie sinnvoll ist und ob Ihre Hörsysteme gut eingestellt sind.',
+  },
+  {
+    title: 'Gemeinsam einrichten',
+    text: 'Sie erhalten Ihren persönlichen Zugang. Ton, Schrift und Ihre Alltagsziele richten wir zusammen ein.',
+  },
+  {
+    title: 'Zuhause trainieren',
+    text: 'Ein paar Minuten an den Tagen, die Ihnen passen. Die App sagt Ihnen, was heute dran ist.',
+  },
+  {
+    title: 'Fortschritt besprechen',
+    text: 'Beim nächsten Termin schauen wir auf Ihre Entwicklung und stimmen Training und Hörsysteme aufeinander ab.',
+  },
+]
+
+export const tonuvioTrustPoints = [
+  {
+    title: 'Ehrlich in der Wirkung',
+    text: 'tonuvio ist ein Training für das Verstehen im Alltag. Es ersetzt keinen Hörtest, keine Hörgeräteanpassung und keine ärztliche Untersuchung.',
+  },
+  {
+    title: 'Ihr persönliches Konto',
+    text: 'Kein offenes Portal: Zugänge vergeben wir persönlich. Ihre Trainingsdaten werden verschlüsselt auf Servern in Frankfurt gespeichert.',
+  },
+  {
+    title: 'Ihre Daten bleiben Ihre',
+    text: 'Sie können Ihre Trainingsdaten jederzeit selbst exportieren. Die App enthält keine Werbung.',
+  },
+]
+
+export const tonuvioFaqs = [
+  {
+    question: 'Was ist tonuvio?',
+    answer:
+      'tonuvio ist eine Hörtraining-App mit kurzen Übungen aus dem Alltag. Sie trainiert in vier Bereichen, wie gut Sie Sprache im Geräusch, eine bestimmte Stimme, Details und Abfolgen verstehen. Die Schwierigkeit passt sich Ihren Ergebnissen an.',
+  },
+  {
+    question: 'Für wen ist tonuvio gedacht?',
+    answer:
+      'Für Menschen, die Hörsysteme tragen oder gerade neu bekommen haben und Gespräche im Alltag wieder sicherer verstehen möchten. Ob Hörtraining in Ihrer Situation sinnvoll ist, besprechen wir vorher mit Ihnen.',
+  },
+  {
+    question: 'Brauche ich ein Smartphone?',
+    answer:
+      'Nein. tonuvio läuft im Browser auf Smartphone, Tablet oder Computer. Eine Installation aus dem App Store ist nicht nötig.',
+  },
+  {
+    question: 'Wie viel Zeit muss ich einplanen?',
+    answer:
+      'Eine Einheit dauert etwa 6 bis 10 Minuten. Sie wählen selbst, ob Sie drei oder vier Einheiten pro Woche schaffen möchten. Regelmäßig und kurz ist wirksamer als selten und lang.',
+  },
+  {
+    question: 'Funktioniert tonuvio mit meinem Hörgerät?',
+    answer:
+      'Ja. Sie können über Lautsprecher, Kopfhörer oder direkt in Ihr Hörsystem gestreamt hören, zum Beispiel per Bluetooth. Die App führt Sie dafür durch eine kurze Toneinrichtung.',
+  },
+  {
+    question: 'Wie bekomme ich einen Zugang?',
+    answer:
+      'Ihren persönlichen Zugang richten wir bei uns im Fachgeschäft ein. Fragen Sie einfach einen Termin an. Die Konditionen besprechen wir persönlich mit Ihnen.',
+  },
+  {
+    question: 'Ist tonuvio ein Hörtest?',
+    answer:
+      'Nein. Die Stufen in der App zeigen Ihren Trainingsstand, keine medizinische Messung. Einen professionellen Hörtest machen wir persönlich bei uns im Fachgeschäft.',
+  },
+]
+
+export const tonuvioRelated = [
+  {
+    label: 'Hörtraining in Bonn-Beuel',
+    description: 'Warum Verstehen auch im Gehirn entsteht. Mit Mini-Hörübung.',
+    href: '/hoertraining-bonn',
+  },
+  {
+    label: 'Hörtest Bonn-Beuel',
+    description: 'Professionelle Höranalyse, persönlich im Fachgeschäft.',
+    href: '/hoertest-bonn-beuel',
   },
   {
     label: 'Klangwellen-Anpassverfahren',

@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/hoertest-bonn-beuel', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/tinnitusberatung-bonn', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/hoertraining-bonn', priority: 0.8, changeFrequency: 'monthly' },
+    { path: '/tonuvio', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/gehoerschutz-bonn', priority: 0.8, changeFrequency: 'monthly' },
     { path: '/service-reparatur', priority: 0.7, changeFrequency: 'monthly' },
     { path: '/jobs', priority: 0.6, changeFrequency: 'monthly' },
