@@ -47,7 +47,9 @@ export const company = {
   claim: 'persönlich · unabhängig · kompetent',
   motto: 'Hören verbindet.',
   // Canonical base URL – replace with the production domain before go-live.
-  url: 'https://www.hoergeraete-beuel.de',
+  // Übergangsweise die aktuelle Live-Domain. Nach der Umstellung wieder auf
+  // 'https://www.hoergeraete-beuel.de' setzen (Canonical, Sitemap, Vorschaubilder).
+  url: 'https://westphal.meindigitalerbetrieb.de',
   category: 'Hörakustiker / Hearing aid store',
 }
 
