@@ -12,16 +12,9 @@ import { cn } from '@/lib/utils'
 
 /**
  * Ruhige Bewegung für die tonuvio-Seite.
- * Alles hier respektiert „Bewegung reduzieren“ des Systems (siehe globals.css)
- * und zeigt ohne JavaScript sofort den fertigen Zustand.
+ * Läuft bewusst auf allen Geräten, auch bei „Bewegung reduzieren“.
+ * Ohne JavaScript steht sofort der fertige Zustand.
  */
-
-function prefersReducedMotion() {
-  return (
-    typeof window !== 'undefined' &&
-    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-  )
-}
 
 /** Meldet einmalig, sobald ein Element ins Bild kommt. */
 function useInView<T extends Element>(rootMargin = '0px 0px -12% 0px') {
@@ -73,7 +66,7 @@ export function Reveal({
 
   useEffect(() => {
     const el = ref.current
-    if (!el || prefersReducedMotion()) return
+    if (!el) return
     // Nur Elemente unterhalb des sichtbaren Bereichs animieren,
     // damit beim Laden nichts aufblitzt.
     if (el.getBoundingClientRect().top > window.innerHeight * 0.92) setArmed(true)
@@ -101,7 +94,7 @@ export function CountUp({ value, duration = 1100 }: { value: number; duration?: 
 
   useEffect(() => {
     const el = ref.current
-    if (!el || prefersReducedMotion()) return
+    if (!el) return
     if (el.getBoundingClientRect().top > window.innerHeight * 0.92) {
       armed.current = true
       setShown(0)
@@ -145,7 +138,7 @@ export function Parallax({
   const ref = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
     const el = ref.current
-    if (!el || prefersReducedMotion()) return
+    if (!el) return
     let frame = 0
     const update = () => {
       frame = 0
@@ -178,7 +171,7 @@ export function LevelMeter({ color, delay = 0 }: { color: string; delay?: number
   const [armed, setArmed] = useState(false)
   useEffect(() => {
     const el = ref.current
-    if (!el || prefersReducedMotion()) return
+    if (!el) return
     if (el.getBoundingClientRect().top > window.innerHeight * 0.92) setArmed(true)
   }, [ref])
   return (

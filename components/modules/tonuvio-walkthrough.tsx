@@ -25,11 +25,17 @@ export function TonuvioWalkthrough() {
   const tabRefs = useRef<(HTMLButtonElement | null)[]>([])
 
   useEffect(() => {
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) setAutoplay(false)
     const el = rootRef.current
-    if (!el || !('IntersectionObserver' in window)) return
+    if (!el) return
+    if (!('IntersectionObserver' in window)) {
+      setInView(true)
+      return
+    }
+    // Gilt als sichtbar, sobald der Bereich die mittlere Bildschirmzone
+    // berührt. So funktioniert es auch, wenn er höher als der Bildschirm ist.
     const io = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), {
-      threshold: 0.45,
+      rootMargin: '-35% 0px -35% 0px',
+      threshold: 0,
     })
     io.observe(el)
     return () => io.disconnect()
@@ -58,9 +64,16 @@ export function TonuvioWalkthrough() {
     <div
       ref={rootRef}
       className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20"
-      onMouseEnter={() => setHold(true)}
-      onMouseLeave={() => setHold(false)}
-      onFocus={() => setHold(true)}
+      onPointerEnter={(event) => {
+        if (event.pointerType === 'mouse') setHold(true)
+      }}
+      onPointerLeave={(event) => {
+        if (event.pointerType === 'mouse') setHold(false)
+      }}
+      onFocus={(event) => {
+        // Nur Tastaturfokus hält an; ein Antippen auf dem Handy nicht.
+        if ((event.target as HTMLElement).matches(':focus-visible')) setHold(true)
+      }}
       onBlur={(event) => {
         if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setHold(false)
       }}
@@ -144,7 +157,10 @@ export function TonuvioWalkthrough() {
           </p>
           <button
             type="button"
-            onClick={() => setAutoplay((on) => !on)}
+            onClick={() => {
+              setHold(false)
+              setAutoplay((on) => !on)
+            }}
             className="inline-flex min-h-11 items-center gap-2 rounded-full border border-white/25 px-4 text-base font-semibold text-white transition-colors hover:bg-white/10"
           >
             {autoplay ? (
@@ -166,7 +182,7 @@ export function TonuvioWalkthrough() {
               src={step.image}
               alt={index === active ? step.alt : ''}
               className={cn(
-                'drop-shadow-[0_30px_40px_rgba(0,0,0,0.35)] transition-[opacity,transform] duration-500 ease-out motion-reduce:transition-none',
+                'drop-shadow-[0_30px_40px_rgba(0,0,0,0.35)] transition-[opacity,transform] duration-500 ease-out',
                 index === active
                   ? 'relative translate-y-0 scale-100 opacity-100'
                   : 'pointer-events-none absolute inset-0 translate-y-3 scale-[0.98] opacity-0',

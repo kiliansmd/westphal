@@ -317,8 +317,8 @@
 
 /* -------------------------------------------------------------------------- */
 /* tonuvio-Seite: ruhige Bewegung                                             */
-/* Alles ist dekorativ oder blendet nur ein und entfällt bei                  */
-/* „Bewegung reduzieren“. Ohne JavaScript bleibt jeder Inhalt sichtbar.       */
+/* Bewusst immer aktiv, auch bei „Bewegung reduzieren“ (Vorgabe des          */
+/* Betreibers). Ohne JavaScript bleibt jeder Inhalt sichtbar.                 */
 /* -------------------------------------------------------------------------- */
 
 @keyframes tv-rise {
@@ -412,26 +412,3 @@
   box-shadow: 0 18px 40px -24px rgb(32 29 23 / 0.35);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .tv-rise,
-  .tv-phone-in,
-  .tv-float,
-  .tv-ring,
-  .tv-dot {
-    animation: none !important;
-  }
-  .tv-ring {
-    opacity: 0 !important;
-  }
-  .tv-progress {
-    animation: none !important;
-    transform: scaleX(0);
-  }
-  [data-reveal],
-  .tv-level i,
-  .tv-tile {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
