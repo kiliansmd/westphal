@@ -45,13 +45,20 @@ function NavDropdown({
   pathname: string
 }) {
   const [open, setOpen] = useState(false)
+  const buttonRef = useRef<HTMLButtonElement>(null)
+  const panelId = `nav-${label.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`
   const groupActive = children.some((item) => isActive(pathname, item.href))
   const containerRef = useRef<HTMLDivElement>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false)
+      if (e.key !== 'Escape') return
+      // Fokus zurück auf den Auslöser, wenn er im Menü war.
+      if (containerRef.current?.contains(document.activeElement)) {
+        buttonRef.current?.focus()
+      }
+      setOpen(false)
     }
     function onClick(e: MouseEvent) {
       if (containerRef.current && !containerRef.current.contains(e.target as Node)) {
@@ -77,16 +84,25 @@ function NavDropdown({
     <div
       ref={containerRef}
       className="relative"
+      // Schließt, sobald der Tastaturfokus das Menü verlässt.
+      onBlur={(e) => {
+        if (!containerRef.current?.contains(e.relatedTarget as Node | null)) {
+          setOpen(false)
+        }
+      }}
       onMouseEnter={() => {
         cancelClose()
         setOpen(true)
       }}
       onMouseLeave={scheduleClose}
     >
+      {/* Aufklapp-Liste (Disclosure) statt ARIA-Menü: Tab bedient sie wie
+          gewohnt, Screenreader erwarten keine Pfeiltasten-Steuerung. */}
       <button
+        ref={buttonRef}
         type="button"
-        aria-haspopup="menu"
         aria-expanded={open}
+        aria-controls={panelId}
         onClick={() => setOpen((v) => !v)}
         className={cn(navItemClass, groupActive && activeClass)}
       >
@@ -101,14 +117,14 @@ function NavDropdown({
       </button>
       {open && (
         <div
-          role="menu"
+          id={panelId}
           className="absolute left-0 top-full z-50 mt-2 w-72 origin-top-left overflow-hidden rounded-md border border-border bg-popover py-2 shadow-lg animate-in fade-in-0 zoom-in-95 slide-in-from-top-1 duration-200"
         >
+          <ul>
           {children.map((item) => (
+            <li key={item.label}>
             <Link
-              key={item.label}
               href={item.href}
-              role="menuitem"
               aria-current={isActive(pathname, item.href) ? 'page' : undefined}
               onClick={() => setOpen(false)}
               className="flex items-center border-l-[3px] border-transparent px-5 py-3 text-base font-medium text-popover-foreground transition-colors hover:bg-primary hover:text-primary-foreground aria-[current=page]:border-brand aria-[current=page]:bg-accent"
@@ -116,7 +132,9 @@ function NavDropdown({
               {item.label}
               {item.badge && <NavBadge label={item.badge} />}
             </Link>
+            </li>
           ))}
+          </ul>
         </div>
       )}
     </div>

@@ -71,7 +71,7 @@ export function Hero() {
                 <dt className="mt-2 text-[0.95rem] leading-snug text-muted-foreground sm:text-base">
                   {fact.label}
                 </dt>
-                <dd className="whitespace-nowrap font-serif text-[1.6rem] font-medium leading-none text-foreground sm:text-3xl">
+                <dd className="font-serif text-[min(1.6rem,7.4vw)] font-medium leading-none text-foreground sm:text-3xl">
                   {fact.value}
                 </dd>
               </div>

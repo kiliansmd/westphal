@@ -39,6 +39,8 @@ export const company = {
   addressRegion: 'Nordrhein-Westfalen',
   addressCountry: 'DE',
   phone: '0228 / 84 26 53 68',
+  // Für große Darstellungen: bricht höchstens nach dem Schrägstrich um.
+  phoneDisplay: '0228\u00a0/ 84\u00a026\u00a053\u00a068',
   phoneHref: 'tel:+4922884265368',
   phoneE164: '+4922884265368',
   email: 'info@hoergeraete-beuel.de',

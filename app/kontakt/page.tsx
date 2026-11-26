@@ -53,9 +53,9 @@ export default async function ContactPage({
               <p className="text-base text-muted-foreground">Direkt anrufen</p>
               <a
                 href={company.phoneHref}
-                className="mt-1 block w-fit whitespace-nowrap font-serif text-[1.9rem] text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
+                className="mt-1 block w-fit font-serif text-[min(1.9rem,8.4vw)] leading-tight text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
               >
-                {company.phone}
+                {company.phoneDisplay}
               </a>
               <p className="mt-5 text-lg text-muted-foreground">
                 Lieber später?{' '}

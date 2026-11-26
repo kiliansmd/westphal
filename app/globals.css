@@ -42,6 +42,7 @@
   /* Deep sibling of the brand amber — used for full-bleed warm bands (hero,
      header-at-top) where white text needs sufficient contrast. */
   --color-brand-deep: var(--brand-deep);
+  --color-brand-soft: var(--brand-soft);
   --color-brand-foreground: var(--brand-foreground);
   /* Warm neutral surfaces from the brand palette. */
   --color-sand: var(--sand);
@@ -90,7 +91,10 @@
      text (hero / header-at-top). */
   --brand: #f7a712;
   --brand-strong: #e0940a;
-  --brand-deep: #bd730a;
+  /* Dunkel genug für Text auf Sand/Papier (>= 4,7 : 1, WCAG AA). */
+  --brand-deep: #955c06;
+  /* Heller Bernstein für Text auf dunklen Grün-/Anthrazitflächen (>= 5 : 1). */
+  --brand-soft: #ffc457;
   --brand-foreground: #201d17;
 
   /* Warm-neutral section surfaces used site-wide. */
@@ -226,6 +230,9 @@
     @apply bg-background text-foreground;
     /* Comfortable default line-height for easy reading. */
     line-height: 1.65;
+    /* Nur Wörter, die gar nicht in die Zeile passen, werden umbrochen
+       (sehr große Schriftstufen auf dem Handy). */
+    overflow-wrap: break-word;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -247,6 +254,25 @@
   h2 {
     letter-spacing: -0.01em;
     font-optical-sizing: auto;
+  }
+
+  /* Große Schriftstufen (Bedienungshilfen „Sehr groß“, Browser-Zoom):
+     Lange deutsche Wörter wie „Krankenkassenzuschuss“ werden getrennt bzw.
+     umbrochen, statt die Spalte über den Bildschirm hinaus zu drücken.
+     Rasterzellen dürfen dafür schmaler werden als ihr längstes Wort. */
+  h1,
+  h2,
+  h3,
+  h4,
+  dt,
+  dd,
+  th,
+  figcaption {
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+  .grid > * {
+    min-width: 0;
   }
 
   /* Clearly visible keyboard focus for every interactive element,
@@ -355,16 +381,19 @@
   animation: tv-phone-in 1.1s cubic-bezier(0.16, 0.8, 0.24, 1) both;
   animation-delay: var(--d, 0ms);
 }
+/* WCAG 2.2.2: Automatische Bewegung endet nach höchstens ca. 5 Sekunden.
+   Sie läuft weiterhin auf allen Geräten (Vorgabe des Betreibers), aber nicht
+   endlos, damit niemand beim Lesen abgelenkt wird. */
 .tv-float {
-  animation: tv-float 7s ease-in-out infinite;
+  animation: tv-float 4.5s ease-in-out 1;
   animation-delay: var(--d, 0ms);
 }
 .tv-ring {
-  animation: tv-ring 4.8s cubic-bezier(0.25, 0.6, 0.3, 1) infinite;
+  animation: tv-ring 3.4s cubic-bezier(0.25, 0.6, 0.3, 1) 1 both;
   animation-delay: var(--d, 0ms);
 }
 .tv-dot {
-  animation: tv-dot 2.4s ease-in-out infinite;
+  animation: tv-dot 2.4s ease-in-out 2;
 }
 .tv-progress {
   transform-origin: left center;
@@ -445,7 +474,7 @@
   100% { transform: scale(2.6); opacity: 0; }
 }
 .ws-pulse {
-  animation: ws-pulse 2.2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+  animation: ws-pulse 2.2s cubic-bezier(0.2, 0.6, 0.3, 1) 2 both;
 }
 
 /* Ohr → Hörgerät → Gehirn: das Signal wandert durch die Kette. */

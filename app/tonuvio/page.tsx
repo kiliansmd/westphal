@@ -220,7 +220,7 @@ export default function TonuvioPage() {
         className="scroll-mt-24 overflow-hidden bg-[#3B5142] py-16 text-white sm:py-24"
       >
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="text-base font-semibold text-brand">Einblick in die App</p>
+          <p className="text-base font-semibold text-brand-soft">Einblick in die App</p>
           <h2
             id="einblick-heading"
             className="mt-3 max-w-3xl text-balance font-serif text-3xl font-medium leading-[1.12] text-white sm:text-[2.6rem]"

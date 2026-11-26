@@ -38,7 +38,7 @@ export function HelpSection() {
                 href={card.href}
                 className="group flex items-center gap-6 py-7 transition-colors sm:py-8"
               >
-                <div className="flex-1 transition-transform duration-300 group-hover:translate-x-1">
+                <div className="min-w-0 flex-1 transition-transform duration-300 group-hover:translate-x-1">
                   <h3 className="font-serif text-2xl font-medium leading-snug text-foreground decoration-brand decoration-2 underline-offset-[6px] group-hover:underline sm:text-[1.75rem]">
                     {card.title}
                   </h3>
