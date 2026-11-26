@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight } from 'lucide-react'
+import { Reveal } from '@/components/motion'
 
 const principles = [
   {
@@ -22,13 +23,13 @@ export function ReasonsSection() {
     <section id="warum" className="scroll-mt-28 bg-background py-20 sm:py-28">
       <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <figure className="lg:sticky lg:top-32 lg:self-start">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-md">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-md">
             <Image
               src="/images/real/inhaber-portrait.webp"
               alt="Die Inhaber von Westphal Hörgeräte gemeinsam im Fachgeschäft in Bonn-Beuel"
               fill
               sizes="(max-width: 1024px) 100vw, 40vw"
-              className="object-cover"
+              className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
             />
           </div>
           <figcaption className="mt-3 text-base text-muted-foreground">
@@ -54,8 +55,10 @@ export function ReasonsSection() {
 
           <ol className="mt-12 border-t border-foreground/15">
             {principles.map((item, index) => (
-              <li
+              <Reveal
+                as="li"
                 key={item.title}
+                delay={index * 110}
                 className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-foreground/15 py-6 sm:grid-cols-[3rem_10rem_1fr]"
               >
                 <span className="font-serif text-xl text-brand-deep" aria-hidden="true">
@@ -67,7 +70,7 @@ export function ReasonsSection() {
                 <p className="col-start-2 mt-1 text-lg leading-relaxed text-muted-foreground sm:col-start-3 sm:mt-0">
                   {item.text}
                 </p>
-              </li>
+              </Reveal>
             ))}
           </ol>
 

@@ -1,90 +1,18 @@
 'use client'
 
-import {
-  useEffect,
-  useRef,
-  useState,
-  type CSSProperties,
-  type ElementType,
-  type ReactNode,
-} from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { cn } from '@/lib/utils'
+import { Reveal, useInView } from '@/components/motion'
 
 /**
  * Ruhige Bewegung für die tonuvio-Seite.
  * Läuft bewusst auf allen Geräten, auch bei „Bewegung reduzieren“.
  * Ohne JavaScript steht sofort der fertige Zustand.
+ * Reveal und useInView liegen seit der seitenweiten Bewegung in
+ * components/motion.tsx und werden hier weitergereicht.
  */
 
-/** Meldet einmalig, sobald ein Element ins Bild kommt. */
-function useInView<T extends Element>(rootMargin = '0px 0px -12% 0px') {
-  const ref = useRef<T | null>(null)
-  const [inView, setInView] = useState(false)
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    if (!('IntersectionObserver' in window)) {
-      setInView(true)
-      return
-    }
-    const io = new IntersectionObserver(
-      (entries) => {
-        if (entries.some((e) => e.isIntersecting)) {
-          setInView(true)
-          io.disconnect()
-        }
-      },
-      { rootMargin, threshold: 0.12 },
-    )
-    io.observe(el)
-    return () => io.disconnect()
-  }, [rootMargin])
-  return { ref, inView }
-}
-
-/**
- * Blendet Inhalte beim Scrollen sanft ein. `delay` in ms staffelt Gruppen.
- * Vor dem Hydrieren bleibt alles sichtbar (data-reveal wird erst im Client gesetzt).
- */
-export function Reveal({
-  as: Tag = 'div',
-  delay = 0,
-  className,
-  style,
-  children,
-  ...rest
-}: {
-  as?: ElementType
-  delay?: number
-  className?: string
-  style?: CSSProperties
-  children?: ReactNode
-  [key: string]: unknown
-}) {
-  const { ref, inView } = useInView<HTMLElement>()
-  const [armed, setArmed] = useState(false)
-
-  useEffect(() => {
-    const el = ref.current
-    if (!el) return
-    // Nur Elemente unterhalb des sichtbaren Bereichs animieren,
-    // damit beim Laden nichts aufblitzt.
-    if (el.getBoundingClientRect().top > window.innerHeight * 0.92) setArmed(true)
-  }, [ref])
-
-  return (
-    <Tag
-      ref={ref}
-      data-reveal={armed ? '' : undefined}
-      data-shown={armed && inView ? '' : undefined}
-      className={className}
-      style={{ ...style, ['--d' as string]: `${delay}ms` }}
-      {...rest}
-    >
-      {children}
-    </Tag>
-  )
-}
+export { Reveal }
 
 /** Zählt eine Zahl hoch, sobald sie sichtbar wird. Serverseitig steht der Endwert. */
 export function CountUp({ value, duration = 1100 }: { value: number; duration?: number }) {

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { partners } from '@/lib/site-data'
+import { Reveal } from '@/components/motion'
 
 export function PartnersSection() {
   return (
@@ -19,8 +20,8 @@ export function PartnersSection() {
         </div>
 
         <ul className="mt-12 grid grid-cols-2 items-center gap-x-10 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
-          {partners.map((partner) => (
-            <li key={partner.name} className="flex h-12 items-center justify-center">
+          {partners.map((partner, index) => (
+            <Reveal as="li" key={partner.name} delay={(index % 5) * 70} className="flex h-12 items-center justify-center">
               <Image
                 src={partner.src || '/placeholder.svg'}
                 alt={partner.alt}
@@ -31,7 +32,7 @@ export function PartnersSection() {
                   partner.wide ? 'max-h-9' : 'max-h-12'
                 }`}
               />
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

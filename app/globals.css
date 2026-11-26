@@ -412,3 +412,87 @@
   box-shadow: 0 18px 40px -24px rgb(32 29 23 / 0.35);
 }
 
+
+/* -------------------------------------------------------------------------- */
+/* Seitenweite ruhige Bewegung                                                */
+/* Gleiche Haltung wie auf der tonuvio-Seite: immer aktiv, ohne JavaScript    */
+/* steht jeder Inhalt sofort sichtbar.                                        */
+/* -------------------------------------------------------------------------- */
+
+/* Hero-Fotos setzen sich beim Laden ganz leicht (nur Skalierung, keine
+   Transparenz, damit das größte Bild sofort zählt). */
+@keyframes ws-settle {
+  from { transform: scale(1.06); }
+  to { transform: none; }
+}
+.ws-settle {
+  animation: ws-settle 1.8s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Text im Hero kommt nacheinander hoch. */
+@keyframes ws-rise {
+  from { opacity: 0; transform: translate3d(0, 14px, 0); }
+  to { opacity: 1; transform: none; }
+}
+.ws-rise {
+  animation: ws-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: var(--d, 0ms);
+}
+
+/* „Jetzt geöffnet“-Punkt: ruhiges Pulsieren. */
+@keyframes ws-pulse {
+  0% { transform: scale(1); opacity: 0.55; }
+  100% { transform: scale(2.6); opacity: 0; }
+}
+.ws-pulse {
+  animation: ws-pulse 2.2s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+
+/* Ohr → Hörgerät → Gehirn: das Signal wandert durch die Kette. */
+.ws-chain-item {
+  transition:
+    color 0.6s ease,
+    opacity 0.6s ease,
+    transform 0.6s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.ws-chain[data-live] .ws-chain-item {
+  opacity: 0.45;
+}
+.ws-chain[data-live] .ws-chain-item[data-active] {
+  opacity: 1;
+  color: var(--brand);
+  transform: translateX(6px);
+}
+.ws-chain-arrow {
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.ws-chain[data-live] .ws-chain-item[data-active] .ws-chain-arrow {
+  transform: translateX(4px);
+}
+
+/* Ablauf-Schritte: Fortschrittslinie folgt dem Scrollen. */
+.ws-steps-fill {
+  transition: transform 0.25s linear;
+}
+.ws-step-dot {
+  transition:
+    background-color 0.45s ease,
+    border-color 0.45s ease,
+    color 0.45s ease,
+    transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+.ws-step[data-reached] .ws-step-dot {
+  background-color: var(--brand);
+  border-color: var(--brand);
+  color: var(--brand-foreground);
+  transform: scale(1.06);
+}
+
+/* Aufklappbare Antworten gleiten sanft auf. */
+@keyframes ws-open {
+  from { opacity: 0; transform: translate3d(0, -6px, 0); }
+  to { opacity: 1; transform: none; }
+}
+.ws-open {
+  animation: ws-open 0.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}

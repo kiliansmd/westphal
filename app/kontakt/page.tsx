@@ -4,6 +4,7 @@ import { SiteFooter } from '@/components/site-footer'
 import { MobileContactBar } from '@/components/mobile-contact-bar'
 import { ContactForm } from '@/components/contact-form'
 import { MapConsent } from '@/components/consent-embed'
+import { OpenStatus } from '@/components/open-status'
 import { BreadcrumbJsonLd } from '@/components/seo/json-ld'
 import { company, contactReasons, openingHours } from '@/lib/site-data'
 
@@ -42,7 +43,8 @@ export default async function ContactPage({
               <h1 className="max-w-3xl text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-[2.3rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
                 Kontakt &amp; Termin anfragen
               </h1>
-              <p className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+              <OpenStatus className="mt-6" />
+              <p className="mt-4 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
                 Am schnellsten geht es telefonisch. Sie können sich aber auch
                 zurückrufen lassen oder uns das Formular ausfüllen.
               </p>
@@ -107,6 +109,7 @@ export default async function ContactPage({
                     Öffnungszeiten
                   </dt>
                   <dd className="mt-3">
+                    <OpenStatus className="mb-3 text-base" />
                     <ul className="text-muted-foreground">
                       {openingHours.map((entry) => (
                         <li key={entry.day} className="flex justify-between gap-4 py-0.5">

@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { Reveal } from '@/components/motion'
 
 export function FeatureList({
   items,
@@ -14,14 +15,16 @@ export function FeatureList({
         columns === 2 ? 'sm:grid-cols-2' : 'grid-cols-1',
       )}
     >
-      {items.map((item) => (
-        <li
+      {items.map((item, index) => (
+        <Reveal
+          as="li"
           key={item}
+          delay={Math.min(index, 6) * 60}
           className="flex items-baseline gap-4 border-b border-foreground/15 py-4"
         >
           <span className="h-0.5 w-4 shrink-0 -translate-y-1 bg-brand" aria-hidden="true" />
           <span className="text-lg leading-relaxed text-foreground">{item}</span>
-        </li>
+        </Reveal>
       ))}
     </ul>
   )

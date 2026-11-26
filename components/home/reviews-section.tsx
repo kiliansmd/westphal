@@ -1,6 +1,7 @@
 import { ArrowUpRight } from 'lucide-react'
 import { GoogleReviews } from '@/components/home/google-reviews'
 import { company } from '@/lib/site-data'
+import { Reveal } from '@/components/motion'
 
 const googleHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${company.name} ${company.street} ${company.city}`,
@@ -42,9 +43,9 @@ export function ReviewsSection() {
           </div>
         </div>
 
-        <div className="mt-10">
-          <GoogleReviews />
-        </div>
+        <Reveal className="mt-10">
+          <GoogleReviews href={googleHref} />
+        </Reveal>
       </div>
     </section>
   )

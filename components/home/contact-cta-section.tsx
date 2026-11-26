@@ -4,6 +4,8 @@ import { CalendarCheck } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { company, openingHours } from '@/lib/site-data'
+import { OpenStatus } from '@/components/open-status'
+import { Reveal } from '@/components/motion'
 
 // WhatsApp deep link from the company's E.164 number.
 const whatsappHref = `https://wa.me/${company.phoneE164.replace(/[^0-9]/g, '')}`
@@ -24,9 +26,10 @@ export function ContactCtaSection() {
             Termine sind oft möglich.
           </p>
 
+          <OpenStatus className="mt-10" />
           <a
             href={company.phoneHref}
-            className="mt-10 block w-fit whitespace-nowrap font-serif text-[1.9rem] text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
+            className="mt-3 block w-fit whitespace-nowrap font-serif text-[1.9rem] text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
           >
             {company.phone}
           </a>
@@ -81,20 +84,20 @@ export function ContactCtaSection() {
           </dl>
         </div>
 
-        <figure className="lg:pt-2">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-md">
+        <Reveal as="figure" className="lg:pt-2">
+          <div className="group relative aspect-[4/5] overflow-hidden rounded-md">
             <Image
               src="/images/real/empfang-telefon.webp"
               alt="Mitarbeiterin von Westphal Hörgeräte am Empfang im Telefongespräch mit einem Kunden"
               fill
               sizes="(min-width: 1024px) 40vw, 100vw"
-              className="object-cover"
+              className="object-cover transition-transform duration-[1.2s] ease-out group-hover:scale-[1.03]"
             />
           </div>
           <figcaption className="mt-4 font-serif text-2xl italic text-foreground">
             „Hören verbindet.“
           </figcaption>
-        </figure>
+        </Reveal>
       </div>
     </section>
   )

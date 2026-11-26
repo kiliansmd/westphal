@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import { Reveal } from '@/components/motion'
 
 export type RelatedLink = {
   label: string
@@ -21,9 +22,13 @@ export function RelatedLinks({
           {heading}
         </h2>
         <ul className="mt-8 grid gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
-          {links.map((link) => (
-            <li key={link.href} className="border-t border-foreground/15">
-              <Link href={link.href} className="group flex items-start gap-4 py-6">
+          {links.map((link, index) => (
+            <Reveal as="li" key={link.href} delay={(index % 3) * 100} className="border-t border-foreground/15">
+              <Link href={link.href} className="group relative flex items-start gap-4 py-6">
+                <span
+                  className="absolute -top-px left-0 h-0.5 w-full origin-left scale-x-0 bg-brand transition-transform duration-500 group-hover:scale-x-100"
+                  aria-hidden="true"
+                />
                 <span className="flex-1">
                   <span className="block font-serif text-xl font-medium text-foreground">
                     {link.label}
@@ -37,7 +42,7 @@ export function RelatedLinks({
                   aria-hidden="true"
                 />
               </Link>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

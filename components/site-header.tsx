@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { Menu, X, Phone, CalendarCheck, ChevronDown } from 'lucide-react'
 import { Button, buttonVariants } from '@/components/ui/button'
 import { Logo } from '@/components/logo'
@@ -11,6 +12,18 @@ import { cn } from '@/lib/utils'
 function isGroup(entry: NavEntry): entry is { label: string; children: { label: string; href: string; badge?: string }[] } {
   return 'children' in entry
 }
+
+/** Ist der Link die aktuelle Seite? Anker-Links zählen zur Seite davor. */
+function isActive(pathname: string, href: string) {
+  const path = href.split('#')[0]
+  if (path === '/') return pathname === '/'
+  return pathname === path || pathname.startsWith(`${path}/`)
+}
+
+/* Gemeinsame Optik der Hauptnavigation: aktive Seite mit Markenstrich. */
+const navItemClass =
+  "relative flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-lg font-medium whitespace-nowrap text-foreground transition-colors hover:bg-muted after:absolute after:inset-x-4 after:bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-brand after:transition-transform after:duration-300 hover:after:scale-x-100"
+const activeClass = 'after:scale-x-100'
 
 /** Small "Neu" marker shown next to highlighted nav items. */
 function NavBadge({ label }: { label: string }) {
@@ -25,11 +38,14 @@ function NavBadge({ label }: { label: string }) {
 function NavDropdown({
   label,
   children,
+  pathname,
 }: {
   label: string
   children: { label: string; href: string; badge?: string }[]
+  pathname: string
 }) {
   const [open, setOpen] = useState(false)
+  const groupActive = children.some((item) => isActive(pathname, item.href))
   const containerRef = useRef<HTMLDivElement>(null)
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -72,7 +88,7 @@ function NavDropdown({
         aria-haspopup="menu"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="flex items-center gap-1.5 rounded-lg px-4 py-2.5 text-lg font-medium whitespace-nowrap text-foreground transition-colors hover:bg-muted"
+        className={cn(navItemClass, groupActive && activeClass)}
       >
         {label}
         <ChevronDown
@@ -86,15 +102,16 @@ function NavDropdown({
       {open && (
         <div
           role="menu"
-          className="absolute left-0 top-full z-50 mt-2 w-72 overflow-hidden rounded-md border border-border bg-popover py-2 shadow-lg"
+          className="absolute left-0 top-full z-50 mt-2 w-72 origin-top-left overflow-hidden rounded-md border border-border bg-popover py-2 shadow-lg animate-in fade-in-0 zoom-in-95 slide-in-from-top-1 duration-200"
         >
           {children.map((item) => (
             <Link
               key={item.label}
               href={item.href}
               role="menuitem"
+              aria-current={isActive(pathname, item.href) ? 'page' : undefined}
               onClick={() => setOpen(false)}
-              className="flex items-center px-5 py-3 text-base font-medium text-popover-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
+              className="flex items-center border-l-[3px] border-transparent px-5 py-3 text-base font-medium text-popover-foreground transition-colors hover:bg-primary hover:text-primary-foreground aria-[current=page]:border-brand aria-[current=page]:bg-accent"
             >
               {item.label}
               {item.badge && <NavBadge label={item.badge} />}
@@ -108,13 +125,40 @@ function NavDropdown({
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const pathname = usePathname() ?? '/'
+
+  // Beim Scrollen wird die Kopfzeile flacher und bekommt einen leichten
+  // Schatten. So bleibt mehr Platz für Inhalte, gerade auf Laptops.
+  useEffect(() => {
+    let frame = 0
+    const update = () => {
+      frame = 0
+      setScrolled(window.scrollY > 24)
+    }
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(update)
+    }
+    update()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', onScroll)
+      cancelAnimationFrame(frame)
+    }
+  }, [])
+
+  // Menü schließt sich beim Seitenwechsel.
+  useEffect(() => {
+    setOpen(false)
+  }, [pathname])
 
   return (
     <header
-      className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/85"
+      data-scrolled={scrolled ? '' : undefined}
+      className="group/header sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur transition-shadow duration-300 supports-[backdrop-filter]:bg-background/85 data-[scrolled]:shadow-[0_10px_30px_-22px_rgb(32_29_23/0.45)]"
     >
-      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Logo />
+      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between gap-4 px-4 transition-[height] duration-300 group-data-[scrolled]/header:h-[4.5rem] sm:px-6">
+        <Logo className="[&_img]:transition-[height] [&_img]:duration-300 group-data-[scrolled]/header:[&_img]:h-11 sm:group-data-[scrolled]/header:[&_img]:h-12" />
 
         {/* Desktop navigation */}
         <nav
@@ -127,12 +171,14 @@ export function SiteHeader() {
                 key={entry.label}
                 label={entry.label}
                 children={entry.children}
+                pathname={pathname}
               />
             ) : (
               <Link
                 key={entry.label}
                 href={entry.href}
-                className="rounded-lg px-4 py-2.5 text-lg font-medium whitespace-nowrap text-foreground transition-colors hover:bg-muted hover:text-foreground"
+                aria-current={isActive(pathname, entry.href) ? 'page' : undefined}
+                className={cn(navItemClass, isActive(pathname, entry.href) && activeClass)}
               >
                 {entry.label}
               </Link>
@@ -192,7 +238,7 @@ export function SiteHeader() {
       {open && (
         <div
           id="mobile-menu"
-          className="border-t border-border bg-background xl:hidden"
+          className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background animate-in fade-in-0 slide-in-from-top-2 duration-200 xl:hidden"
         >
           <nav
             className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6"
@@ -208,8 +254,9 @@ export function SiteHeader() {
                     <Link
                       key={item.label}
                       href={item.href}
+                      aria-current={isActive(pathname, item.href) ? 'page' : undefined}
                       onClick={() => setOpen(false)}
-                      className="flex items-center rounded-lg px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-muted"
+                      className="flex items-center rounded-lg border-l-[3px] border-transparent px-4 py-3 text-lg font-medium text-foreground transition-colors hover:bg-muted aria-[current=page]:border-brand aria-[current=page]:bg-accent"
                     >
                       {item.label}
                       {item.badge && <NavBadge label={item.badge} />}
@@ -220,8 +267,9 @@ export function SiteHeader() {
                 <Link
                   key={entry.label}
                   href={entry.href}
+                  aria-current={isActive(pathname, entry.href) ? 'page' : undefined}
                   onClick={() => setOpen(false)}
-                  className="rounded-lg px-4 py-4 text-xl font-medium text-foreground transition-colors hover:bg-muted"
+                  className="rounded-lg border-l-[3px] border-transparent px-4 py-4 text-xl font-medium text-foreground transition-colors hover:bg-muted aria-[current=page]:border-brand aria-[current=page]:bg-accent"
                 >
                   {entry.label}
                 </Link>

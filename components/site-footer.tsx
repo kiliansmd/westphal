@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Logo } from '@/components/logo'
+import { OpenStatus } from '@/components/open-status'
 import {
   company,
   footerServiceLinks,
@@ -26,7 +27,8 @@ export function SiteFooter() {
               <br />
               {company.city}
             </p>
-            <p className="mt-4 text-lg">
+            <OpenStatus className="mt-4 text-base" />
+            <p className="mt-2 text-lg">
               <a href={company.phoneHref} className="link-accent">
                 {company.phone}
               </a>
