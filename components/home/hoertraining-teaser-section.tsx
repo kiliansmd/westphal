@@ -2,12 +2,11 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
-
-const chain = ['Ohr', 'Hörgerät', 'Gehirn']
+import { SignalChain } from '@/components/home/signal-chain'
 
 export function HoertrainingTeaserSection() {
   return (
-    <section className="bg-foreground py-20 text-background sm:py-28">
+    <section className="overflow-hidden bg-foreground py-20 text-background sm:py-28">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20">
         <div>
           <p className="text-base font-semibold text-brand">Neu bei uns</p>
@@ -36,27 +35,7 @@ export function HoertrainingTeaserSection() {
           </div>
         </div>
 
-        {/* Ohr → Hörgerät → Gehirn, set as type rather than icons */}
-        <div className="border-t border-background/20 pt-8 lg:border-l lg:border-t-0 lg:pl-16 lg:pt-0">
-          <p className="text-base text-background/60">
-            Verstehen entsteht im Zusammenspiel
-          </p>
-          <ol className="mt-6 space-y-1">
-            {chain.map((label, index) => (
-              <li
-                key={label}
-                className="flex items-baseline gap-5 font-serif text-5xl font-normal leading-tight sm:text-6xl"
-              >
-                <span className="w-8 text-xl text-brand" aria-hidden="true">
-                  {index === 0 ? '' : '→'}
-                </span>
-                <span className={index === chain.length - 1 ? 'italic' : undefined}>
-                  {label}
-                </span>
-              </li>
-            ))}
-          </ol>
-        </div>
+        <SignalChain />
       </div>
     </section>
   )

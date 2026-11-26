@@ -65,7 +65,7 @@ export function BeraterSection() {
           <div
             id="berater-panel"
             ref={panelRef}
-            className="mt-10 scroll-mt-28 border-t border-border pt-10"
+            className="mt-10 scroll-mt-28 border-t border-border pt-10 animate-in fade-in-0 slide-in-from-top-2 duration-300"
           >
             <Hoerbedarfsberater />
           </div>

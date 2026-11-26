@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { helpCards, helpSecondaryLinks } from '@/lib/site-data'
+import { Reveal } from '@/components/motion'
 
 export function HelpSection() {
   return (
@@ -31,14 +32,14 @@ export function HelpSection() {
         </div>
 
         <ul className="border-t border-foreground/15">
-          {helpCards.map((card) => (
-            <li key={card.title} className="border-b border-foreground/15">
+          {helpCards.map((card, index) => (
+            <Reveal as="li" key={card.title} delay={index * 90} className="border-b border-foreground/15">
               <Link
                 href={card.href}
                 className="group flex items-center gap-6 py-7 transition-colors sm:py-8"
               >
-                <div className="flex-1">
-                  <h3 className="font-serif text-2xl font-medium leading-snug text-foreground sm:text-[1.75rem]">
+                <div className="flex-1 transition-transform duration-300 group-hover:translate-x-1">
+                  <h3 className="font-serif text-2xl font-medium leading-snug text-foreground decoration-brand decoration-2 underline-offset-[6px] group-hover:underline sm:text-[1.75rem]">
                     {card.title}
                   </h3>
                   <p className="mt-2 text-lg leading-relaxed text-muted-foreground">
@@ -52,7 +53,7 @@ export function HelpSection() {
                   <ArrowRight className="size-5 transition-transform group-hover:translate-x-0.5" />
                 </span>
               </Link>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

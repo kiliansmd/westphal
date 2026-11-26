@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { Plus, Minus } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { Reveal } from '@/components/motion'
 
 export type FaqItem = {
   question: string
@@ -33,8 +34,10 @@ export function FAQAccordion({
             const panelId = `faq-panel-${index}`
             const buttonId = `faq-button-${index}`
             return (
-              <li
+              <Reveal
+                as="li"
                 key={item.question}
+                delay={Math.min(index, 5) * 70}
                 className="border-b border-foreground/15"
               >
                 <h3>
@@ -44,11 +47,16 @@ export function FAQAccordion({
                     aria-expanded={isOpen}
                     aria-controls={panelId}
                     onClick={() => setOpenIndex(isOpen ? null : index)}
-                    className="flex w-full items-center justify-between gap-6 py-5 text-left text-lg font-semibold text-foreground transition-colors hover:text-brand-deep"
+                    className="group/faq flex w-full items-center justify-between gap-6 py-5 text-left text-lg font-semibold text-foreground transition-colors hover:text-brand-deep"
                   >
                     <span>{item.question}</span>
                     <span
-                      className="flex size-9 shrink-0 items-center justify-center rounded-full border border-foreground/20 text-foreground"
+                      className={cn(
+                        'flex size-9 shrink-0 items-center justify-center rounded-full border text-foreground transition-colors duration-300',
+                        isOpen
+                          ? 'border-brand bg-brand text-brand-foreground'
+                          : 'border-foreground/20 group-hover/faq:border-brand',
+                      )}
                       aria-hidden="true"
                     >
                       {isOpen ? (
@@ -64,13 +72,13 @@ export function FAQAccordion({
                   role="region"
                   aria-labelledby={buttonId}
                   hidden={!isOpen}
-                  className={cn('pb-6 pr-12', !isOpen && 'hidden')}
+                  className={cn('pb-6 pr-12', isOpen ? 'ws-open' : 'hidden')}
                 >
                   <p className="text-lg leading-relaxed text-muted-foreground">
                     {item.answer}
                   </p>
                 </div>
-              </li>
+              </Reveal>
             )
           })}
         </ul>

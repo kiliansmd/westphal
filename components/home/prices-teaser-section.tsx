@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 import { priceTiers } from '@/lib/site-data'
+import { Reveal } from '@/components/motion'
 
 export function PricesTeaserSection() {
   return (
@@ -26,9 +27,11 @@ export function PricesTeaserSection() {
           </div>
 
           <ul>
-            {priceTiers.map((tier) => (
-              <li
+            {priceTiers.map((tier, index) => (
+              <Reveal
+                as="li"
                 key={tier.key}
+                delay={index * 90}
                 className="grid grid-cols-2 gap-x-6 gap-y-3 border-b border-foreground/15 py-7 lg:grid-cols-[1.3fr_0.8fr_0.8fr_2fr] lg:items-baseline lg:gap-8"
               >
                 <div className="col-span-2 lg:col-span-1">
@@ -63,7 +66,7 @@ export function PricesTeaserSection() {
                 <p className="col-span-2 text-lg leading-relaxed text-muted-foreground lg:col-span-1">
                   {tier.text}
                 </p>
-              </li>
+              </Reveal>
             ))}
           </ul>
         </div>

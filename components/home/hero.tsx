@@ -17,22 +17,22 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1fr_1.05fr]">
         {/* Photo — first on mobile so a real face greets the visitor, bleeding
             to the right edge of the viewport on desktop. */}
-        <div className="relative aspect-[4/3] lg:order-2 lg:aspect-auto lg:min-h-[620px]">
-          <div className="absolute inset-0 lg:-right-[max(0px,calc((100vw-72rem)/2))] lg:left-0">
+        <div className="relative aspect-[4/3] overflow-hidden lg:order-2 lg:aspect-auto lg:min-h-[620px] lg:overflow-visible">
+          <div className="absolute inset-0 overflow-hidden lg:-right-[max(0px,calc((100vw-72rem)/2))] lg:left-0">
             <Image
               src="/images/real/inhaber-beratung-hero.webp"
               alt="Das Team von Westphal Hörgeräte berät eine lachende Kundin, die ein modernes Hörgerät in der Hand hält, im Fachgeschäft in Bonn-Beuel"
               fill
               priority
               sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover object-[50%_35%]"
+              className="ws-settle object-cover object-[50%_35%]"
             />
           </div>
         </div>
 
         {/* Copy */}
         <div className="flex flex-col justify-center px-4 py-10 sm:px-6 lg:order-1 lg:py-20 lg:pr-14">
-          <p className="text-base font-medium text-muted-foreground">
+          <p className="ws-rise text-base font-medium text-muted-foreground">
             Hörakustik-Meisterbetrieb in Bonn-Beuel
           </p>
 
@@ -41,12 +41,12 @@ export function Hero() {
             <em className="font-normal">Ohne Verkaufsdruck.</em>
           </h1>
 
-          <p className="mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+          <p className="ws-rise mt-6 max-w-lg text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl" style={{ ['--d' as string]: '120ms' }}>
             Wir nehmen uns Zeit, erklären verständlich und passen Hörsysteme so
             an, dass sie zu Ihrem Alltag passen.
           </p>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6">
+          <div className="ws-rise mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-6" style={{ ['--d' as string]: '220ms' }}>
             <Link
               href="/kontakt"
               className={cn(buttonVariants({ size: 'lg' }), 'w-full sm:w-auto')}
@@ -65,13 +65,13 @@ export function Hero() {
             </p>
           </div>
 
-          <dl className="mt-12 grid max-w-md grid-cols-3 border-t border-foreground/15 pt-6">
+          <dl className="ws-rise mt-12 grid max-w-md grid-cols-3 gap-x-4 border-t border-foreground/15 pt-6" style={{ ['--d' as string]: '320ms' }}>
             {facts.map((fact) => (
-              <div key={fact.label} className="flex flex-col-reverse">
-                <dt className="mt-2 text-base text-muted-foreground">
+              <div key={fact.label} className="flex flex-col-reverse justify-end">
+                <dt className="mt-2 text-[0.95rem] leading-snug text-muted-foreground sm:text-base">
                   {fact.label}
                 </dt>
-                <dd className="font-serif text-3xl font-medium leading-none text-foreground">
+                <dd className="whitespace-nowrap font-serif text-[1.6rem] font-medium leading-none text-foreground sm:text-3xl">
                   {fact.value}
                 </dd>
               </div>

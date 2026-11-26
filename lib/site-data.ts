@@ -103,6 +103,19 @@ export const openingHours = [
   { day: 'Sonntag', time: 'geschlossen' },
 ]
 
+/**
+ * Maschinenlesbare Öffnungszeiten für die Live-Anzeige „Jetzt geöffnet“.
+ * Schlüssel = Wochentag (0 = Sonntag … 6 = Samstag). Muss zu `openingHours`
+ * und zur JSON-LD-Angabe passen.
+ */
+export const openingSchedule: Partial<Record<number, { opens: string; closes: string }>> = {
+  1: { opens: '09:00', closes: '18:00' },
+  2: { opens: '09:00', closes: '18:00' },
+  3: { opens: '09:00', closes: '18:00' },
+  4: { opens: '09:00', closes: '18:00' },
+  5: { opens: '09:00', closes: '18:00' },
+}
+
 export type HelpCard = {
   icon: LucideIcon
   title: string

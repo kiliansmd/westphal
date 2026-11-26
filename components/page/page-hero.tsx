@@ -44,18 +44,18 @@ export function PageHero({
 
   const content = (
     <>
-      <p className="text-base font-medium text-muted-foreground">{eyebrow}</p>
+      <p className="ws-rise text-base font-medium text-muted-foreground">{eyebrow}</p>
       <h1 className="mt-4 max-w-3xl text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-[2.1rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
         {headline}
       </h1>
-      <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
+      <p className="ws-rise mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl" style={{ ['--d' as string]: '120ms' }}>
         {text}
       </p>
       {trustLine && (
-        <p className="mt-4 text-base text-muted-foreground">{trustLine}</p>
+        <p className="ws-rise mt-4 text-base text-muted-foreground" style={{ ['--d' as string]: '180ms' }}>{trustLine}</p>
       )}
       {primary && (
-        <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8">
+        <div className="ws-rise mt-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:gap-8" style={{ ['--d' as string]: '240ms' }}>
           <Link
             href={primary.href}
             className={cn(
@@ -80,14 +80,14 @@ export function PageHero({
     <section className="border-b border-border bg-background">
       {image ? (
         <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1fr_1fr]">
-          <div className="relative aspect-[4/3] lg:order-2 lg:aspect-auto lg:min-h-[540px]">
-            <div className="absolute inset-0 lg:-right-[max(0px,calc((100vw-72rem)/2))]">
+          <div className="relative aspect-[4/3] overflow-hidden lg:order-2 lg:aspect-auto lg:min-h-[540px] lg:overflow-visible">
+            <div className="absolute inset-0 overflow-hidden lg:-right-[max(0px,calc((100vw-72rem)/2))]">
               <Image
                 src={image.src}
                 alt={image.alt}
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
-                className="object-cover"
+                className="ws-settle object-cover"
                 priority
               />
             </div>

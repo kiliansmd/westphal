@@ -3,6 +3,8 @@ import { CalendarCheck } from 'lucide-react'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/lib/utils'
 import { company } from '@/lib/site-data'
+import { OpenStatus } from '@/components/open-status'
+import { Reveal } from '@/components/motion'
 
 type CTASectionProps = {
   heading?: string
@@ -21,15 +23,16 @@ export function CTASection({
   return (
     <section className="border-b border-border bg-secondary py-16 sm:py-24">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-end lg:gap-20">
-        <div>
+        <Reveal>
           <h2 className="text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             {heading}
           </h2>
           <p className="mt-5 max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
             {text}
           </p>
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={120}>
+          <OpenStatus className="mb-3" />
           <a
             href={company.phoneHref}
             className="block w-fit whitespace-nowrap font-serif text-[1.9rem] text-foreground decoration-brand decoration-2 underline-offset-8 hover:underline sm:text-5xl"
@@ -48,7 +51,7 @@ export function CTASection({
               Rückruf wünschen
             </Link>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   )

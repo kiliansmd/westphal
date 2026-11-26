@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { ArrowUpRight } from 'lucide-react'
 
 /**
  * Elfsight Google Reviews — lightweight, load-ahead strategy.
@@ -33,9 +34,47 @@ function ensurePlatformScript() {
   document.body.appendChild(script)
 }
 
-export function GoogleReviews() {
+/**
+ * Ersatz, solange das Widget nichts anzeigt (noch lädt, blockiert ist oder
+ * bei Elfsight nicht gefunden wird). Bewusst ohne erfundene Zitate: nur die
+ * echte Gesamtbewertung und der Weg zu den Original-Bewertungen.
+ */
+function ReviewsFallback({ href }: { href: string }) {
+  return (
+    <div className="grid gap-8 rounded-md bg-secondary p-8 sm:p-10 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-14">
+      <div>
+        <span className="block text-2xl tracking-[0.12em] text-brand" aria-hidden="true">
+          ★★★★★
+        </span>
+        <p className="mt-2 font-serif text-2xl font-medium leading-snug text-foreground sm:text-3xl">
+          Echte Stimmen,
+          <br />
+          direkt auf Google
+        </p>
+      </div>
+      <p className="max-w-xl text-pretty text-lg leading-relaxed text-muted-foreground">
+        Lesen Sie, was Kundinnen und Kunden über ihre Beratung bei uns
+        schreiben. Sie waren schon bei uns? Über Ihre Bewertung auf Google
+        freuen wir uns sehr.
+      </p>
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex h-13 items-center justify-center gap-2 rounded-lg border border-foreground/25 bg-background px-6 text-lg font-semibold whitespace-nowrap text-foreground transition-colors hover:border-foreground hover:bg-card"
+      >
+        Bewertungen ansehen
+        <ArrowUpRight className="size-5" aria-hidden="true" />
+      </a>
+    </div>
+  )
+}
+
+export function GoogleReviews({ href }: { href: string }) {
   const wrapperRef = useRef<HTMLDivElement>(null)
+  const widgetRef = useRef<HTMLDivElement>(null)
   const [load, setLoad] = useState(false)
+  const [rendered, setRendered] = useState(false)
 
   useEffect(() => {
     if (load) return
@@ -67,16 +106,37 @@ export function GoogleReviews() {
     if (load) ensurePlatformScript()
   }, [load])
 
+  // Erst wenn Elfsight wirklich Inhalte einsetzt, weicht der Ersatzblock.
+  useEffect(() => {
+    const el = widgetRef.current
+    if (!el) return
+    const check = () => {
+      if (el.childElementCount > 0 && el.offsetHeight > 80) {
+        setRendered(true)
+        return true
+      }
+      return false
+    }
+    if (check()) return
+    const mo = new MutationObserver(() => {
+      if (check()) mo.disconnect()
+    })
+    mo.observe(el, { childList: true, subtree: true })
+    return () => mo.disconnect()
+  }, [])
+
   return (
     <div ref={wrapperRef}>
       <link rel="preconnect" href="https://elfsightcdn.com" />
       <link rel="preconnect" href="https://static.elfsight.com" crossOrigin="" />
 
       <div
+        ref={widgetRef}
         className={`elfsight-app-${ELFSIGHT_APP_ID}`}
         role="region"
         aria-label="Google-Bewertungen von Westphal Hörgeräte"
       />
+      {!rendered && <ReviewsFallback href={href} />}
     </div>
   )
 }
