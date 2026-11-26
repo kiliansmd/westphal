@@ -13,7 +13,7 @@ const facts = [
 
 export function Hero() {
   return (
-    <section className="relative border-b border-border bg-background">
+    <section data-hero className="relative border-b border-border bg-background">
       <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1fr_1.05fr]">
         {/* Photo — first on mobile so a real face greets the visitor, bleeding
             to the right edge of the viewport on desktop. */}

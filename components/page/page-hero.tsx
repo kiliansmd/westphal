@@ -77,7 +77,7 @@ export function PageHero({
   )
 
   return (
-    <section className="border-b border-border bg-background">
+    <section data-hero className="border-b border-border bg-background">
       {image ? (
         <div className="mx-auto grid max-w-6xl grid-cols-1 lg:grid-cols-[1fr_1fr]">
           <div className="relative aspect-[4/3] overflow-hidden lg:order-2 lg:aspect-auto lg:min-h-[540px] lg:overflow-visible">

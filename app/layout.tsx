@@ -4,6 +4,7 @@ import { Source_Sans_3, Newsreader } from 'next/font/google'
 import { company } from '@/lib/site-data'
 import { AccessibilityMenu } from '@/components/accessibility-menu'
 import { LocalBusinessJsonLd, WebSiteJsonLd } from '@/components/seo/json-ld'
+import { IntroOverlay, introScript } from '@/components/intro-overlay'
 import './globals.css'
 
 // Highly legible humanist sans for body/UI — open shapes read well for older users.
@@ -68,8 +69,13 @@ export default function RootLayout({
     <html
       lang="de"
       className={`light bg-background ${sourceSans.variable} ${headingFont.variable}`}
+      // Das Intro-Skript setzt vor dem Hydrieren `data-intro` auf <html>.
+      suppressHydrationWarning
     >
       <head>
+        {/* Wählt die Lade-Einblendung (Startseite / Unterseite), bevor etwas
+            gezeichnet wird. Siehe components/intro-overlay.tsx. */}
+        <script dangerouslySetInnerHTML={{ __html: introScript }} />
         {/*
           Eliminates the benign "ResizeObserver loop completed with undelivered
           notifications" warning at its source. That warning fires when a
@@ -88,6 +94,7 @@ export default function RootLayout({
         />
       </head>
       <body className="font-sans antialiased">
+        <IntroOverlay />
         <a
           href="#main-content"
           className="sr-only rounded-lg bg-primary px-4 py-2 text-base font-semibold text-primary-foreground focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100]"
