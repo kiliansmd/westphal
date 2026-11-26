@@ -2,13 +2,12 @@
 
 import { useEffect, useState } from 'react'
 import { useInView } from '@/components/motion'
-import { SoundRings } from '@/components/tonuvio/sound-rings'
 
 const chain = ['Ohr', 'Hörgerät', 'Gehirn']
 
 /**
  * Ohr → Hörgerät → Gehirn: Sobald der Block sichtbar ist, wandert ein
- * „Signal“ ruhig durch die Kette. Ohne JavaScript stehen alle drei Begriffe
+ * „Signal“ einmal ruhig durch die Kette. Ohne JavaScript stehen alle drei Begriffe
  * gleichwertig da. Die Bewegung ist rein dekorativ.
  */
 export function SignalChain() {
@@ -17,11 +16,16 @@ export function SignalChain() {
 
   useEffect(() => {
     if (!inView) return
+    // Ein Durchlauf (ca. 4,5 Sekunden), dann bleibt das Zusammenspiel stehen.
+    // So endet die Bewegung innerhalb von 5 Sekunden (WCAG 2.2.2).
     setActive(0)
-    const id = window.setInterval(
-      () => setActive((i) => (i + 1) % (chain.length + 1)),
-      1500,
-    )
+    const id = window.setInterval(() => {
+      setActive((i) => {
+        const next = i + 1
+        if (next >= chain.length) window.clearInterval(id)
+        return Math.min(next, chain.length)
+      })
+    }, 1500)
     return () => window.clearInterval(id)
   }, [inView])
 
@@ -37,10 +41,6 @@ export function SignalChain() {
         Verstehen entsteht im Zusammenspiel
       </p>
       <div className="relative">
-        <SoundRings
-          tone="light"
-          className="-left-10 top-1/2 hidden w-40 -translate-y-1/2 lg:grid"
-        />
         <ol
           className="ws-chain relative mt-6 space-y-1"
           data-live={active >= 0 && !all ? '' : undefined}
@@ -49,7 +49,7 @@ export function SignalChain() {
             <li
               key={label}
               data-active={active === index ? '' : undefined}
-              className="ws-chain-item flex items-baseline gap-5 font-serif text-5xl font-normal leading-tight sm:text-6xl"
+              className="ws-chain-item flex items-baseline gap-5 font-serif text-[min(3rem,13vw)] font-normal leading-tight sm:text-6xl"
             >
               <span className="ws-chain-arrow w-8 text-xl text-brand" aria-hidden="true">
                 {index === 0 ? '' : '→'}

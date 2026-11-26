@@ -22,7 +22,7 @@ export function ReviewsSection() {
           </div>
 
           <div className="flex flex-wrap items-end gap-x-6 gap-y-3">
-            <p className="flex items-baseline gap-3">
+            <p className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
               <span className="font-serif text-6xl leading-none text-foreground">
                 {company.rating}
               </span>

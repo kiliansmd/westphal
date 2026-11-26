@@ -180,7 +180,7 @@ export default function HoertrainingBonnPage() {
       <section className="overflow-hidden bg-[#3B5142] py-14 text-white sm:py-16">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
           <div>
-            <p className="text-base font-semibold text-brand">Neu bei uns</p>
+            <p className="text-base font-semibold text-brand-soft">Neu bei uns</p>
             <h2 className="mt-3 text-balance font-serif text-3xl font-medium leading-[1.12] text-white sm:text-[2.6rem]">
               Zuhause üben mit tonuvio
             </h2>
