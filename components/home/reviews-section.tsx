@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react'
 import { GoogleReviews } from '@/components/home/google-reviews'
 import { company } from '@/lib/site-data'
 import { Reveal } from '@/components/motion'
+import { RatingStars } from '@/components/rating-stars'
 
 const googleHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
   `${company.name} ${company.street} ${company.city}`,
@@ -10,7 +11,7 @@ const googleHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIC
 export function ReviewsSection() {
   return (
     <section className="border-t border-border bg-background py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-8 border-b border-foreground/15 pb-10 lg:flex-row lg:items-end lg:justify-between">
           <div>
             <h2 className="text-balance font-serif text-4xl font-medium leading-[1.1] text-foreground sm:text-5xl">
@@ -26,9 +27,7 @@ export function ReviewsSection() {
               <span className="font-serif text-6xl leading-none text-foreground">
                 {company.rating}
               </span>
-              <span className="text-xl tracking-[0.15em] text-brand" aria-hidden="true">
-                ★★★★★
-              </span>
+              <RatingStars className="text-xl" />
               <span className="sr-only">von 5 Sternen bei Google</span>
             </p>
             <a

@@ -47,7 +47,7 @@ function PriceHeader({ tier }: { tier: PriceTier }) {
         <p className="text-sm text-muted-foreground">
           Eigenanteil mit Kasse
         </p>
-        <p className="font-serif text-3xl text-foreground">{tier.priceKasse}</p>
+        <p className="font-serif text-3xl tabular-nums text-foreground">{tier.priceKasse}</p>
         <p className="mt-1 text-sm text-muted-foreground">
           privat <span className="font-semibold text-foreground">{tier.pricePrivat}</span>
         </p>

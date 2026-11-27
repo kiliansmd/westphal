@@ -7,7 +7,7 @@ import { priceTiers } from '@/lib/site-data'
 export function PricesSection() {
   return (
     <section id="preise" className="scroll-mt-24 bg-secondary py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-sm font-semibold uppercase tracking-wide text-primary">
             Preise & Krankenkasse

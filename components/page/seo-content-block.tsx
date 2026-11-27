@@ -33,7 +33,7 @@ export function SEOContentBlock({
         muted ? 'bg-secondary' : 'bg-background',
       )}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-2 lg:gap-20">
           <h2 className="text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             {heading}

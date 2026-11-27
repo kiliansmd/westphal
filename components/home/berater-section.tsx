@@ -27,7 +27,7 @@ export function BeraterSection() {
 
   return (
     <section id="berater" className="scroll-mt-28 bg-background py-14 sm:py-16">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between sm:gap-10">
           <div className="max-w-2xl">
             <h2 className="text-balance font-serif text-3xl font-medium leading-tight text-foreground">

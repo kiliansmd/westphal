@@ -38,7 +38,7 @@ export default async function ContactPage({
       <SiteHeader />
       <main id="main-content" className="flex-1 pb-20 xl:pb-0">
         <section className="border-b border-border bg-background">
-          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-2 lg:items-end lg:gap-20 lg:py-20">
+          <div className="mx-auto grid max-w-6xl gap-10 px-4 py-14 sm:px-6 lg:px-8 lg:grid-cols-2 lg:items-end lg:gap-20 lg:py-20">
             <div>
               <h1 className="max-w-3xl text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-[2.3rem] font-medium leading-[1.08] text-foreground sm:text-5xl lg:text-[3.3rem]">
                 Kontakt &amp; Termin anfragen
@@ -69,7 +69,7 @@ export default async function ContactPage({
         </section>
 
         <section className="bg-background py-16 sm:py-20">
-          <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:grid-cols-[1fr_360px] lg:gap-20">
+          <div className="mx-auto grid max-w-6xl gap-14 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1fr_360px] lg:gap-20">
             <div id="anfrage" className="scroll-mt-28">
               <h2 className="font-serif text-3xl font-medium text-foreground sm:text-[2.6rem]">
                 Schreiben Sie uns
@@ -127,7 +127,7 @@ export default async function ContactPage({
             </aside>
           </div>
 
-          <div className="mx-auto mt-20 max-w-6xl px-4 sm:px-6">
+          <div className="mx-auto mt-20 max-w-6xl px-4 sm:px-6 lg:px-8">
             <h2 className="font-serif text-3xl font-medium text-foreground">
               So finden Sie uns
             </h2>

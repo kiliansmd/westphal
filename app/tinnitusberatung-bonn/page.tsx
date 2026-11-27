@@ -164,7 +164,7 @@ export default function TinnitusberatungBonnPage() {
 
       {/* Warnung Hörsturz */}
       <section className="bg-background py-14 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-4 border-l-2 border-brand pl-6">
             <AlertTriangle className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden="true" />
             <div>
@@ -198,7 +198,7 @@ export default function TinnitusberatungBonnPage() {
 
       {/* HNO-Anlaufstellen */}
       <section className="bg-secondary py-14 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="max-w-2xl text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             HNO-Praxen & Kliniken in Bonn und Beuel
           </h2>
@@ -241,7 +241,7 @@ export default function TinnitusberatungBonnPage() {
 
       {/* Fazit */}
       <section className="bg-background py-14 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="flex items-start gap-4 border-t-2 border-foreground pt-6 sm:p-8">
             <Stethoscope className="mt-0.5 size-7 shrink-0 text-primary" aria-hidden="true" />
             <div>

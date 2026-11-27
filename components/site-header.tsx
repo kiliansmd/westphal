@@ -175,7 +175,7 @@ export function SiteHeader() {
       data-scrolled={scrolled ? '' : undefined}
       className="group/header sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur transition-shadow duration-300 supports-[backdrop-filter]:bg-background/85 data-[scrolled]:shadow-[0_10px_30px_-22px_rgb(32_29_23/0.45)]"
     >
-      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between gap-4 px-4 transition-[height] duration-300 group-data-[scrolled]/header:h-[4.5rem] sm:px-6">
+      <div className="mx-auto flex h-24 max-w-6xl items-center justify-between gap-4 px-4 transition-[height] duration-300 group-data-[scrolled]/header:h-[4.5rem] sm:px-6 lg:px-8">
         <Logo className="[&_img]:transition-[height] [&_img]:duration-300 group-data-[scrolled]/header:[&_img]:h-11 sm:group-data-[scrolled]/header:[&_img]:h-12" />
 
         {/* Desktop navigation */}
@@ -259,7 +259,7 @@ export function SiteHeader() {
           className="max-h-[calc(100dvh-4.5rem)] overflow-y-auto border-t border-border bg-background animate-in fade-in-0 slide-in-from-top-2 duration-200 xl:hidden"
         >
           <nav
-            className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6"
+            className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-4 sm:px-6 lg:px-8"
             aria-label="Mobile Navigation"
           >
             {navigation.map((entry) =>

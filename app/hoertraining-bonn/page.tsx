@@ -114,7 +114,7 @@ export default function HoertrainingBonnPage() {
 
       {/* Unabhängige Beratung */}
       <section className="bg-background py-14 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-2 lg:gap-14">
             <div>
               <h2 className="text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
@@ -150,7 +150,7 @@ export default function HoertrainingBonnPage() {
 
       {/* Ablauf der Beratung */}
       <section className="bg-secondary py-14 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             So beraten wir Sie zum Hörtraining
           </h2>
@@ -178,7 +178,7 @@ export default function HoertrainingBonnPage() {
 
       {/* Eigenes Angebot: Übungs-App tonuvio (bewusst ohne Bezug zur Versorgung) */}
       <section className="overflow-hidden bg-[#3B5142] py-14 text-white sm:py-16">
-        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
+        <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
           <div>
             <p className="text-base font-semibold text-brand-soft">Neu bei uns</p>
             <h2 className="mt-3 text-balance font-serif text-3xl font-medium leading-[1.12] text-white sm:text-[2.6rem]">

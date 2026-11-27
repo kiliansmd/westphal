@@ -21,7 +21,7 @@ const principles = [
 export function ReasonsSection() {
   return (
     <section id="warum" className="scroll-mt-28 bg-background py-20 sm:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <figure className="lg:sticky lg:top-32 lg:self-start">
           <div className="group relative aspect-[4/5] overflow-hidden rounded-md">
             <Image
@@ -59,15 +59,12 @@ export function ReasonsSection() {
                 as="li"
                 key={item.title}
                 delay={index * 110}
-                className="grid grid-cols-[2.5rem_1fr] gap-x-4 border-b border-foreground/15 py-6 sm:grid-cols-[3rem_10rem_1fr]"
+                className="grid grid-cols-1 gap-x-6 border-b border-foreground/15 py-6 sm:grid-cols-[10rem_1fr]"
               >
-                <span className="font-serif text-xl text-brand-deep" aria-hidden="true">
-                  {String(index + 1).padStart(2, '0')}
-                </span>
                 <h3 className="text-xl font-semibold text-foreground">
                   {item.title}
                 </h3>
-                <p className="col-start-2 mt-1 text-lg leading-relaxed text-muted-foreground sm:col-start-3 sm:mt-0">
+                <p className="mt-1 text-lg leading-relaxed text-muted-foreground sm:mt-0">
                   {item.text}
                 </p>
               </Reveal>

@@ -22,7 +22,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section className="border-b border-border bg-secondary py-16 sm:py-24">
-      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 lg:grid-cols-2 lg:items-end lg:gap-20">
+      <div className="mx-auto grid max-w-6xl grid-cols-1 gap-10 px-4 sm:px-6 lg:px-8 lg:grid-cols-2 lg:items-end lg:gap-20">
         <Reveal>
           <h2 className="text-balance break-words hyphens-auto sm:hyphens-manual font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             {heading}
