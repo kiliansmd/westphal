@@ -31,7 +31,7 @@ export function Hero() {
         </div>
 
         {/* Copy */}
-        <div className="flex flex-col justify-center px-4 py-10 sm:px-6 lg:order-1 lg:py-20 lg:pr-14">
+        <div className="flex flex-col justify-center px-4 py-10 sm:px-6 lg:order-1 lg:py-20 lg:pl-8 lg:pr-14">
           <p className="ws-rise text-base font-medium text-muted-foreground">
             Hörakustik-Meisterbetrieb in Bonn-Beuel
           </p>

@@ -92,12 +92,12 @@ export function PageHero({
               />
             </div>
           </div>
-          <div className="flex min-w-0 flex-col justify-center px-4 py-10 sm:px-6 lg:order-1 lg:py-20 lg:pr-14">
+          <div className="flex min-w-0 flex-col justify-center px-4 py-10 sm:px-6 lg:order-1 lg:py-20 lg:pl-8 lg:pr-14">
             {content}
           </div>
         </div>
       ) : (
-        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:py-20">
+        <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8 lg:py-20">
           {content}
         </div>
       )}

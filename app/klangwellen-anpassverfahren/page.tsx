@@ -144,7 +144,7 @@ export default function KlangwellenAnpassverfahrenPage() {
       </SEOContentBlock>
 
       <section className="bg-secondary py-14 sm:py-16">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-8 border-t-2 border-foreground pt-6 sm:p-9 lg:grid-cols-[1.15fr_0.85fr]">
             <div>
               <h2 className="mt-2 text-balance font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">

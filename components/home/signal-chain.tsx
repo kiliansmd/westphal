@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { ArrowRight } from 'lucide-react'
 import { useInView } from '@/components/motion'
 
 const chain = ['Ohr', 'Hörgerät', 'Gehirn']
@@ -51,8 +52,8 @@ export function SignalChain() {
               data-active={active === index ? '' : undefined}
               className="ws-chain-item flex items-baseline gap-5 font-serif text-[min(3rem,13vw)] font-normal leading-tight sm:text-6xl"
             >
-              <span className="ws-chain-arrow w-8 text-xl text-brand" aria-hidden="true">
-                {index === 0 ? '' : '→'}
+              <span className="ws-chain-arrow flex w-8 shrink-0 self-center text-brand" aria-hidden="true">
+                {index > 0 && <ArrowRight className="size-6" strokeWidth={2} />}
               </span>
               <span className={index === chain.length - 1 ? 'italic' : undefined}>
                 {label}

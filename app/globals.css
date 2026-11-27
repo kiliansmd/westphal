@@ -224,6 +224,16 @@
     font-size: 112.5%;
     -webkit-text-size-adjust: 100%;
     scroll-behavior: smooth;
+    /* Browser-eigene Flächen tragen die Hauspalette: warme Scrollleiste,
+       Bernstein-Cursor in Feldern, Häkchen/Radios im Anthrazit. */
+    scrollbar-color: color-mix(in oklab, var(--foreground) 28%, transparent) transparent;
+    caret-color: var(--brand-deep);
+    accent-color: var(--primary);
+  }
+
+  /* Zahlen in Tabellen stehen sauber untereinander. */
+  table {
+    font-variant-numeric: tabular-nums;
   }
 
   body {

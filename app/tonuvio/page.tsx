@@ -82,7 +82,7 @@ export default function TonuvioPage() {
 
       {/* 1 · Hero: Versprechen, Aufwand, ein klarer nächster Schritt */}
       <section className="overflow-hidden border-b border-border bg-background">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-12 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:py-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 py-12 sm:px-6 lg:px-8 lg:grid-cols-[1.15fr_0.85fr] lg:gap-10 lg:py-20">
           <div className="min-w-0">
             <div className="tv-rise flex items-center gap-3">
               <Image
@@ -159,7 +159,7 @@ export default function TonuvioPage() {
 
       {/* Kennzahlen aus dem echten Funktionsumfang */}
       <section aria-label="tonuvio in Zahlen" className="border-b border-border bg-background">
-        <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-4 py-10 sm:px-6 lg:grid-cols-4">
+        <dl className="mx-auto grid max-w-6xl grid-cols-2 gap-x-6 gap-y-8 px-4 py-10 sm:px-6 lg:px-8 lg:grid-cols-4">
           {[
             { value: 4, label: 'Übungsbereiche aus dem Alltag' },
             { value: 8, label: 'Schwierigkeitsstufen je Bereich' },
@@ -179,7 +179,7 @@ export default function TonuvioPage() {
 
       {/* 2 · Wiedererkennen: das Problem in den Worten der Kundschaft */}
       <section className="border-b border-border bg-secondary py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 lg:grid-cols-2 lg:gap-20">
             <h2 className={h2}>
               Zuhören verlangt viel. Vor allem, wenn um Sie herum viel los ist.
@@ -219,7 +219,7 @@ export default function TonuvioPage() {
         aria-labelledby="einblick-heading"
         className="scroll-mt-24 overflow-hidden bg-[#3B5142] py-16 text-white sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <p className="text-base font-semibold text-brand-soft">Einblick in die App</p>
           <h2
             id="einblick-heading"
@@ -240,7 +240,7 @@ export default function TonuvioPage() {
 
       {/* 4 · Was trainiert wird */}
       <section className="border-b border-border bg-background py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className={h2}>Vier Übungsbereiche, die im Alltag zählen</h2>
           <p className={lead}>
             Jeder Bereich hat acht Schwierigkeitsstufen. Sie üben dort, wo es zu
@@ -271,7 +271,7 @@ export default function TonuvioPage() {
 
       {/* 5 · Personalisierung */}
       <section className="border-b border-border bg-secondary py-16 sm:py-24">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <Parallax speed={0.05} className="mx-auto w-full max-w-[280px] lg:order-1">
             <PhoneShot
               src="/images/tonuvio/ziele.webp"
@@ -312,7 +312,7 @@ export default function TonuvioPage() {
 
       {/* 6 · Fortschritt */}
       <section className="border-b border-border bg-background py-16 sm:py-24">
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
+        <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
           <div>
             <h2 className={h2}>Ihr Übungsstand auf einen Blick</h2>
             <p className={lead}>
@@ -345,7 +345,7 @@ export default function TonuvioPage() {
 
       {/* 7 · Barrierearm */}
       <section className="border-b border-border bg-secondary py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="grid items-end gap-6 lg:grid-cols-2 lg:gap-20">
             <h2 className={h2}>Gemacht für gutes Lesen und entspanntes Üben</h2>
             <p className="text-pretty text-lg leading-relaxed text-muted-foreground sm:text-xl">
@@ -388,7 +388,7 @@ export default function TonuvioPage() {
 
       {/* 8 · Der Weg zu tonuvio: persönliche Begleitung als Unterschied */}
       <section className="border-b border-border bg-background py-16 sm:py-24">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className={h2}>Nicht allein mit einer App: so unterstützen wir Sie</h2>
           <p className={lead}>
             Neue Technik ist leichter, wenn jemand sie einmal mit Ihnen gemeinsam
@@ -432,7 +432,7 @@ export default function TonuvioPage() {
 
       {/* 9 · Vertrauen: ehrliche Grenzen und Datenschutz */}
       <section className="border-b border-border bg-sand py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className={h2}>Klar eingeordnet, sicher und persönlich</h2>
           <ul className="mt-10 grid gap-x-12 sm:grid-cols-3">
             {tonuvioTrustPoints.map((point, index) => (

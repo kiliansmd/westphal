@@ -221,7 +221,7 @@ export default function GehoerschutzBonnPage() {
 
       {/* Detailbereiche */}
       <section className="bg-secondary py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="max-w-2xl text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             Unsere Gehörschutz-Lösungen im Detail
           </h2>
@@ -315,7 +315,7 @@ export default function GehoerschutzBonnPage() {
 
       {/* In-Ear-Monitoring */}
       <section className="bg-background py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <h2 className="max-w-2xl text-balance font-serif text-3xl font-medium leading-[1.12] text-foreground sm:text-[2.6rem]">
             In-Ear-Monitoring – warum bei uns?
           </h2>

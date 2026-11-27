@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight } from 'lucide-react'
+import { RatingStars } from '@/components/rating-stars'
 
 /**
  * Elfsight Google Reviews — lightweight, load-ahead strategy.
@@ -43,9 +44,7 @@ function ReviewsFallback({ href }: { href: string }) {
   return (
     <div className="grid gap-8 rounded-md bg-secondary p-8 sm:p-10 lg:grid-cols-[auto_1fr_auto] lg:items-center lg:gap-14">
       <div>
-        <span className="block text-2xl tracking-[0.12em] text-brand" aria-hidden="true">
-          ★★★★★
-        </span>
+        <RatingStars className="text-2xl" />
         <p className="mt-2 font-serif text-2xl font-medium leading-snug text-foreground sm:text-3xl">
           Echte Stimmen,
           <br />

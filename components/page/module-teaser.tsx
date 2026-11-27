@@ -40,7 +40,7 @@ export function ModuleTeaser({
         muted ? 'bg-secondary' : 'bg-background',
       )}
     >
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-20">
           <div>
             {eyebrow && (

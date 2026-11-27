@@ -17,7 +17,7 @@ export function RelatedLinks({
 }) {
   return (
     <section className="bg-background py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <h2 className="text-balance font-serif text-3xl font-medium text-foreground">
           {heading}
         </h2>

@@ -5,7 +5,7 @@ import { Reveal } from '@/components/motion'
 export function PartnersSection() {
   return (
     <section className="border-t border-border bg-background py-16 sm:py-20" aria-labelledby="partners-heading">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-4 lg:grid-cols-2 lg:items-end lg:gap-20">
           <h2
             id="partners-heading"

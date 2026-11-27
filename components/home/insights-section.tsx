@@ -6,7 +6,7 @@ import { cn } from '@/lib/utils'
 export function InsightsSection() {
   return (
     <section className="bg-secondary py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
             <p className="text-sm font-semibold uppercase tracking-wide text-primary">

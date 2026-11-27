@@ -6,7 +6,7 @@ import { Reveal } from '@/components/motion'
 export function HelpSection() {
   return (
     <section id="hilfe" className="scroll-mt-28 border-y border-border bg-secondary py-20 sm:py-28">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
+      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-6 lg:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div>
           <h2 className="text-balance font-serif text-4xl font-medium leading-[1.1] text-foreground sm:text-5xl">
             Wobei können wir Ihnen helfen?

@@ -6,7 +6,7 @@ import { Reveal } from '@/components/motion'
 export function PricesTeaserSection() {
   return (
     <section id="preise" className="scroll-mt-28 bg-secondary py-20 sm:py-28">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-6 lg:grid-cols-2 lg:items-end lg:gap-20">
           <h2 className="text-balance font-serif text-4xl font-medium leading-[1.1] text-foreground sm:text-5xl">
             Was kostet ein Hörgerät?
@@ -51,7 +51,7 @@ export function PricesTeaserSection() {
                   <span className="block text-sm text-muted-foreground lg:hidden">
                     Mit Krankenkasse
                   </span>
-                  <span className="font-serif text-3xl text-foreground">
+                  <span className="font-serif text-3xl tabular-nums text-foreground">
                     {tier.priceKasse}
                   </span>
                 </p>

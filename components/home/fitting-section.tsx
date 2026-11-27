@@ -8,7 +8,7 @@ import { fittingBullets } from '@/lib/site-data'
 export function FittingSection() {
   return (
     <section className="bg-secondary py-16 sm:py-20">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:items-center">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-2 lg:items-center">
         <div className="order-2 overflow-hidden rounded-2xl border border-border lg:order-1">
           <Image
             src="/images/real/anpassung-ohr.webp"

@@ -16,7 +16,7 @@ const linkClass =
 export function ContactCtaSection() {
   return (
     <section id="kontakt" className="scroll-mt-28 border-t border-border bg-secondary py-20 sm:py-28">
-      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
+      <div className="mx-auto grid max-w-6xl gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:gap-20">
         <div>
           <h2 className="text-balance font-serif text-4xl font-medium leading-[1.1] text-foreground sm:text-5xl">
             Lassen Sie Ihr Hören in Ruhe prüfen.

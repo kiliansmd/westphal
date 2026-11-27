@@ -7,7 +7,7 @@ import { SignalChain } from '@/components/home/signal-chain'
 export function HoertrainingTeaserSection() {
   return (
     <section className="overflow-hidden bg-foreground py-20 text-background sm:py-28">
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:px-8 lg:grid-cols-2 lg:gap-20">
         <div>
           <p className="text-base font-semibold text-brand">Neu bei uns</p>
           <h2 className="mt-3 text-balance font-serif text-4xl font-medium leading-[1.1] sm:text-5xl">
